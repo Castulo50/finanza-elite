@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Finanzas Élite</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,36 +20,64 @@
                 <li><a href="inversiones.html" class="nav-link">Inversiones</a></li>
                 <li><a href="seguros.html" class="nav-link">Seguros</a></li>
                 <li><a href="prestamos.html" class="nav-link">Préstamos</a></li>
+                <li><a href="blog/index.html" class="nav-link" style="color: var(--accent); font-weight: 700;">Blog</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main class="main-content" style="display: block; max-width: 600px;">
+        <span class="card-tag">Atención Personalizada</span>
         <h1>Contáctanos</h1>
-        <p style="margin-bottom: 2rem;">¿Tienes alguna pregunta sobre nuestros artículos o quieres colaborar con
-            nosotros? Completa el formulario y te responderemos a la brevedad.</p>
+        <p style="margin-bottom: 2rem;">¿Tienes alguna pregunta sobre nuestros artículos, calculadoras o quieres
+            colaborar con nosotros? Completa el formulario y te responderemos a la brevedad.</p>
 
-        <form style="display: flex; flex-direction: column; gap: 1rem;">
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label>Nombre Completo</label>
-                <input type="text" style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label>Email</label>
-                <input type="email" style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <label>Mensaje</label>
-                <textarea
-                    style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; height: 150px;"></textarea>
-            </div>
-            <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Enviar Mensaje</button>
-        </form>
+        <div
+            style="background: var(--white); padding: 2.5rem; border-radius: 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid #e2e8f0;">
+            <form action="https://formspree.io/huancor40@gmail.com" method="POST"
+                style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-weight: 600; color: var(--primary);">Nombre Completo</label>
+                    <input type="text" name="name" required
+                        style="padding: 0.8rem; border: 2px solid #f1f5f9; border-radius: 0.5rem; font-size: 1rem;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-weight: 600; color: var(--primary);">Correo Electrónico</label>
+                    <input type="email" name="_replyto" required
+                        style="padding: 0.8rem; border: 2px solid #f1f5f9; border-radius: 0.5rem; font-size: 1rem;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-weight: 600; color: var(--primary);">Asunto</label>
+                    <select name="subject"
+                        style="padding: 0.8rem; border: 2px solid #f1f5f9; border-radius: 0.5rem; font-size: 1rem;">
+                        <option value="consulta">Consulta General</option>
+                        <option value="colaboracion">Colaboración</option>
+                        <option value="herramientas">Duda sobre Herramientas</option>
+                        <option value="publicidad">Publicidad</option>
+                    </select>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-weight: 600; color: var(--primary);">Mensaje</label>
+                    <textarea name="message" required
+                        style="padding: 0.8rem; border: 2px solid #f1f5f9; border-radius: 0.5rem; height: 150px; font-size: 1rem; resize: vertical;"></textarea>
+                </div>
+                <button type="submit" class="cta-button"
+                    style="border: none; cursor: pointer; padding: 1rem; width: 100%; font-size: 1.1rem;">Enviar Mensaje
+                    Directo</button>
+            </form>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+            <p style="color: var(--text-muted);">También puedes escribirnos a:</p>
+            <p style="font-weight: 700; color: var(--accent); margin-top: 0.5rem;">huancor40@gmail.com</p>
+        </div>
     </main>
 
-    <footer>
-        <div class="footer-bottom">© 2025 Finanzas Élite.</div>
+    <footer style="margin-top: 5rem;">
+        <div class="footer-bottom">&copy; 2026 Finanzas Élite. Todos los derechos reservados.</div>
     </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
