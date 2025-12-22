@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Simuladores Financieros 2026 | Finanzas Élite</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tool-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .tool-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .calculator-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+            display: none;
+        }
+
+        .calculator-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #f1f5f9;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .result-box {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 0.5rem 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="inversiones.html" class="nav-link">Inversiones</a></li>
+                <li><a href="seguros.html" class="nav-link">Seguros</a></li>
+                <li><a href="prestamos.html" class="nav-link">Préstamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content" style="display: block; max-width: 1100px;">
+        <span class="card-tag">Inteligencia Financiera</span>
+        <h1>Simuladores Avanzados 2026</h1>
+        <p style="margin-bottom: 3rem;">Elige la herramienta que necesites para proyectar tus metas financieras.</p>
+
+        <div class="tool-nav">
+            <button class="tool-btn active" onclick="showTool('loan')">Hipotecas/Préstamos</button>
+            <button class="tool-btn" onclick="showTool('compound')">Interés Compuesto</button>
+            <button class="tool-btn" onclick="showTool('retirement')">Plan de Jubilación</button>
+        </div>
+
+        <!-- Loan Calculator -->
+        <section id="tool-loan" class="calculator-card active">
+            <h2>Simulador de Préstamos</h2>
+            <div class="calc-grid">
+                <div>
+                    <div class="input-group">
+                        <label>Monto (<span class="currency-symbol">$</span>)</label>
+                        <input type="number" id="l-amount" value="200000" oninput="runLoan()">
+                    </div>
+                    <div class="input-group">
+                        <label>Interés Anual (%)</label>
+                        <input type="number" id="l-interest" value="4.5" step="0.1" oninput="runLoan()">
+                    </div>
+                    <div class="input-group">
+                        <label>Años</label>
+                        <input type="number" id="l-years" value="30" oninput="runLoan()">
+                    </div>
+                </div>
+                <div class="result-box">
+                    <p>Pago Mensual</p>
+                    <div id="l-result" class="result-value">$1,013.37</div>
+                    <p style="opacity: 0.8;">Total intereses: <span id="l-total-int">$164,813</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compound Interest -->
+        <section id="tool-compound" class="calculator-card">
+            <h2>Calculadora de Interés Compuesto</h2>
+            <div class="calc-grid">
+                <div>
+                    <div class="input-group">
+                        <label>Inversión Inicial (<span class="currency-symbol">$</span>)</label>
+                        <input type="number" id="c-init" value="1000" oninput="runCompound()">
+                    </div>
+                    <div class="input-group">
+                        <label>Aporte Mensual (<span class="currency-symbol">$</span>)</label>
+                        <input type="number" id="c-monthly" value="200" oninput="runCompound()">
+                    </div>
+                    <div class="input-group">
+                        <label>Rendimiento Anual (%)</label>
+                        <input type="number" id="c-rate" value="8" step="0.5" oninput="runCompound()">
+                    </div>
+                    <div class="input-group">
+                        <label>Tiempo (Años)</label>
+                        <input type="number" id="c-years" value="20" oninput="runCompound()">
+                    </div>
+                </div>
+                <div class="result-box">
+                    <p>Capital Final Estimado</p>
+                    <div id="c-result" class="result-value">$116,104</div>
+                    <p style="opacity: 0.8;">Tus aportes: <span id="c-total-inv">$49,000</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Retirement Calculator -->
+        <section id="tool-retirement" class="calculator-card">
+            <h2>Calculadora de Retiro</h2>
+            <div class="calc-grid">
+                <div>
+                    <div class="input-group">
+                        <label>Edad Actual</label>
+                        <input type="number" id="r-age" value="30" oninput="runRetirement()">
+                    </div>
+                    <div class="input-group">
+                        <label>Edad de Jubilación</label>
+                        <input type="number" id="r-retire" value="65" oninput="runRetirement()">
+                    </div>
+                    <div class="input-group">
+                        <label>Gasto Mensual Deseado (<span class="currency-symbol">$</span>)</label>
+                        <input type="number" id="r-spend" value="2000" oninput="runRetirement()">
+                    </div>
+                </div>
+                <div class="result-box">
+                    <p>Necesitas Acumular</p>
+                    <div id="r-result" class="result-value">$600,000</div>
+                    <p style="opacity: 0.8;">Ahorro mensual necesario: <span id="r-monthly">$450</span></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showTool(name) {
+            document.querySelectorAll('.calculator-card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tool-' + name).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function runLoan() {
+            const amount = parseFloat(document.getElementById('l-amount').value);
+            const interest = parseFloat(document.getElementById('l-interest').value) / 100 / 12;
+            const payments = parseFloat(document.getElementById('l-years').value) * 12;
+            const x = Math.pow(1 + interest, payments);
+            const monthly = (amount * x * interest) / (x - 1);
+            if (isFinite(monthly)) {
+                const symbol = currencies[currentCurrency].symbol;
+                document.getElementById('l-result').innerText = symbol + monthly.toLocaleString(undefined, { maximumFractionDigits: 2 });
+                document.getElementById('l-total-int').innerText = symbol + (monthly * payments - amount).toLocaleString(undefined, { maximumFractionDigits: 0 });
+            }
+        }
+
+        function runCompound() {
+            const init = parseFloat(document.getElementById('c-init').value);
+            const monthly = parseFloat(document.getElementById('c-monthly').value);
+            const rate = parseFloat(document.getElementById('c-rate').value) / 100 / 12;
+            const months = parseFloat(document.getElementById('c-years').value) * 12;
+
+            let total = init * Math.pow(1 + rate, months);
+            total += monthly * ((Math.pow(1 + rate, months) - 1) / rate);
+
+            const symbol = currencies[currentCurrency].symbol;
+            document.getElementById('c-result').innerText = symbol + total.toLocaleString(undefined, { maximumFractionDigits: 0 });
+            document.getElementById('c-total-inv').innerText = symbol + (init + monthly * months).toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+
+        function runRetirement() {
+            const spend = parseFloat(document.getElementById('r-spend').value);
+            const yearsToRetire = document.getElementById('r-retire').value - document.getElementById('r-age').value;
+            const fundNeeded = spend * 12 * 25; // 4% rule
+
+            const symbol = currencies[currentCurrency].symbol;
+            document.getElementById('r-result').innerText = symbol + fundNeeded.toLocaleString(undefined, { maximumFractionDigits: 0 });
+            // Simple monthly estimate assuming 7% growth
+            const r = 0.07 / 12;
+            const m = fundNeeded * (r / (Math.pow(1 + r, yearsToRetire * 12) - 1));
+            document.getElementById('r-monthly').innerText = symbol + m.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+
+        // Init all
+        window.onload = () => { runLoan(); runCompound(); runRetirement(); };
+    </script>
+
+    <footer style="margin-top: 5rem;">
+        <div class="footer-bottom">&copy; 2026 Finanzas Élite.</div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
