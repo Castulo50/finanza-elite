@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Finanzas Elites</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Contacto</h1>
+    <p>¿Tienes dudas o sugerencias sobre nuestros artículos financieros? Puedes escribirnos directamente a:</p>
+    <p><strong>huancor40@gmail.com</strong></p>
+    <br>
+    <p><a href="index.html">← Volver al inicio</a></p>
+</body>
+</html>
