@@ -1,65 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head> 
     <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanzas Élite | Estrategias de Inversión y Gestión de Patrimonio</title>
-    <meta name="description" content="Aprende sobre S&P 500, Fondos Indexados, Criptomonedas y gestión de patrimonio.">
+    <title>Finanzas Élite | Estrategias de Inversión, S&P 500 y Gestión de Patrimonio</title>
+    <meta name="description" content="Guía experta sobre inversión en el S&P 500, fondos indexados, criptomonedas y dividendos pasivos. Aprende a gestionar tu patrimonio con estrategias de élite.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos básicos para asegurar que los modales se vean bien */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; }
-        .modal-content { background-color: #1e293b; color: white; margin: 5% auto; padding: 40px; border-radius: 15px; max-width: 800px; line-height: 1.8; position: relative; border: 1px solid #ecd06f; }
-        .close { position: absolute; right: 25px; top: 15px; color: #ecd06f; font-size: 35px; font-weight: bold; cursor: pointer; }
-        .modal-content h2 { color: #ecd06f; margin-bottom: 20px; border-bottom: 2px solid #ecd06f; padding-bottom: 10px; }
-        .modal-content h3 { color: #5eead4; margin-top: 25px; }
-        .card { cursor: pointer; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-10px); }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); overflow-y: auto; padding-top: 50px; }
+        .modal-content { background-color: #1e293b; color: white; margin: 0 auto 50px auto; padding: 40px; border-radius: 15px; max-width: 900px; line-height: 1.8; position: relative; border: 1px solid #ecd06f; font-size: 1.05rem; }
+        .close { position: absolute; right: 25px; top: 15px; color: #ecd06f; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .modal-content h2 { color: #ecd06f; font-size: 2.2rem; border-bottom: 2px solid #ecd06f; padding-bottom: 10px; margin-bottom: 25px; }
+        .modal-content h3 { color: #5eead4; margin-top: 30px; font-size: 1.5rem; }
+        .modal-content p { margin-bottom: 20px; text-align: justify; }
+        .card { cursor: pointer; transition: 0.3s; }
+        .highlight { color: #ecd06f; font-weight: bold; }
     </style>
 </head>
 
 <body>
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo">FINANZAS <span>ÉLITE</span></a>
+            <a href="index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="pages/inversiones.html" class="nav-link">Inversiones</a></li>
-                <li><a href="pages/blog/index.html" class="nav-link" style="color: #ecd06f; font-weight: 700;">Blog</a></li>
+                <li><a href="pages/blog/index.html" class="nav-link" style="color: #ecd06f;">Blog</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('img/hero.png'); background-size: cover; padding: 100px 20px; text-align: center; color: white;">
-        <div class="hero-content">
-            <h1>Educación Financiera de Alto Nivel</h1>
-            <p>Domina el mercado de valores, criptoactivos y fondos indexados con guías expertas actualizadas a 2026.</p>
-        </div>
-    </section>
-
     <main class="main-content">
         <section class="articles">
-            <h2 class="section-title">Estrategias Maestras de Inversión</h2>
-            <div class="article-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
+            <h2 class="section-title">Enciclopedia de Inversión Estratégica</h2>
+            <div class="article-grid">
                 
                 <article class="card" onclick="abrirModal('modal-sp500')">
                     <img src="https://images.unsplash.com/photo-1611974717537-483568600f68?auto=format&fit=crop&w=800&q=80" class="card-img">
                     <div class="card-body">
                         <span class="card-tag">Mercado de Valores</span>
-                        <h3 class="card-title">¿Qué es el S&P 500? El Barómetro Mundial</h3>
-                        <p class="card-excerpt">La guía más completa sobre el índice que agrupa a las 500 empresas más grandes de EE.UU.</p>
-                    </div>
-                </article>
-
-                <article class="card" onclick="abrirModal('modal-fondos')">
-                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" class="card-img">
-                    <div class="card-body">
-                        <span class="card-tag">Bajo Costo</span>
-                        <h3 class="card-title">Fondos Indexados: Inversión Pasiva</h3>
-                        <p class="card-excerpt">Cómo superar a la mayoría de los inversores profesionales con el menor esfuerzo posible.</p>
+                        <h3 class="card-title">S&P 500: Análisis Profundo del Índice</h3>
+                        <p class="card-excerpt">La explicación más extensa sobre cómo invertir en las 500 empresas líderes de EE.UU.</p>
                     </div>
                 </article>
 
@@ -67,26 +50,8 @@
                     <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80" class="card-img">
                     <div class="card-body">
                         <span class="card-tag">Activos Digitales</span>
-                        <h3 class="card-title">Criptomonedas: Beneficios y Riesgos</h3>
-                        <p class="card-excerpt">Entiende la volatilidad, la tecnología blockchain y el futuro del dinero digital.</p>
-                    </div>
-                </article>
-
-                <article class="card" onclick="abrirModal('modal-dividendos')">
-                    <img src="https://images.unsplash.com/photo-1579621970795-87f967b16c8a?auto=format&fit=crop&w=800&q=80" class="card-img">
-                    <div class="card-body">
-                        <span class="card-tag">Renta Pasiva</span>
-                        <h3 class="card-title">Guía de Dividendos Pasivos</h3>
-                        <p class="card-excerpt">Construye una máquina de flujo de caja que te pague mes a mes.</p>
-                    </div>
-                </article>
-
-                <article class="card" onclick="abrirModal('modal-oro')">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" class="card-img">
-                    <div class="card-body">
-                        <span class="card-tag">Refugio Seguro</span>
-                        <h3 class="card-title">Inversión en Oro y Metales</h3>
-                        <p class="card-excerpt">Protección patrimonial contra la inflación y la incertidumbre global.</p>
+                        <h3 class="card-title">Criptomonedas: Guía Completa de Riesgos y Beneficios</h3>
+                        <p class="card-excerpt">Todo sobre Bitcoin, Ethereum y la seguridad en el ecosistema Blockchain.</p>
                     </div>
                 </article>
 
@@ -97,86 +62,47 @@
     <div id="modal-sp500" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrarModal('modal-sp500')">&times;</span>
-            <h2>¿Qué es el S&P 500? El Barómetro del Capitalismo</h2>
-            <p>El Standard & Poor's 500 es el índice bursátil más importante del mundo. No es una empresa, sino una lista que agrupa a las 500 compañías más grandes y sólidas que cotizan en las bolsas de Estados Unidos (como Apple, Microsoft, Amazon y Google). Representa aproximadamente el 80% del valor total del mercado de acciones estadounidense.</p>
-            <h3>¿Cómo funciona?</h3>
-            <p>El índice se pondera por capitalización bursátil, lo que significa que las empresas más grandes tienen más peso. Si el S&P 500 sube, generalmente significa que la economía global está en crecimiento. Históricamente, ha ofrecido un rendimiento promedio anual de alrededor del 10% durante las últimas décadas.</p>
-            <h3>¿Por qué invertir en él?</h3>
-            <p>Invertir en el S&P 500 es como apostar por el ingenio humano y el crecimiento empresarial a largo plazo. Es la herramienta favorita de inversores como Warren Buffett, ya que ofrece una diversificación automática: si una empresa del índice quiebra, es reemplazada por otra más exitosa, manteniendo el índice siempre saludable.</p>
-        </div>
-    </div>
+            <h2>¿Qué es el S&P 500? El Gigante de la Inversión Global</h2>
+            <p>El <span class="highlight">Standard & Poor's 500 Index</span> es considerado el barómetro definitivo de la salud económica no solo de Estados Unidos, sino del mundo entero. Fue creado en 1957 y hoy agrupa a las 500 corporaciones más exitosas y con mayor capitalización bursátil. Invertir aquí significa ser dueño de una fracción de Apple, Microsoft, Amazon, Tesla y Alphabet (Google).</p>
+            
+            <h3>La Estructura Técnica del Índice</h3>
+            <p>A diferencia de otros índices, el S&P 500 utiliza una <span class="highlight">ponderación por capitalización de mercado flotante</span>. Esto significa que los movimientos de empresas gigantes impactan más en el índice que empresas menores, asegurando que el índice siempre refleje la realidad del poder económico actual. Para entrar en este club selecto, las empresas deben cumplir requisitos estrictos: ser estadounidenses, tener una liquidez alta y haber reportado ganancias positivas en los últimos cuatro trimestres.</p>
 
-    <div id="modal-fondos" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal('modal-fondos')">&times;</span>
-            <h2>Fondos Indexados: La Revolución de la Inversión Pasiva</h2>
-            <p>Un fondo indexado es un vehículo de inversión que busca replicar exactamente el comportamiento de un índice determinado, como el S&P 500 o el Nasdaq. En lugar de pagar a un "gurú" de las finanzas para que elija acciones, el fondo compra automáticamente todas las acciones del índice.</p>
-            <h3>Principales Beneficios:</h3>
-            <ul>
-                <li><b>Bajos Costos:</b> Al no requerir gestión activa, las comisiones son mínimas (a veces menores al 0.1% anual).</li>
-                <li><b>Diversificación Total:</b> Con una sola compra, eres dueño de cientos de empresas.</li>
-                <li><b>Eficiencia Fiscal:</b> Generan menos eventos tributarios que la compraventa constante de acciones.</li>
-            </ul>
-            <p>Es la estrategia ideal para el inversor que no quiere dedicar horas al día analizando gráficos, permitiendo que el interés compuesto haga el trabajo duro durante 10, 20 o 30 años.</p>
+            <h3>Rendimiento Histórico y Magia del Interés Compuesto</h3>
+            <p>Desde su creación, el S&P 500 ha entregado un rendimiento anualizado promedio del <span class="highlight">10% aproximadamente</span>. Si bien hay años de crisis (como 2008 o 2022) donde puede caer, su tendencia a largo plazo es siempre alcista. Un inversor que deposita $1,000 mensuales en un fondo que replique este índice, gracias al interés compuesto, podría acumular una fortuna millonaria en 30 años, superando a la mayoría de los fondos de inversión gestionados por humanos.</p>
+
+            <h3>¿Cómo Invertir en el S&P 500?</h3>
+            <p>No se puede comprar "el índice" directamente, se hace a través de instrumentos llamados <span class="highlight">ETFs (Exchange Traded Funds)</span> como el VOO (Vanguard), IVV (iShares) o SPY (State Street). Estos fondos tienen comisiones extremadamente bajas (menores al 0.03% anual), lo que maximiza la ganancia final para el inversor minorista.</p>
         </div>
     </div>
 
     <div id="modal-crypto" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrarModal('modal-crypto')">&times;</span>
-            <h2>Criptomonedas: El Futuro del Valor Digital</h2>
-            <p>Las criptomonedas son activos digitales basados en criptografía y tecnología <b>Blockchain</b>. A diferencia de las monedas tradicionales, son descentralizadas, lo que significa que ningún banco central las controla.</p>
-            <h3>Beneficios:</h3>
-            <ul>
-                <li><b>Transparencia y Seguridad:</b> Cada transacción queda grabada en un libro contable inmutable.</li>
-                <li><b>Potencial de Crecimiento:</b> Activos como Bitcoin han demostrado ser los más rentables de la última década.</li>
-                <li><b>Escasez Programada:</b> Muchos activos tienen un límite de emisión (como los 21 millones de Bitcoin), lo que los protege de la inflación.</li>
-            </ul>
-            <h3>Riesgos Críticos:</h3>
-            <ul>
-                <li><b>Extrema Volatilidad:</b> Precios que pueden caer un 50% en cuestión de días.</li>
-                <li><b>Seguridad Personal:</b> Si pierdes tus claves privadas o eres víctima de un hackeo, no hay "servicio al cliente" que te devuelva el dinero.</li>
-                <li><b>Regulación:</b> Los cambios en las leyes de cada país pueden afectar drásticamente su valor.</li>
-            </ul>
+            <h2>Criptomonedas: La Nueva Frontera del Sistema Financiero</h2>
+            <p>Las criptomonedas representan el cambio más drástico en la historia del dinero desde la invención del papel moneda. Basadas en la tecnología <span class="highlight">Blockchain</span> (Cadena de bloques), permiten transferir valor de persona a persona en segundos, sin intermediarios, sin bancos y sin fronteras.</p>
+
+            <h3>Beneficios de la Adopción Cripto</h3>
+            <p>1. <span class="highlight">Descentralización:</span> Nadie puede "congelar" tu cuenta de Bitcoin. El usuario es su propio banco.<br>
+               2. <span class="highlight">Transparencia:</span> Todas las operaciones son públicas y verificables en la red, lo que elimina la corrupción contable.<br>
+               3. <span class="highlight">Escasez Digital:</span> Bitcoin tiene un límite de 21 millones de unidades. Esto lo convierte en un activo deflacionario, a diferencia del dólar que pierde valor cada año por la impresión desmedida.</p>
+
+            <h3>Riesgos y Volatilidad Crítica</h3>
+            <p>Invertir en cripto no es para todos. La <span class="highlight">volatilidad</span> es su mayor riesgo: es común ver caídas del 80% en un "invierno cripto". Además, existe el riesgo de custodia; si almacenas tus monedas en una plataforma insegura (como pasó con FTX), podrías perderlo todo. La seguridad depende del usuario: el manejo de "llaves privadas" requiere educación técnica para evitar robos por hackeo.</p>
+
+            <h3>Estrategias de Inversión en 2026</h3>
+            <p>La estrategia más recomendada es el <span class="highlight">DCA (Dollar Cost Averaging)</span>: comprar pequeñas cantidades de forma constante, sin importar si el precio sube o baja. Esto reduce el impacto de la volatilidad y permite construir una posición sólida en activos como Bitcoin y Ethereum, que ya son considerados el "Oro Digital" del siglo XXI.</p>
         </div>
     </div>
-
-    <div id="modal-dividendos" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal('modal-dividendos')">&times;</span>
-            <h2>Guía de Dividendos Pasivos</h2>
-            <p>La inversión en dividendos consiste en comprar acciones de empresas que reparten una parte de sus beneficios líquidos a sus socios. Es la forma más pura de ingresos pasivos en bolsa.</p>
-            <p>Para tener éxito, debes buscar empresas con historial de crecimiento de dividendos durante más de 25 años (Aristócratas del Dividendo). Esta estrategia no solo te da flujo de caja mensual o trimestral, sino que también protege tu capital durante las caídas del mercado, ya que estas empresas suelen ser muy sólidas y resistentes.</p>
-        </div>
-    </div>
-
-    <div id="modal-oro" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal('modal-oro')">&times;</span>
-            <h2>Oro y Metales: El Seguro de tu Portafolio</h2>
-            <p>El oro no produce dividendos ni flujos de caja, pero tiene algo único: <b>Valor Intrínseco Inalterable</b>. Ha sido dinero durante 5,000 años y nunca ha valido cero.</p>
-            <p>Recomendamos el oro como un contrapeso. Cuando hay pánico financiero, las acciones bajan y el oro tiende a subir. Es el "seguro de incendios" de tu casa financiera. No inviertas todo en oro, pero mantén una porción para asegurar que siempre tendrás poder adquisitivo, pase lo que pase con el dólar o el euro.</p>
-        </div>
-    </div>
-
-    <footer>
-        <div style="background: #0f172a; color: white; padding: 40px; text-align: center; border-top: 5px solid #ecd06f;">
-            <p>&copy; 2026 Finanzas Élite. Todos los derechos reservados.</p>
-            <div style="margin-top: 15px;">
-                <a href="privacy.html" style="color: #ecd06f; margin: 0 10px;">Privacidad</a> | 
-                <a href="pages/terminos.html" style="color: #ecd06f; margin: 0 10px;">Términos</a>
-            </div>
-        </div>
-    </footer>
 
     <script>
         function abrirModal(id) {
             document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden"; // Evita el scroll al abrir
+            document.body.style.overflow = "hidden";
         }
         function cerrarModal(id) {
             document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto"; // Devuelve el scroll
+            document.body.style.overflow = "auto";
         }
         window.onclick = function(event) {
             if (event.target.className === 'modal') {
