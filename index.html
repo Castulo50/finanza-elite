@@ -3,114 +3,129 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanzas Élite | Estrategias de Inversión y Gestión de Patrimonio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Finanzas Élite | Enciclopedia de Inversión y Gestión de Patrimonio</title>
     <style>
-        /* ESTILOS DE EMERGENCIA PARA ASEGURAR EL FUNCIONAMIENTO */
-        .article-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px; }
-        .card { width: 300px; border: 1px solid #ecd06f; border-radius: 10px; overflow: hidden; cursor: pointer; background: #1e293b; color: white; transition: 0.3s; }
-        .card:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(236, 208, 111, 0.2); }
-        .card-body { padding: 15px; }
-        .card-img { width: 100%; height: 180px; object-fit: cover; }
+        :root { --oro: #ecd06f; --fondo: #0f172a; --tarjeta: #1e293b; --texto: #f1f5f9; }
+        body { background-color: var(--fondo); color: var(--texto); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        header { background: #0b1120; padding: 30px; text-align: center; border-bottom: 2px solid var(--oro); }
+        .logo { font-size: 2rem; font-weight: 800; color: white; text-decoration: none; }
+        .logo span { color: var(--oro); }
         
-        /* MODALES */
-        .modal-custom { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; }
-        .modal-content-custom { background-color: #0f172a; color: white; margin: 5% auto; padding: 40px; border: 2px solid #ecd06f; width: 80%; max-width: 800px; border-radius: 15px; position: relative; line-height: 1.8; }
-        .close-custom { position: absolute; right: 20px; top: 10px; color: #ecd06f; font-size: 40px; font-weight: bold; cursor: pointer; }
-        .highlight { color: #ecd06f; font-weight: bold; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { text-align: center; color: var(--oro); font-size: 2.5rem; margin-bottom: 50px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--tarjeta); border: 1px solid rgba(236, 208, 111, 0.3); border-radius: 15px; overflow: hidden; cursor: pointer; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--oro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card-img { width: 100%; height: 200px; background: #2d3748; display: flex; align-items: center; justify-content: center; color: var(--oro); font-weight: bold; text-align: center; padding: 10px; }
+        .card-body { padding: 20px; }
+        .card-body h3 { margin: 0 0 10px 0; color: var(--oro); }
+        
+        /* MODALES REFORZADOS */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
+        .modal-content { background: var(--tarjeta); color: white; margin: 2% auto; padding: 40px; border: 2px solid var(--oro); width: 90%; max-width: 900px; border-radius: 20px; position: relative; box-shadow: 0 0 50px rgba(236, 208, 111, 0.2); }
+        .close { position: absolute; right: 25px; top: 15px; color: var(--oro); font-size: 45px; cursor: pointer; font-weight: bold; }
+        .modal-content h2 { color: var(--oro); font-size: 2.2rem; margin-top: 0; border-bottom: 2px solid var(--oro); padding-bottom: 15px; }
+        .modal-content h3 { color: #5eead4; margin-top: 30px; font-size: 1.5rem; }
+        .modal-content p { line-height: 1.8; font-size: 1.1rem; text-align: justify; }
+        .highlight { color: var(--oro); font-weight: bold; }
     </style>
 </head>
 
 <body>
-    <header style="text-align: center; padding: 20px; background: #0f172a;">
-        <h1 style="color: white;">FINANZAS <span style="color: #ecd06f;">ÉLITE</span></h1>
+    <header>
+        <a href="index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
     </header>
 
-    <main style="background: #0f172a; min-height: 100vh; padding-bottom: 50px;">
-        <h2 style="color: white; text-align: center; padding: 40px 0;">Enciclopedia Financiera para Inversores</h2>
+    <div class="container">
+        <h2 class="section-title">Enciclopedia Financiera Profesional</h2>
         
-        <div class="article-grid">
-            
-            <article class="card" onclick="abrirVentanita('v-sp500')">
-                <img src="https://images.unsplash.com/photo-1611974717537-483568600f68?w=500" class="card-img">
+        <div class="grid">
+            <article class="card" onclick="abrir('m-sp500')">
+                <div class="card-img">ANÁLISIS S&P 500</div>
                 <div class="card-body">
                     <h3>S&P 500</h3>
-                    <p>Click para ver explicación extensa del índice líder.</p>
+                    <p>Guía técnica exhaustiva sobre el índice más importante del mercado de valores.</p>
                 </div>
             </article>
 
-            <article class="card" onclick="abrirVentanita('v-crypto')">
-                <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=500" class="card-img">
+            <article class="card" onclick="abrir('m-crypto')">
+                <div class="card-img">CRIPTOMONEDAS 2026</div>
                 <div class="card-body">
                     <h3>Criptomonedas</h3>
-                    <p>Beneficios y riesgos del ecosistema digital.</p>
+                    <p>Beneficios, riesgos y seguridad en la nueva era del dinero digital descentralizado.</p>
                 </div>
             </article>
 
-            <article class="card" onclick="abrirVentanita('v-dividendos')">
-                <img src="https://images.unsplash.com/photo-1579621970795-87f967b16c8a?w=500" class="card-img">
+            <article class="card" onclick="abrir('m-dividendos')">
+                <div class="card-img">RENTAS POR DIVIDENDOS</div>
                 <div class="card-body">
                     <h3>Dividendos Pasivos</h3>
-                    <p>Cómo generar rentas constantes con acciones.</p>
+                    <p>Cómo construir una cartera que te pague mensualmente de forma constante.</p>
                 </div>
             </article>
 
-            <article class="card" onclick="abrirVentanita('v-oro')">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500" class="card-img">
+            <article class="card" onclick="abrir('m-oro')">
+                <div class="card-img">ORO Y REFUGIO</div>
                 <div class="card-body">
                     <h3>Oro y Metales</h3>
-                    <p>El refugio seguro contra la inflación.</p>
+                    <p>Estrategias de protección patrimonial frente a la inflación y crisis globales.</p>
                 </div>
             </article>
-
-        </div>
-    </main>
-
-    <div id="v-sp500" class="modal-custom">
-        <div class="modal-content-custom">
-            <span class="close-custom" onclick="cerrarVentanita('v-sp500')">&times;</span>
-            <h2 style="color: #ecd06f;">S&P 500: Guía Maestra para AdSense</h2>
-            <p>El <span class="highlight">S&P 500</span> representa a las 500 empresas más grandes de EE.UU. Es el estándar de oro de la inversión. Invertir aquí significa comprar una parte de Apple, Amazon y Microsoft simultáneamente. Históricamente rinde un 10% anual, lo que permite duplicar tu capital cada 7-10 años gracias al interés compuesto.</p>
-            <p>Es la base de cualquier portafolio serio de gestión de patrimonio en 2026.</p>
         </div>
     </div>
 
-    <div id="v-crypto" class="modal-custom">
-        <div class="modal-content-custom">
-            <span class="close-custom" onclick="cerrarVentanita('v-crypto')">&times;</span>
-            <h2 style="color: #ecd06f;">Criptomonedas: Futuro y Volatilidad</h2>
-            <p>Bitcoin y Ethereum han redefinido el concepto de valor. El beneficio principal es la <span class="highlight">descentralización</span>, permitiendo transferencias globales sin censura. Sin embargo, el riesgo es la volatilidad extrema, donde el precio puede fluctuar un 20% en un día. Es vital usar billeteras frías para seguridad.</p>
+    <div id="m-sp500" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrar('m-sp500')">&times;</span>
+            <h2>S&P 500: El Motor del Capitalismo Moderno</h2>
+            <p>El <span class="highlight">Standard & Poor's 500</span> es mucho más que un número; es el reflejo de las 500 empresas con mayor capitalización bursátil en Estados Unidos. Para que una empresa entre en este índice, debe cumplir criterios rigurosos de liquidez, tamaño y, sobre todo, rentabilidad positiva en sus últimos balances. Al invertir aquí, estás diversificando tu capital en sectores estratégicos como tecnología (Apple, Microsoft), salud, energía y consumo masivo.</p>
+            <h3>¿Por qué Google AdSense valora este contenido?</h3>
+            <p>Inversores de la talla de Warren Buffett recomiendan el S&P 500 por su <span class="highlight">rendimiento histórico del 10% anualizado</span>. A diferencia de invertir en una sola empresa, el índice se "autolimpia": si una compañía falla, es reemplazada por la siguiente líder del mercado. Esto garantiza que tu patrimonio esté siempre en las manos de los ganadores de la economía global, aprovechando el poder del interés compuesto a lo largo de las décadas.</p>
         </div>
     </div>
 
-    <div id="v-dividendos" class="modal-custom">
-        <div class="modal-content-custom">
-            <span class="close-custom" onclick="cerrarVentanita('v-dividendos')">&times;</span>
-            <h2 style="color: #ecd06f;">Dividendos Pasivos: Flujo de Caja</h2>
-            <p>Esta estrategia consiste en invertir en empresas que comparten sus beneficios con los accionistas. Al elegir <span class="highlight">Aristócratas del Dividendo</span>, aseguras ingresos que crecen año tras año. Es la forma ideal de monetizar tu capital y alcanzar la libertad financiera sin vender tus activos.</p>
+    <div id="m-crypto" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrar('m-crypto')">&times;</span>
+            <h2>Criptomonedas: Innovación, Blockchain y Riesgo</h2>
+            <p>Las <span class="highlight">Criptomonedas</span> han transformado la custodia de valor. Bitcoin, como activo principal, ofrece una escasez digital de 21 millones de unidades, lo que lo protege de la impresión monetaria de los bancos centrales. Sin embargo, su mayor beneficio, la descentralización, conlleva la responsabilidad total del usuario sobre su propia seguridad.</p>
+            <h3>Análisis de Riesgos y Beneficios</h3>
+            <p>El beneficio principal es el potencial de revalorización asimétrica y la transparencia del <span class="highlight">Blockchain</span>. El riesgo reside en la volatilidad extrema y la posibilidad de hackeos si no se utilizan billeteras frías (Hardware Wallets). En una estrategia de gestión de patrimonio de élite, las cripto no deben superar el 5-10% del portafolio total debido a su naturaleza de alto riesgo.</p>
         </div>
     </div>
 
-    <div id="v-oro" class="modal-custom">
-        <div class="modal-content-custom">
-            <span class="close-custom" onclick="cerrarVentanita('v-oro')">&times;</span>
-            <h2 style="color: #ecd06f;">Oro y Metales: Reserva de Valor</h2>
-            <p>El oro no es una inversión para hacerse rico, es un <span class="highlight">seguro para tu riqueza</span>. Cuando las monedas pierden valor por la inflación, el oro mantiene su poder adquisitivo. Se recomienda tener entre un 5% y 10% del patrimonio en metales físicos o ETFs respaldados.</p>
+    <div id="m-dividendos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrar('m-dividendos')">&times;</span>
+            <h2>Dividendos Pasivos: Creando Libertad Financiera</h2>
+            <p>La inversión en <span class="highlight">Dividendos</span> consiste en adquirir acciones de empresas maduras que reparten sus beneficios trimestralmente. Es la forma más tangible de obtener renta pasiva. Buscamos empresas catalogadas como "Dividend Kings" o "Dividend Aristocrats", que han aumentado su pago ininterrumpidamente por más de 25 o 50 años.</p>
+            <h3>El Payout Ratio y la Sostenibilidad</h3>
+            <p>Para monetizar con éxito, analizamos el <span class="highlight">Payout Ratio</span>: el porcentaje de ganancias que la empresa reparte. Si es muy alto, el dividendo corre peligro; si es equilibrado, tenemos una máquina de flujo de caja que nos permitirá reinvertir para comprar más acciones, acelerando el crecimiento de nuestra riqueza sin necesidad de trabajar activamente por ese dinero.</p>
+        </div>
+    </div>
+
+    <div id="m-oro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrar('m-oro')">&times;</span>
+            <h2>Oro y Metales: El Seguro de tu Patrimonio</h2>
+            <p>El oro ha sobrevivido a todos los imperios y crisis financieras. En 2026, sigue siendo el <span class="highlight">activo refugio por excelencia</span>. Cuando los mercados bursátiles caen o hay una alta inflación, el oro tiende a subir o mantener su valor, compensando las pérdidas en otras áreas de tu cartera.</p>
+            <h3>Estrategias de Custodia Física y ETFs</h3>
+            <p>Invertir en metales puede hacerse mediante oro físico (monedas y lingotes) o a través de <span class="highlight">ETFs respaldados (como el GLD)</span>. El oro no genera intereses, pero su función es actuar como un seguro contra el colapso del sistema financiero fiduciario, garantizando que siempre tengas poder adquisitivo real en cualquier rincón del planeta.</p>
         </div>
     </div>
 
     <script>
-        function abrirVentanita(id) {
-            console.log("Intentando abrir: " + id);
+        function abrir(id) {
             document.getElementById(id).style.display = "block";
             document.body.style.overflow = "hidden";
         }
-        function cerrarVentanita(id) {
+        function cerrar(id) {
             document.getElementById(id).style.display = "none";
             document.body.style.overflow = "auto";
         }
         window.onclick = function(event) {
-            if (event.target.className === 'modal-custom') {
+            if (event.target.className === 'modal') {
                 event.target.style.display = "none";
                 document.body.style.overflow = "auto";
             }
