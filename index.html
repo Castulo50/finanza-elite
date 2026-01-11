@@ -3,38 +3,53 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanzas Élite | Enciclopedia de Inversión y Gestión de Patrimonio</title>
+    <title>Finanzas Élite | Inversiones, Seguros y Gestión Patrimonial</title>
     <style>
         :root { --oro: #ecd06f; --fondo: #0f172a; --tarjeta: #1e293b; --texto: #f1f5f9; }
-        body { background-color: var(--fondo); color: var(--texto); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        header { background: #0b1120; padding: 30px; text-align: center; border-bottom: 2px solid var(--oro); }
-        .logo { font-size: 2rem; font-weight: 800; color: white; text-decoration: none; }
-        .logo span { color: var(--oro); }
+        body { background-color: var(--fondo); color: var(--texto); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         
+        /* BARRA DE NAVEGACIÓN RECONSTRUIDA */
+        header { background: #0b1120; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--oro); sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; }
+        .logo span { color: var(--oro); }
+        .nav-menu { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+        .nav-menu a { color: white; text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
+        .nav-menu a:hover { color: var(--oro); }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .section-title { text-align: center; color: var(--oro); font-size: 2.5rem; margin-bottom: 50px; }
         
+        /* CUADRÍCULA DE TEMAS */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .card { background: var(--tarjeta); border: 1px solid rgba(236, 208, 111, 0.3); border-radius: 15px; overflow: hidden; cursor: pointer; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--oro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .card-img { width: 100%; height: 200px; background: #2d3748; display: flex; align-items: center; justify-content: center; color: var(--oro); font-weight: bold; text-align: center; padding: 10px; }
+        .card:hover { transform: translateY(-10px); border-color: var(--oro); }
+        .card-img { width: 100%; height: 180px; background: #2d3748; display: flex; align-items: center; justify-content: center; color: var(--oro); font-weight: bold; text-align: center; padding: 10px; }
         .card-body { padding: 20px; }
         .card-body h3 { margin: 0 0 10px 0; color: var(--oro); }
-        
-        /* MODALES REFORZADOS */
+
+        /* MODALES */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto; }
-        .modal-content { background: var(--tarjeta); color: white; margin: 2% auto; padding: 40px; border: 2px solid var(--oro); width: 90%; max-width: 900px; border-radius: 20px; position: relative; box-shadow: 0 0 50px rgba(236, 208, 111, 0.2); }
-        .close { position: absolute; right: 25px; top: 15px; color: var(--oro); font-size: 45px; cursor: pointer; font-weight: bold; }
-        .modal-content h2 { color: var(--oro); font-size: 2.2rem; margin-top: 0; border-bottom: 2px solid var(--oro); padding-bottom: 15px; }
-        .modal-content h3 { color: #5eead4; margin-top: 30px; font-size: 1.5rem; }
-        .modal-content p { line-height: 1.8; font-size: 1.1rem; text-align: justify; }
+        .modal-content { background: var(--tarjeta); color: white; margin: 2% auto; padding: 40px; border: 2px solid var(--oro); width: 90%; max-width: 850px; border-radius: 20px; position: relative; }
+        .close { position: absolute; right: 25px; top: 15px; color: var(--oro); font-size: 40px; cursor: pointer; }
         .highlight { color: var(--oro); font-weight: bold; }
+
+        /* PIE DE PÁGINA */
+        footer { background: #0b1120; padding: 40px 5%; border-top: 2px solid var(--oro); margin-top: 50px; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--oro); text-decoration: none; font-size: 0.9rem; }
     </style>
 </head>
 
 <body>
     <header>
         <a href="index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
+        <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pages/inversiones.html">Inversiones</a></li>
+            <li><a href="pages/seguros.html">Seguros</a></li>
+            <li><a href="pages/prestamos.html">Préstamos</a></li>
+            <li><a href="pages/blog/index.html" style="color: var(--oro);">Blog</a></li>
+        </ul>
     </header>
 
     <div class="container">
@@ -45,23 +60,23 @@
                 <div class="card-img">ANÁLISIS S&P 500</div>
                 <div class="card-body">
                     <h3>S&P 500</h3>
-                    <p>Guía técnica exhaustiva sobre el índice más importante del mercado de valores.</p>
+                    <p>Guía técnica sobre las 500 empresas más grandes del mercado.</p>
                 </div>
             </article>
 
             <article class="card" onclick="abrir('m-crypto')">
-                <div class="card-img">CRIPTOMONEDAS 2026</div>
+                <div class="card-img">CRIPTOMONEDAS</div>
                 <div class="card-body">
                     <h3>Criptomonedas</h3>
-                    <p>Beneficios, riesgos y seguridad en la nueva era del dinero digital descentralizado.</p>
+                    <p>Beneficios y seguridad en activos digitales descentralizados.</p>
                 </div>
             </article>
 
             <article class="card" onclick="abrir('m-dividendos')">
-                <div class="card-img">RENTAS POR DIVIDENDOS</div>
+                <div class="card-img">RENTAS PASIVAS</div>
                 <div class="card-body">
-                    <h3>Dividendos Pasivos</h3>
-                    <p>Cómo construir una cartera que te pague mensualmente de forma constante.</p>
+                    <h3>Dividendos</h3>
+                    <p>Cómo construir carteras que generen ingresos mensuales.</p>
                 </div>
             </article>
 
@@ -69,7 +84,7 @@
                 <div class="card-img">ORO Y REFUGIO</div>
                 <div class="card-body">
                     <h3>Oro y Metales</h3>
-                    <p>Estrategias de protección patrimonial frente a la inflación y crisis globales.</p>
+                    <p>Protección patrimonial frente a la inflación global.</p>
                 </div>
             </article>
         </div>
@@ -78,58 +93,49 @@
     <div id="m-sp500" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-sp500')">&times;</span>
-            <h2>S&P 500: El Motor del Capitalismo Moderno</h2>
-            <p>El <span class="highlight">Standard & Poor's 500</span> es mucho más que un número; es el reflejo de las 500 empresas con mayor capitalización bursátil en Estados Unidos. Para que una empresa entre en este índice, debe cumplir criterios rigurosos de liquidez, tamaño y, sobre todo, rentabilidad positiva en sus últimos balances. Al invertir aquí, estás diversificando tu capital en sectores estratégicos como tecnología (Apple, Microsoft), salud, energía y consumo masivo.</p>
-            <h3>¿Por qué Google AdSense valora este contenido?</h3>
-            <p>Inversores de la talla de Warren Buffett recomiendan el S&P 500 por su <span class="highlight">rendimiento histórico del 10% anualizado</span>. A diferencia de invertir en una sola empresa, el índice se "autolimpia": si una compañía falla, es reemplazada por la siguiente líder del mercado. Esto garantiza que tu patrimonio esté siempre en las manos de los ganadores de la economía global, aprovechando el poder del interés compuesto a lo largo de las décadas.</p>
+            <h2>S&P 500: El Motor de la Economía</h2>
+            <p>El <span class="highlight">S&P 500</span> incluye a líderes como Apple y Microsoft. Invertir aquí ofrece un retorno histórico del 10% anual, ideal para el interés compuesto a largo plazo.</p>
         </div>
     </div>
 
     <div id="m-crypto" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-crypto')">&times;</span>
-            <h2>Criptomonedas: Innovación, Blockchain y Riesgo</h2>
-            <p>Las <span class="highlight">Criptomonedas</span> han transformado la custodia de valor. Bitcoin, como activo principal, ofrece una escasez digital de 21 millones de unidades, lo que lo protege de la impresión monetaria de los bancos centrales. Sin embargo, su mayor beneficio, la descentralización, conlleva la responsabilidad total del usuario sobre su propia seguridad.</p>
-            <h3>Análisis de Riesgos y Beneficios</h3>
-            <p>El beneficio principal es el potencial de revalorización asimétrica y la transparencia del <span class="highlight">Blockchain</span>. El riesgo reside en la volatilidad extrema y la posibilidad de hackeos si no se utilizan billeteras frías (Hardware Wallets). En una estrategia de gestión de patrimonio de élite, las cripto no deben superar el 5-10% del portafolio total debido a su naturaleza de alto riesgo.</p>
+            <h2>Criptoactivos: Innovación y Blockchain</h2>
+            <p>Las criptomonedas ofrecen <span class="highlight">descentralización</span>. Es vital entender la volatilidad y el uso de billeteras seguras para proteger tu capital digital.</p>
         </div>
     </div>
 
     <div id="m-dividendos" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-dividendos')">&times;</span>
-            <h2>Dividendos Pasivos: Creando Libertad Financiera</h2>
-            <p>La inversión en <span class="highlight">Dividendos</span> consiste en adquirir acciones de empresas maduras que reparten sus beneficios trimestralmente. Es la forma más tangible de obtener renta pasiva. Buscamos empresas catalogadas como "Dividend Kings" o "Dividend Aristocrats", que han aumentado su pago ininterrumpidamente por más de 25 o 50 años.</p>
-            <h3>El Payout Ratio y la Sostenibilidad</h3>
-            <p>Para monetizar con éxito, analizamos el <span class="highlight">Payout Ratio</span>: el porcentaje de ganancias que la empresa reparte. Si es muy alto, el dividendo corre peligro; si es equilibrado, tenemos una máquina de flujo de caja que nos permitirá reinvertir para comprar más acciones, acelerando el crecimiento de nuestra riqueza sin necesidad de trabajar activamente por ese dinero.</p>
+            <h2>Dividendos: Ingresos Constantes</h2>
+            <p>Al adquirir <span class="highlight">Aristócratas del Dividendo</span>, recibes una parte de las ganancias de la empresa, creando un sueldo pasivo mes tras mes.</p>
         </div>
     </div>
 
     <div id="m-oro" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-oro')">&times;</span>
-            <h2>Oro y Metales: El Seguro de tu Patrimonio</h2>
-            <p>El oro ha sobrevivido a todos los imperios y crisis financieras. En 2026, sigue siendo el <span class="highlight">activo refugio por excelencia</span>. Cuando los mercados bursátiles caen o hay una alta inflación, el oro tiende a subir o mantener su valor, compensando las pérdidas en otras áreas de tu cartera.</p>
-            <h3>Estrategias de Custodia Física y ETFs</h3>
-            <p>Invertir en metales puede hacerse mediante oro físico (monedas y lingotes) o a través de <span class="highlight">ETFs respaldados (como el GLD)</span>. El oro no genera intereses, pero su función es actuar como un seguro contra el colapso del sistema financiero fiduciario, garantizando que siempre tengas poder adquisitivo real en cualquier rincón del planeta.</p>
+            <h2>Oro: El Seguro Financiero</h2>
+            <p>El oro mantiene su valor durante las crisis. Es la <span class="highlight">reserva de valor</span> definitiva para protegerte de la devaluación monetaria.</p>
         </div>
     </div>
 
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">Sobre Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="privacy.html">Privacidad</a>
+            <a href="politica-privacidad.html">Cookies</a>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Finanzas Élite - Educación Financiera de Alto Nivel</p>
+    </footer>
+
     <script>
-        function abrir(id) {
-            document.getElementById(id).style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
-        function cerrar(id) {
-            document.getElementById(id).style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        }
+        function abrir(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
+        function cerrar(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
+        window.onclick = function(e) { if (e.target.className === 'modal') { e.target.style.display = "none"; document.body.style.overflow = "auto"; } }
     </script>
 </body>
 </html>
