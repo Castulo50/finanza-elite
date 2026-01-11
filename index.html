@@ -6,195 +6,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanzas Élite | Estrategias de Inversión y Gestión de Patrimonio</title>
-    <meta name="description"
-        content="Aprende sobre las mejores estrategias de inversión, seguros de vida, préstamos personales y gestión de patrimonio para asegurar tu futuro financiero.">
-    <meta name="keywords"
-        content="finanzas personales, inversión, seguros de vida, préstamos, ahorro, gestión de patrimonio">
+    <meta name="description" content="Aprende sobre S&P 500, Fondos Indexados, Criptomonedas y gestión de patrimonio.">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para asegurar que los modales se vean bien */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; }
+        .modal-content { background-color: #1e293b; color: white; margin: 5% auto; padding: 40px; border-radius: 15px; max-width: 800px; line-height: 1.8; position: relative; border: 1px solid #ecd06f; }
+        .close { position: absolute; right: 25px; top: 15px; color: #ecd06f; font-size: 35px; font-weight: bold; cursor: pointer; }
+        .modal-content h2 { color: #ecd06f; margin-bottom: 20px; border-bottom: 2px solid #ecd06f; padding-bottom: 10px; }
+        .modal-content h3 { color: #5eead4; margin-top: 25px; }
+        .card { cursor: pointer; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="nav-container">
             <a href="#" class="logo">FINANZAS <span>ÉLITE</span></a>
-          <ul class="nav-menu">
-  <li><a href="index.html" class="nav-link">Inicio</a></li>
-  <li><a href="pages/inversiones.html" class="nav-link">Inversiones</a></li>
-  <li><a href="pages/seguros.html" class="nav-link">Seguros</a></li>
-  <li><a href="pages/prestamos.html" class="nav-link">Préstamos</a></li>
-  <li><a href="pages/blog/index.html" class="nav-link" style="color: var(--accent); font-weight: 700;">Blog</a></li>
-</ul>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="pages/inversiones.html" class="nav-link">Inversiones</a></li>
+                <li><a href="pages/blog/index.html" class="nav-link" style="color: #ecd06f; font-weight: 700;">Blog</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="hero"
-        style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('img/hero.png'); background-size: cover; background-position: center;">
+    <section class="hero" style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('img/hero.png'); background-size: cover; padding: 100px 20px; text-align: center; color: white;">
         <div class="hero-content">
-            <h1>Libertad Financiera a Través de Decisiones Inteligentes</h1>
-            <p>Descubre guías expertas sobre gestión de patrimonio, optimización de impuestos y las soluciones de
-                seguros más competitivas del mercado.</p>
-            <a href="pages/inversiones.html" class="cta-button">Comienza Tu Viaje</a>
+            <h1>Educación Financiera de Alto Nivel</h1>
+            <p>Domina el mercado de valores, criptoactivos y fondos indexados con guías expertas actualizadas a 2026.</p>
         </div>
     </section>
 
     <main class="main-content">
         <section class="articles">
-            <h2 class="section-title">Artículos Destacados</h2>
-            <div class="article-grid">
-                <!-- Article 1: High CPC (Investments) -->
-                <article class="card">
-                    <img src="img/inversiones.png" alt="Inversión Estratégica" class="card-img">
+            <h2 class="section-title">Estrategias Maestras de Inversión</h2>
+            <div class="article-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
+                
+                <article class="card" onclick="abrirModal('modal-sp500')">
+                    <img src="https://images.unsplash.com/photo-1611974717537-483568600f68?auto=format&fit=crop&w=800&q=80" class="card-img">
                     <div class="card-body">
-                        <span class="card-tag">Inversiones</span>
-                        <h3 class="card-title"><a href="pages/inversiones.html">Guía Definitiva de Fondos Indexados para
-                                2026</a></h3>
-                        <p class="card-excerpt">Explora cómo maximizar tus rendimientos a largo plazo con una estrategia
-                            de bajo costo y alta eficiencia fiscal.</p>
-                        <a href="pages/inversiones.html" class="nav-link">Leer más &rarr;</a>
+                        <span class="card-tag">Mercado de Valores</span>
+                        <h3 class="card-title">¿Qué es el S&P 500? El Barómetro Mundial</h3>
+                        <p class="card-excerpt">La guía más completa sobre el índice que agrupa a las 500 empresas más grandes de EE.UU.</p>
                     </div>
                 </article>
 
-                <!-- Article 2: High CPC (Insurance) -->
-                <article class="card">
-                    <img src="img/seguros.png" alt="Seguros de Vida" class="card-img">
+                <article class="card" onclick="abrirModal('modal-fondos')">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" class="card-img">
                     <div class="card-body">
-                        <span class="card-tag">Seguros</span>
-                        <h3 class="card-title"><a href="pages/seguros.html">Cómo Elegir el Mejor Seguro de Vida
-                                Familiar</a></h3>
-                        <p class="card-excerpt">Protege el futuro de tus seres queridos con una póliza diseñada a medida
-                            de tus necesidades y presupuesto.</p>
-                        <a href="pages/seguros.html" class="nav-link">Leer más &rarr;</a>
+                        <span class="card-tag">Bajo Costo</span>
+                        <h3 class="card-title">Fondos Indexados: Inversión Pasiva</h3>
+                        <p class="card-excerpt">Cómo superar a la mayoría de los inversores profesionales con el menor esfuerzo posible.</p>
                     </div>
                 </article>
 
-                <!-- Article 3: High CPC (Loans) -->
-                <article class="card">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Préstamos" class="card-img">
+                <article class="card" onclick="abrirModal('modal-crypto')">
+                    <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80" class="card-img">
                     <div class="card-body">
-                        <span class="card-tag">Préstamos</span>
-                        <h3 class="card-title"><a href="pages/prestamos.html">Estrategias para Calificar al Mejor
-                                Interés Hipotecario</a></h3>
-                        <p class="card-excerpt">Mejora tu historial crediticio y asegura las tasas más bajas para la
-                            compra de tu propiedad este año.</p>
-                        <a href="pages/prestamos.html" class="nav-link">Leer más &rarr;</a>
+                        <span class="card-tag">Activos Digitales</span>
+                        <h3 class="card-title">Criptomonedas: Beneficios y Riesgos</h3>
+                        <p class="card-excerpt">Entiende la volatilidad, la tecnología blockchain y el futuro del dinero digital.</p>
                     </div>
                 </article>
+
+                <article class="card" onclick="abrirModal('modal-dividendos')">
+                    <img src="https://images.unsplash.com/photo-1579621970795-87f967b16c8a?auto=format&fit=crop&w=800&q=80" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">Renta Pasiva</span>
+                        <h3 class="card-title">Guía de Dividendos Pasivos</h3>
+                        <p class="card-excerpt">Construye una máquina de flujo de caja que te pague mes a mes.</p>
+                    </div>
+                </article>
+
+                <article class="card" onclick="abrirModal('modal-oro')">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">Refugio Seguro</span>
+                        <h3 class="card-title">Inversión en Oro y Metales</h3>
+                        <p class="card-excerpt">Protección patrimonial contra la inflación y la incertidumbre global.</p>
+                    </div>
+                </article>
+
             </div>
         </section>
-
-        <!-- New Tools Section -->
-        <section class="tools-preview"
-            style="grid-column: 1 / -1; background: var(--white); padding: 3rem; border-radius: 1.5rem; box-shadow: var(--shadow-md); margin-bottom: 4rem; text-align: center;">
-            <span class="card-tag">Exclusivo</span>
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Centro de Herramientas Inteligentes</h2>
-            <p
-                style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Accede a nuestros simuladores interactivos de interés compuesto, planes de retiro y calculadoras
-                hipotecarias con tecnología de 2026.</p>
-            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                <div
-                    style="flex: 1; min-width: 250px; padding: 2rem; background: var(--bg-light); border-radius: 1rem;">
-                    <h3 style="font-size: 1.25rem;">Calculadora de Retiro</h3>
-                    <p style="font-size: 0.9rem; margin: 1rem 0;">Proyecta cuánto necesitas ahorrar para jubilarte
-                        millonario.</p>
-                    <a href="pages/herramientas.html" class="nav-link"
-                        style="color: var(--accent); font-weight: 700;">Simular ahora &rarr;</a>
-                </div>
-                <div
-                    style="flex: 1; min-width: 250px; padding: 2rem; background: var(--bg-light); border-radius: 1rem;">
-                    <h3 style="font-size: 1.25rem;">Interés Compuesto</h3>
-                    <p style="font-size: 0.9rem; margin: 1rem 0;">Descubre el poder del tiempo sobre tus inversiones.
-                    </p>
-                    <a href="pages/herramientas.html" class="nav-link"
-                        style="color: var(--accent); font-weight: 700;">Calcular impacto &rarr;</a>
-                </div>
-                <div
-                    style="flex: 1; min-width: 250px; padding: 2rem; background: var(--bg-light); border-radius: 1rem;">
-                    <h3 style="font-size: 1.25rem;">Cuotas de Préstamo</h3>
-                    <p style="font-size: 0.9rem; margin: 1rem 0;">Simula tu hipoteca con las tasas más competitivas del
-                        mercado.</p>
-                    <a href="pages/herramientas.html" class="nav-link"
-                        style="color: var(--accent); font-weight: 700;">Ver mensualidad &rarr;</a>
-                </div>
-            </div>
-            <a href="pages/herramientas.html" class="cta-button" style="margin-top: 3rem;">Ver Todas las
-                Herramientas</a>
-        </section>
-
-        <aside class="sidebar">
-            <div class="widget">
-                <h3 class="widget-title">Más Buscados</h3>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;"><a
-                            href="pages/prestamos.html">Mejores Hipotecas 2026</a></li>
-                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;"><a
-                            href="pages/inversiones.html">Cuentas de Ahorro de Alto Rendimiento</a></li>
-                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;"><a
-                            href="pages/inversiones.html">Planificación para la Jubilación</a></li>
-                </ul>
-            </div>
-
-            <!-- AdSense Placeholder -->
-            <div class="widget"
-                style="background: #f1f5f9; text-align: center; border: 2px dashed #cbd5e1; height: 300px; display: flex; align-items: center; justify-content: center;">
-                <p style="color: #94a3b8; font-size: 0.8rem;">ANUNCIO PUBLICITARIO</p>
-            </div>
-
-            <div class="widget">
-                <h3 class="widget-title">Suscríbete</h3>
-                <p style="font-size: 0.9rem; margin: 1rem 0;">Recibe las mejores estrategias financieras en tu correo.
-                </p>
-                <form style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <input type="email" placeholder="Tu email"
-                        style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.4rem;">
-                    <button type="submit" class="cta-button"
-                        style="padding: 0.75rem; border: none; cursor: pointer;">Unirme</button>
-                </form>
-            </div>
-        </aside>
     </main>
 
+    <div id="modal-sp500" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-sp500')">&times;</span>
+            <h2>¿Qué es el S&P 500? El Barómetro del Capitalismo</h2>
+            <p>El Standard & Poor's 500 es el índice bursátil más importante del mundo. No es una empresa, sino una lista que agrupa a las 500 compañías más grandes y sólidas que cotizan en las bolsas de Estados Unidos (como Apple, Microsoft, Amazon y Google). Representa aproximadamente el 80% del valor total del mercado de acciones estadounidense.</p>
+            <h3>¿Cómo funciona?</h3>
+            <p>El índice se pondera por capitalización bursátil, lo que significa que las empresas más grandes tienen más peso. Si el S&P 500 sube, generalmente significa que la economía global está en crecimiento. Históricamente, ha ofrecido un rendimiento promedio anual de alrededor del 10% durante las últimas décadas.</p>
+            <h3>¿Por qué invertir en él?</h3>
+            <p>Invertir en el S&P 500 es como apostar por el ingenio humano y el crecimiento empresarial a largo plazo. Es la herramienta favorita de inversores como Warren Buffett, ya que ofrece una diversificación automática: si una empresa del índice quiebra, es reemplazada por otra más exitosa, manteniendo el índice siempre saludable.</p>
+        </div>
+    </div>
+
+    <div id="modal-fondos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-fondos')">&times;</span>
+            <h2>Fondos Indexados: La Revolución de la Inversión Pasiva</h2>
+            <p>Un fondo indexado es un vehículo de inversión que busca replicar exactamente el comportamiento de un índice determinado, como el S&P 500 o el Nasdaq. En lugar de pagar a un "gurú" de las finanzas para que elija acciones, el fondo compra automáticamente todas las acciones del índice.</p>
+            <h3>Principales Beneficios:</h3>
+            <ul>
+                <li><b>Bajos Costos:</b> Al no requerir gestión activa, las comisiones son mínimas (a veces menores al 0.1% anual).</li>
+                <li><b>Diversificación Total:</b> Con una sola compra, eres dueño de cientos de empresas.</li>
+                <li><b>Eficiencia Fiscal:</b> Generan menos eventos tributarios que la compraventa constante de acciones.</li>
+            </ul>
+            <p>Es la estrategia ideal para el inversor que no quiere dedicar horas al día analizando gráficos, permitiendo que el interés compuesto haga el trabajo duro durante 10, 20 o 30 años.</p>
+        </div>
+    </div>
+
+    <div id="modal-crypto" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-crypto')">&times;</span>
+            <h2>Criptomonedas: El Futuro del Valor Digital</h2>
+            <p>Las criptomonedas son activos digitales basados en criptografía y tecnología <b>Blockchain</b>. A diferencia de las monedas tradicionales, son descentralizadas, lo que significa que ningún banco central las controla.</p>
+            <h3>Beneficios:</h3>
+            <ul>
+                <li><b>Transparencia y Seguridad:</b> Cada transacción queda grabada en un libro contable inmutable.</li>
+                <li><b>Potencial de Crecimiento:</b> Activos como Bitcoin han demostrado ser los más rentables de la última década.</li>
+                <li><b>Escasez Programada:</b> Muchos activos tienen un límite de emisión (como los 21 millones de Bitcoin), lo que los protege de la inflación.</li>
+            </ul>
+            <h3>Riesgos Críticos:</h3>
+            <ul>
+                <li><b>Extrema Volatilidad:</b> Precios que pueden caer un 50% en cuestión de días.</li>
+                <li><b>Seguridad Personal:</b> Si pierdes tus claves privadas o eres víctima de un hackeo, no hay "servicio al cliente" que te devuelva el dinero.</li>
+                <li><b>Regulación:</b> Los cambios en las leyes de cada país pueden afectar drásticamente su valor.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-dividendos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-dividendos')">&times;</span>
+            <h2>Guía de Dividendos Pasivos</h2>
+            <p>La inversión en dividendos consiste en comprar acciones de empresas que reparten una parte de sus beneficios líquidos a sus socios. Es la forma más pura de ingresos pasivos en bolsa.</p>
+            <p>Para tener éxito, debes buscar empresas con historial de crecimiento de dividendos durante más de 25 años (Aristócratas del Dividendo). Esta estrategia no solo te da flujo de caja mensual o trimestral, sino que también protege tu capital durante las caídas del mercado, ya que estas empresas suelen ser muy sólidas y resistentes.</p>
+        </div>
+    </div>
+
+    <div id="modal-oro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-oro')">&times;</span>
+            <h2>Oro y Metales: El Seguro de tu Portafolio</h2>
+            <p>El oro no produce dividendos ni flujos de caja, pero tiene algo único: <b>Valor Intrínseco Inalterable</b>. Ha sido dinero durante 5,000 años y nunca ha valido cero.</p>
+            <p>Recomendamos el oro como un contrapeso. Cuando hay pánico financiero, las acciones bajan y el oro tiende a subir. Es el "seguro de incendios" de tu casa financiera. No inviertas todo en oro, pero mantén una porción para asegurar que siempre tendrás poder adquisitivo, pase lo que pase con el dólar o el euro.</p>
+        </div>
+    </div>
+
     <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="#" class="logo" style="color: white;">FINANZAS <span>ÉLITE</span></a>
-                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Tu fuente de confianza para educación
-                    financiera y gestión de riqueza.</p>
+        <div style="background: #0f172a; color: white; padding: 40px; text-align: center; border-top: 5px solid #ecd06f;">
+            <p>&copy; 2026 Finanzas Élite. Todos los derechos reservados.</p>
+            <div style="margin-top: 15px;">
+                <a href="privacy.html" style="color: #ecd06f; margin: 0 10px;">Privacidad</a> | 
+                <a href="pages/terminos.html" style="color: #ecd06f; margin: 0 10px;">Términos</a>
             </div>
-            <div>
-                <h4 style="color: white; margin-bottom: 1.5rem;">Categorías</h4>
-                <ul
-                    style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; opacity: 0.7;">
-                    <li><a href="pages/inversiones.html">Inversiones</a></li>
-                    <li><a href="pages/seguros.html">Seguros</a></li>
-                    <li><a href="pages/prestamos.html">Préstamos Hipotecarios</a></li>
-                    <li><a href="pages/blog/index.html">Blog de Finanzas</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: white; margin-bottom: 1.5rem;">Compañía</h4>
-                <ul
-                    <li><a href="pages/sobre-nosotros.html">Sobre Nosotros</a></li>
-<li><a href="contacto.html">Contacto</a></li>
-<li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-<li><a href="pages/terminos.html">Términos y Condiciones</a></li>
-</ul>
-<div style="margin-top: 2rem; text-align: center; font-size: 0.85rem; opacity: 0.8;">
-  <a href="about.html" style="color: white; margin: 0 8px;">Sobre nosotros</a> |
-  <a href="contacto.html" style="color: white; margin: 0 8px;">Contacto</a> |
-  <a href="pages/terminos.html" style="color: white; margin: 0 8px;">Términos y Condiciones</a> |
-  <a href="privacy.html" style="color: white; margin: 0 8px;">Política de Privacidad</a>
-</div>
+        </div>
+    </footer>
 
-
-
-
-
-
-
-
-
+    <script>
+        function abrirModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; // Evita el scroll al abrir
+        }
+        function cerrarModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto"; // Devuelve el scroll
+        }
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+</body>
+</html>
