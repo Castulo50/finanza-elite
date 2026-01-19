@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanzas Élite | Centro de Inteligencia Financiera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- AQUÍ VA EL CÓDIGO ADSENSE -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TU_ID_DE_ADSENSE" crossorigin="anonymous"></script> -->
+    
     <style>
         :root { 
             --oro: #D4AF37; 
@@ -21,7 +25,6 @@
             --azul-claro: #3b82f6;
         }
         
-        /* Modo oscuro */
         .dark-mode {
             --fondo: #0f172a;
             --texto: #e2e8f0;
@@ -52,7 +55,6 @@
             top: 0; 
             z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
         }
         .logo { 
             font-size: 1.6rem; 
@@ -77,9 +79,7 @@
             transition: color 0.3s ease;
             position: relative;
         }
-        .nav-menu a:hover {
-            color: var(--oro);
-        }
+        .nav-menu a:hover { color: var(--oro); }
         .nav-menu a::after {
             content: '';
             position: absolute;
@@ -90,17 +90,8 @@
             background: var(--oro);
             transition: width 0.3s ease;
         }
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
+        .nav-menu a:hover::after { width: 100%; }
 
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-        }
-        
-        /* Notificaciones */
         #notifications {
             position: fixed;
             top: 20px;
@@ -122,17 +113,9 @@
             animation: slideIn 0.3s ease;
         }
         
-        .notification-error {
-            border-left-color: var(--rojo);
-        }
-        
-        .notification-warning {
-            border-left-color: #f59e0b;
-        }
-        
-        .notification-info {
-            border-left-color: var(--azul-claro);
-        }
+        .notification-error { border-left-color: var(--rojo); }
+        .notification-warning { border-left-color: #f59e0b; }
+        .notification-info { border-left-color: var(--azul-claro); }
         
         .notification-content {
             flex: 1;
@@ -154,17 +137,16 @@
         }
         
         @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
         
-        /* SECCIÓN HERO */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+        
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -178,7 +160,6 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            position: relative;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         .hero p {
@@ -205,10 +186,23 @@
             background: white;
         }
 
-        /* SECCIÓN HERRAMIENTAS */
-        .tools-section {
-            margin-bottom: 80px;
+        .legal-disclaimer {
+            background: var(--rojo);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
         }
+        
+        @keyframes pulse {
+            0% { opacity: 0.9; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+
+        .tools-section { margin-bottom: 80px; }
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -237,17 +231,11 @@
             grid-template-columns: 1fr 1.2fr; 
             gap: 30px; 
             box-shadow: 0 10px 30px rgba(15,23,42,0.3);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .tool-box {
-            background: #1e293b;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        .dark-mode .tool-box { background: #1e293b; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        .input-group { 
-            margin-bottom: 20px; 
-        }
+        .input-group { margin-bottom: 20px; }
         .input-group label { 
             display: block; 
             font-size: 0.85rem; 
@@ -297,13 +285,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .chart-box {
-            background: #1e293b;
-            border: 1px solid var(--borde);
-        }
+        .dark-mode .chart-box { background: #1e293b; border: 1px solid var(--borde); }
         
         .results-summary {
             background: rgba(255,255,255,0.1);
@@ -323,15 +307,12 @@
             padding: 8px 0;
             border-bottom: 1px solid rgba(255,255,255,0.2);
         }
-        .result-item:last-child {
-            border-bottom: none;
-        }
+        .result-item:last-child { border-bottom: none; }
         .result-value {
             font-weight: 800;
             color: var(--oro);
         }
 
-        /* COMPARADOR DE INVERSIONES */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -340,13 +321,9 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .comparison-table {
-            background: #1e293b;
-            color: var(--texto);
-        }
+        .dark-mode .comparison-table { background: #1e293b; color: var(--texto); }
         
         .comparison-table th {
             background: var(--azul-oscuro);
@@ -359,15 +336,12 @@
             text-align: center;
             border-bottom: 1px solid var(--borde);
         }
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
+        .comparison-table tr:last-child td { border-bottom: none; }
         .highlight {
             background: rgba(212, 175, 55, 0.1);
             font-weight: bold;
         }
 
-        /* BLOG */
         .blog-section { 
             margin-top: 80px; 
             border-top: 2px solid var(--borde); 
@@ -398,25 +372,17 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border-left: 4px solid var(--oro);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .article {
-            background: #1e293b;
-            color: var(--texto);
-        }
+        .dark-mode .article { background: #1e293b; color: var(--texto); }
         
         .article h2 { 
             font-size: 2.2rem; 
             color: var(--azul-oscuro); 
             margin-bottom: 30px; 
-            padding-left: 0;
-            border-left: none;
         }
         
-        .dark-mode .article h2 {
-            color: var(--texto);
-        }
+        .dark-mode .article h2 { color: var(--texto); }
         
         .article h3 { 
             font-size: 1.5rem; 
@@ -430,21 +396,16 @@
             font-size: 1.15rem; 
             color: #475569; 
             line-height: 1.9;
-            transition: color 0.3s ease;
         }
         
-        .dark-mode .article p {
-            color: #cbd5e1;
-        }
+        .dark-mode .article p { color: #cbd5e1; }
         
         .article ul, .article ol {
             margin-bottom: 25px;
             padding-left: 30px;
             line-height: 1.9;
         }
-        .article li {
-            margin-bottom: 10px;
-        }
+        .article li { margin-bottom: 10px; }
         
         .expert-note { 
             background: var(--gris-claro); 
@@ -453,50 +414,47 @@
             margin: 40px 0; 
             border: 1px solid var(--borde); 
             border-left: 4px solid var(--verde);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .expert-note {
-            background: #1e293b;
-            border-color: #334155;
-        }
+        .dark-mode .expert-note { background: #1e293b; border-color: #334155; }
         
         .expert-note h4 {
             color: var(--verde);
             margin-top: 0;
             margin-bottom: 15px;
         }
-        .ad-banner { 
-            background: var(--gris-claro); 
-            border: 1px dashed var(--gris-medio); 
-            height: 90px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #94a3b8; 
-            margin: 40px 0; 
-            border-radius: 8px; 
+        
+        /* ESPACIO PARA ADSENSE */
+        .ad-space {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px dashed white;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 40px 0;
+            border-radius: 12px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 20px;
         }
         
-        .dark-mode .ad-banner {
-            background: #1e293b;
-            border-color: #334155;
+        .ad-space.small {
+            height: 90px;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        /* TESTIMONIOS */
         .testimonials {
             background: var(--gris-claro);
             padding: 60px;
             border-radius: 20px;
             margin: 80px 0;
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .testimonials {
-            background: #1e293b;
-        }
+        .dark-mode .testimonials { background: #1e293b; }
         
         .testimonials h2 {
             text-align: center;
@@ -505,9 +463,7 @@
             font-size: 2.5rem;
         }
         
-        .dark-mode .testimonials h2 {
-            color: var(--texto);
-        }
+        .dark-mode .testimonials h2 { color: var(--texto); }
         
         .testimonial-grid {
             display: grid;
@@ -522,36 +478,25 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-left: 4px solid var(--morado);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .testimonial-card {
-            background: #1e293b;
-            color: var(--texto);
-        }
+        .dark-mode .testimonial-card { background: #1e293b; color: var(--texto); }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             color: #475569;
-            transition: color 0.3s ease;
         }
         
-        .dark-mode .testimonial-text {
-            color: #cbd5e1;
-        }
+        .dark-mode .testimonial-text { color: #cbd5e1; }
         
         .testimonial-author {
             font-weight: 600;
             color: var(--azul-oscuro);
-            transition: color 0.3s ease;
         }
         
-        .dark-mode .testimonial-author {
-            color: var(--texto);
-        }
+        .dark-mode .testimonial-author { color: var(--texto); }
 
-        /* BOLETÍN */
         .newsletter {
             background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e293b 100%);
             padding: 60px;
@@ -560,10 +505,7 @@
             text-align: center;
             margin: 80px 0;
         }
-        .newsletter h2 {
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
+        .newsletter h2 { margin-bottom: 20px; font-size: 2.5rem; }
         .newsletter p {
             max-width: 600px;
             margin: 0 auto 30px;
@@ -597,7 +539,6 @@
             transform: translateY(-2px);
         }
 
-        /* CASOS DE ESTUDIO */
         .case-study {
             background: white;
             padding: 30px;
@@ -605,13 +546,9 @@
             margin-bottom: 30px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             border-left: 4px solid var(--azul-claro);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .case-study {
-            background: #1e293b;
-            color: var(--texto);
-        }
+        .dark-mode .case-study { background: #1e293b; color: var(--texto); }
         
         .case-study h3 {
             color: var(--azul-claro);
@@ -619,29 +556,22 @@
             margin-bottom: 15px;
         }
 
-        /* GLOSARIO */
         .glossary {
             background: white;
             padding: 30px;
             border-radius: 15px;
             margin-bottom: 30px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .glossary {
-            background: #1e293b;
-            color: var(--texto);
-        }
+        .dark-mode .glossary { background: #1e293b; color: var(--texto); }
         
         .glossary-term {
             margin-bottom: 20px;
             cursor: pointer;
             transition: color 0.3s ease;
         }
-        .glossary-term:hover {
-            color: var(--oro);
-        }
+        .glossary-term:hover { color: var(--oro); }
         .glossary-definition {
             display: none;
             padding: 15px;
@@ -649,30 +579,21 @@
             border-radius: 8px;
             margin-top: 10px;
             border-left: 3px solid var(--verde);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .glossary-definition {
-            background: #1e293b;
-        }
+        .dark-mode .glossary-definition { background: #1e293b; }
         
-        .glossary-term.active .glossary-definition {
-            display: block;
-        }
+        .glossary-term.active .glossary-definition { display: block; }
 
-        /* CONTACTO */
         .contact-section {
             background: var(--gris-claro);
             padding: 60px;
             border-radius: 20px;
             margin: 80px 0;
             text-align: center;
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .contact-section {
-            background: #1e293b;
-        }
+        .dark-mode .contact-section { background: #1e293b; }
         
         .contact-section h2 {
             color: var(--azul-oscuro);
@@ -680,9 +601,7 @@
             font-size: 2.5rem;
         }
         
-        .dark-mode .contact-section h2 {
-            color: var(--texto);
-        }
+        .dark-mode .contact-section h2 { color: var(--texto); }
         
         .contact-section p {
             max-width: 600px;
@@ -710,19 +629,15 @@
             transform: translateY(-2px);
         }
 
-        /* TÉRMINOS Y CONDICIONES */
         .terms-section {
             background: var(--gris-claro);
             padding: 40px;
             border-radius: 15px;
             margin: 60px 0;
             border-left: 4px solid var(--rojo);
-            transition: all 0.3s ease;
         }
         
-        .dark-mode .terms-section {
-            background: #1e293b;
-        }
+        .dark-mode .terms-section { background: #1e293b; }
         
         .terms-section h2 {
             color: var(--rojo);
@@ -732,31 +647,10 @@
         .terms-section p {
             margin-bottom: 15px;
             font-size: 0.95rem;
-            transition: color 0.3s ease;
         }
         
-        .dark-mode .terms-section p {
-            color: #cbd5e1;
-        }
+        .dark-mode .terms-section p { color: #cbd5e1; }
         
-        /* Disclaimer Legal */
-        .legal-disclaimer {
-            background: var(--rojo);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.9; }
-            50% { opacity: 1; }
-            100% { opacity: 0.9; }
-        }
-
-        /* Botones de utilidad */
         .utility-buttons {
             position: fixed;
             bottom: 20px;
@@ -813,70 +707,34 @@
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-        .footer-link:hover {
-            color: var(--oro);
-        }
+        .footer-link:hover { color: var(--oro); }
 
-        /* ANIMACIONES */
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
+        .fade-in { animation: fadeIn 1s ease-in; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* MEDIA QUERIES */
         @media (max-width: 768px) { 
             .tool-box { 
                 grid-template-columns: 1fr; 
                 padding: 25px;
             }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .nav-menu {
-                display: none;
-            }
-            .article {
-                padding: 25px;
-            }
-            .blog-section h1, .section-title {
-                font-size: 2.2rem;
-            }
-            .article h2 {
-                font-size: 1.8rem;
-            }
-            .contact-section, .newsletter, .testimonials {
-                padding: 40px 20px;
-            }
-            .newsletter-form {
-                flex-direction: column;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .utility-buttons {
-                bottom: 10px;
-                right: 10px;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-menu { display: none; }
+            .article { padding: 25px; }
+            .blog-section h1, .section-title { font-size: 2.2rem; }
+            .article h2 { font-size: 1.8rem; }
+            .contact-section, .newsletter, .testimonials { padding: 40px 20px; }
+            .newsletter-form { flex-direction: column; }
+            .footer-links { flex-direction: column; gap: 10px; }
+            .utility-buttons { bottom: 10px; right: 10px; }
         }
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-btn {
-                width: 100%;
-                max-width: 300px;
-            }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .contact-buttons { flex-direction: column; align-items: center; }
+            .contact-btn { width: 100%; max-width: 300px; }
         }
     </style>
 </head>
@@ -894,27 +752,29 @@
 
     <div class="container">
         
-        <!-- Disclaimer Legal -->
         <div class="legal-disclaimer fade-in">
-            ⚠️ <strong>ADVERTENCIA:</strong> Este sitio es solo para fines educativos. No constituye asesoramiento financiero. Las inversiones conllevan riesgos. Consulta con un profesional certificado antes de tomar decisiones financieras.
+            ⚠️ <strong>ADVERTENCIA:</strong> Este sitio es solo para fines educativos. No constituye asesoramiento financiero. Las inversiones conllevan riesgos. Consulta con un profesional certificado.
         </div>
         
-        <!-- SECCIÓN HERO -->
         <section class="hero fade-in">
             <h1>Maestría en Inteligencia Financiera</h1>
             <p>Descubre estrategias avanzadas para construir riqueza sostenible, optimizar tu patrimonio y tomar decisiones financieras con confianza.</p>
             <a href="#herramientas" class="cta-button">COMENZAR AHORA</a>
         </section>
 
-        <!-- SECCIÓN HERRAMIENTAS -->
+        <!-- ESPACIO PARA ADSENSE SUPERIOR -->
+        <div class="ad-space small fade-in">
+            [ESPACIO PARA ADSENSE - POSICIÓN SUPERIOR]
+            <!-- INSERTA TU CÓDIGO ADSENSE AQUÍ -->
+        </div>
+
         <section class="tools-section" id="herramientas">
             <h2 class="section-title">Herramientas Profesionales</h2>
 
-            <!-- SIMULADOR PATRIMONIAL -->
             <div class="tool-box fade-in">
                 <div>
                     <h2 style="color: var(--oro); margin-top:0;">Simulador Patrimonial Avanzado</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Calcula el rendimiento de tus activos con nuestra herramienta de precisión matemática. Incluye inflación, impuestos y escenarios de riesgo.</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Calcula el rendimiento de tus activos con precisión matemática.</p>
                     <div class="input-group">
                         <label>Capital Inicial ($)</label>
                         <input type="number" id="inicial" value="5000" min="0">
@@ -958,11 +818,16 @@
                 </div>
             </div>
 
-            <!-- CALCULADORA DE JUBILACIÓN -->
+            <!-- ESPACIO PARA ADSENSE INTERMEDIO -->
+            <div class="ad-space small fade-in">
+                [ESPACIO PARA ADSENSE - INTERMEDIO]
+                <!-- INSERTA TU CÓDIGO ADSENSE AQUÍ -->
+            </div>
+
             <div class="tool-box fade-in">
                 <div>
                     <h2 style="color: var(--oro); margin-top:0;">Calculadora de Jubilación</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Descubre cuánto necesitas ahorrar mensualmente para alcanzar tu meta de retiro.</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Descubre cuánto necesitas ahorrar para tu retiro.</p>
                     <div class="input-group">
                         <label>Edad Actual</label>
                         <input type="number" id="edadActual" value="35" min="18" max="80">
@@ -1000,11 +865,10 @@
                 </div>
             </div>
 
-            <!-- SIMULADOR DE DEUDA -->
             <div class="tool-box fade-in">
                 <div>
                     <h2 style="color: var(--oro); margin-top:0;">Simulador de Deuda</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Calcula cuánto ahorrarías en intereses pagando una cantidad extra mensual.</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Calcula cuánto ahorrarías en intereses.</p>
                     <div class="input-group">
                         <label>Saldo de Deuda ($)</label>
                         <input type="number" id="saldoDeuda" value="200000" min="0">
@@ -1059,11 +923,10 @@
                 </div>
             </div>
 
-            <!-- CALCULADORA DE IMPUESTOS -->
             <div class="tool-box fade-in">
                 <div>
                     <h2 style="color: var(--oro); margin-top:0;">Calculadora de Impuestos</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Estima tu carga fiscal anual según tus ingresos y deducciones.</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Estima tu carga fiscal anual.</p>
                     <div class="input-group">
                         <label>Ingresos Anuales ($)</label>
                         <input type="number" id="ingresosAnuales" value="80000" min="0">
@@ -1097,11 +960,10 @@
                 </div>
             </div>
 
-            <!-- SIMULADOR DE PORTAFOLIO -->
             <div class="tool-box fade-in">
                 <div>
-                    <h2 style="color: var(--oro); margin-top:0;">Simulador de Portafolio Diversificado</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Crea tu asignación de activos ideal y ve su rendimiento esperado.</p>
+                    <h2 style="color: var(--oro); margin-top:0;">Simulador de Portafolio</h2>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Crea tu asignación de activos ideal.</p>
                     <div class="input-group">
                         <label>Acciones (%)</label>
                         <input type="number" id="acciones" value="60" min="0" max="100">
@@ -1137,7 +999,12 @@
                 </div>
             </div>
 
-            <!-- COMPARADOR DE INVERSIONES -->
+            <!-- ESPACIO PARA ADSENSE INFERIOR -->
+            <div class="ad-space fade-in">
+                [ESPACIO PARA ADSENSE - POSICIÓN INFERIOR]
+                <!-- INSERTA TU CÓDIGO ADSENSE AQUÍ -->
+            </div>
+
             <div class="fade-in" style="margin-bottom: 60px;">
                 <h2 style="color: var(--azul-oscuro); text-align: center; margin-bottom: 30px;">Comparador de Inversiones</h2>
                 <table class="comparison-table">
@@ -1179,7 +1046,6 @@
                 </table>
             </div>
             
-            <!-- BOTÓN PARA CREAR META FINANCIERA -->
             <div style="text-align: center; margin-top: 40px;">
                 <button onclick="crearMetaFinanciera()" class="calc-btn" style="max-width: 300px; margin: 0 auto;">
                     ✨ CREAR NUEVA META FINANCIERA
@@ -1187,9 +1053,6 @@
             </div>
         </section>
 
-        <div class="ad-banner">ANUNCIO ADSENSE - POSICIÓN SUPERIOR</div>
-
-        <!-- BLOG -->
         <main class="blog-section" id="blog">
             <h1>Enciclopedia de Mercados y Estrategia</h1>
 
@@ -1197,7 +1060,7 @@
                 <h2>I. El Mercado de Valores: Análisis de Ciclos y Valoración</h2>
                 <p>La inversión en bolsa de valores representa la adquisición de propiedad parcial en entidades productivas. Para que Google AdSense reconozca este sitio como una fuente de autoridad (E-E-A-T), debemos profundizar en la <strong>Teoría Moderna de Carteras (MPT)</strong> de Harry Markowitz. No se trata simplemente de comprar acciones, sino de entender la correlación entre activos. Un inversor inteligente busca la "Frontera Eficiente", donde se maximiza el retorno para un nivel de riesgo determinado.</p>
                 
-                <p>El análisis fundamental nos obliga a observar el <i>Free Cash Flow</i> (Flujo de Caja Libre). A diferencia del beneficio contable, el flujo de caja muestra la liquidez real que la empresa puede reinvertir o devolver al accionista. Empresas con fosos económicos profundos, como ventajas de red o patentes tecnológicas, son capaces de mantener márgenes de beneficio superiores al promedio durante décadas. Analizamos por qué el índice S&P 500 es el referente global y cómo la reinversión de dividendos acelera el interés compuesto de forma exponencial.</p>
+                <p>El análisis fundamental nos obliga a observar el <i>Free Cash Flow</i> (Flujo de Caja Libre). A diferencia del beneficio contable, el flujo de caja muestra la liquidez real que la empresa puede reinvertir o devolver al accionista. Empresas con fosos económicos profundos, como ventajas de red o patentes tecnológicas, son capaces de mantener márgenes de beneficio superiores al promedio durante décadas.</p>
 
                 <h3>Factores Clave para la Valoración</h3>
                 <ul>
@@ -1209,66 +1072,40 @@
 
                 <div class="expert-note">
                     <h4>Nota Técnica:</h4>
-                    <p>El ratio Precio-Beneficio (P/E Ratio) debe ser analizado en el contexto de las tasas de interés de los bonos del tesoro. Cuando las tasas suben, las valoraciones de las acciones tienden a comprimirse. Además, el P/E cíclico ajustado (CAPE) de Robert Shiller proporciona una visión más precisa del valor relativo del mercado.</p>
+                    <p>El ratio Precio-Beneficio (P/E Ratio) debe ser analizado en el contexto de las tasas de interés de los bonos del tesoro. Cuando las tasas suben, las valoraciones de las acciones tienden a comprimirse.</p>
                 </div>
             </article>
 
-            <div class="ad-banner">ANUNCIO ADSENSE - INTERMEDIO</div>
-
             <article class="article fade-in">
                 <h2>II. Bienes Raíces e Ingeniería Financiera</h2>
-                <p>La inversión inmobiliaria es, históricamente, el mayor creador de millonarios debido al apalancamiento. En este apartado exploramos cómo utilizar el capital del banco para multiplicar el retorno sobre el patrimonio (ROE). Si una propiedad se aprecia un 5% anual, pero tú solo has puesto el 20% del capital inicial, tu retorno real sobre el dinero invertido es del 25%. Esta es la magia del apalancamiento que discutimos extensamente en nuestros módulos de formación profesional.</p>
+                <p>La inversión inmobiliaria es, históricamente, el mayor creador de millonarios debido al apalancamiento. En este apartado exploramos cómo utilizar el capital del banco para multiplicar el retorno sobre el patrimonio (ROE). Si una propiedad se aprecia un 5% anual, pero tú solo has puesto el 20% del capital inicial, tu retorno real sobre el dinero invertido es del 25%.</p>
                 
-                <p>Además de la plusvalía, el inversor debe enfocarse en la <strong>Tasa de Capitalización (Cap Rate)</strong>. Analizamos los mercados de alquiler residencial versus comercial y el impacto de los REITs (Real Estate Investment Trusts) en la liquidez del inversor minorista. El sector logístico e industrial, impulsado por el e-commerce, presenta actualmente las mejores proyecciones de crecimiento de rentas para la próxima década.</p>
+                <p>Además de la plusvalía, el inversor debe enfocarse en la <strong>Tasa de Capitalización (Cap Rate)</strong>. Analizamos los mercados de alquiler residencial versus comercial y el impacto de los REITs (Real Estate Investment Trusts) en la liquidez del inversor minorista.</p>
 
-                <h3>Estrategias Avanzadas de Inversión Inmobiliaria</h3>
+                <h3>Estrategias Avanzadas</h3>
                 <ol>
-                    <li><strong>BRRRR Method:</strong> Buy, Rehab, Rent, Refinance, Repeat - Maximiza el uso del capital bancario</li>
-                    <li><strong>1031 Exchange:</strong> Diferimiento fiscal en Estados Unidos mediante reinversión en propiedades calificadas</li>
-                    <li><strong>House Hacking:</strong> Vivir en una unidad mientras alquilas las demás para cubrir gastos</li>
-                    <li><strong>Syndications:</strong> Inversión colectiva en propiedades comerciales de alto valor</li>
+                    <li><strong>BRRRR Method:</strong> Buy, Rehab, Rent, Refinance, Repeat</li>
+                    <li><strong>1031 Exchange:</strong> Diferimiento fiscal en Estados Unidos</li>
+                    <li><strong>House Hacking:</strong> Vivir en una unidad mientras alquilas las demás</li>
+                    <li><strong>Syndications:</strong> Inversión colectiva en propiedades comerciales</li>
                 </ol>
             </article>
 
             <article class="article fade-in">
                 <h2>III. Criptoactivos y la Soberanía Digital</h2>
-                <p>Bitcoin ha emergido como el primer activo digital con escasez absoluta programada. En un entorno de políticas monetarias expansivas por parte de la FED y el BCE, el oro digital actúa como un seguro contra la inflación. Desglosamos la importancia del <i>Hash Rate</i> en la seguridad de la red y cómo los contratos inteligentes de Ethereum están transformando los servicios financieros tradicionales en protocolos de código abierto. La tokenización de activos reales (RWA) es la próxima gran ola que traerá trillones de dólares al blockchain.</p>
+                <p>Bitcoin ha emergido como el primer activo digital con escasez absoluta programada. En un entorno de políticas monetarias expansivas por parte de la FED y el BCE, el oro digital actúa como un seguro contra la inflación. Desglosamos la importancia del <i>Hash Rate</i> en la seguridad de la red y cómo los contratos inteligentes de Ethereum están transformando los servicios financieros.</p>
                 
-                <p>La evolución hacia Web3 representa un cambio paradigmático en la propiedad de datos y activos digitales. Los tokens no fungibles (NFTs) han demostrado ser más que simples imágenes, sirviendo como certificados de autenticidad, membresías exclusivas y derechos de propiedad intelectual. Las finanzas descentralizadas (DeFi) eliminan intermediarios tradicionales, permitiendo préstamos, intercambios y derivados sin custodio centralizado.</p>
-
-                <h3>Riesgos y Consideraciones Regulatorias</h3>
-                <p>Mientras la adopción institucional crece, los marcos regulatorios evolucionan rápidamente. La SEC en Estados Unidos, ESMA en Europa y otras autoridades globales están desarrollando directrices específicas para criptoactivos. La clave está en la diversificación dentro del ecosistema crypto: Bitcoin como reserva de valor, Ethereum como plataforma de innovación, y tokens especializados para casos de uso específicos.</p>
+                <p>La evolución hacia Web3 representa un cambio paradigmático en la propiedad de datos y activos digitales. Los tokens no fungibles (NFTs) han demostrado ser más que simples imágenes, sirviendo como certificados de autenticidad, membresías exclusivas y derechos de propiedad intelectual.</p>
             </article>
 
-            <!-- NUEVOS ARTÍCULOS -->
             <article class="article fade-in">
                 <h2>IV. La Regla del 4%: ¿Cuánto Necesitas para Jubilarte?</h2>
                 <p>La famosa <strong>Regla del 4%</strong>, desarrollada por el Trinity Study, sugiere que puedes retirar el 4% anual de tu portafolio sin agotarlo en 30 años. Pero en un mundo de bajas tasas de interés y alta inflación, ¿sigue siendo válida?</p>
                 
-                <p>Analizamos escenarios actualizados: con un portafolio de $1 millón, un retiro del 3.5% es más seguro hoy. Además, la diversificación global (incluyendo mercados emergentes y bienes raíces) reduce la volatilidad durante la fase de retiro.</p>
-
-                <div class="expert-note">
-                    <h4>Dato Clave:</h4>
-                    <p>Si planeas jubilarte a los 50, necesitas un colchón mayor: multiplica tus gastos anuales por 30 (no por 25). La longevidad promedio sigue aumentando.</p>
-                </div>
-            </article>
-
-            <article class="article fade-in">
-                <h2>V. Psicología del Inversor: Cómo Evitar los Errores Más Costosos</h2>
-                <p>El 90% de los inversores pierden dinero no por falta de conocimiento, sino por <strong>sesgos cognitivos</strong>. El más peligroso es la <i>aversión a las pérdidas</i>: preferimos evitar una pérdida de $100 antes que obtener una ganancia de $100, lo que lleva a vender en mínimos y comprar en máximos.</p>
-                
-                <p>Otro error común es el <i>FOMO</i> (Fear Of Missing Out), que impulsa compras impulsivas en burbujas especulativas. La solución es un <strong>plan de inversión escrito</strong> que defina claramente: objetivos, horizonte temporal, tolerancia al riesgo y reglas de entrada/salida.</p>
-
-                <h3>Estrategias para Mantener la Disciplina</h3>
-                <ul>
-                    <li><strong>Inversión periódica:</strong> Compra fija mensual independientemente del mercado</li>
-                    <li><strong>Rebalanceo anual:</strong> Vende ganadores y compra perdedores para mantener tu asignación</li>
-                    <li><strong>Horizonte mental:</strong> Visualiza tus inversiones en ciclos de 10+ años, no días</li>
-                </ul>
+                <p>Analizamos escenarios actualizados: con un portafolio de $1 millón, un retiro del 3.5% es más seguro hoy. Además, la diversificación global reduce la volatilidad durante la fase de retiro.</p>
             </article>
         </main>
 
-        <!-- CASOS DE ESTUDIO -->
         <section class="blog-section">
             <h1>Casos de Estudio Reales</h1>
             
@@ -1285,16 +1122,8 @@
                 <p><strong>Estrategia:</strong> Método BRRRR aplicado a 3 propiedades en 5 años + REITs para diversificación.</p>
                 <p><strong>Resultado:</strong> $3,500/mes en rentas netas + plusvalía acumulada de $250,000.</p>
             </div>
-            
-            <div class="case-study fade-in">
-                <h3>Caso 3: Ana - Portafolio Conservador con Alta Rentabilidad</h3>
-                <p><strong>Perfil:</strong> Jubilada de 62 años, patrimonio $500,000, aversión al riesgo.</p>
-                <p><strong>Estrategia:</strong> 60% bonos corporativos, 25% dividendos aristócratas, 15% REITs.</p>
-                <p><strong>Resultado:</strong> 6.2% rendimiento anual con volatilidad mínima, $2,600/mes en ingresos.</p>
-            </div>
         </section>
 
-        <!-- GLOSARIO FINANCIERO -->
         <section class="blog-section">
             <h1>Glosario Financiero Interactivo</h1>
             <p>Haz clic en cualquier término para ver su definición:</p>
@@ -1303,43 +1132,26 @@
                 <div class="glossary-term" onclick="toggleGlossary(this)">
                     <h3>ROIC (Return on Invested Capital)</h3>
                     <div class="glossary-definition">
-                        <p>Mide la eficiencia con la que una empresa genera retornos sobre el capital que ha invertido. Fórmula: Beneficio Operativo después de Impuestos / Capital Invertido. Un ROIC > 15% indica una empresa de alta calidad.</p>
+                        <p>Mide la eficiencia con la que una empresa genera retornos sobre el capital que ha invertido. Fórmula: Beneficio Operativo después de Impuestos / Capital Invertido.</p>
                     </div>
                 </div>
                 
                 <div class="glossary-term" onclick="toggleGlossary(this)">
                     <h3>Cap Rate (Tasa de Capitalización)</h3>
                     <div class="glossary-definition">
-                        <p>Indicador clave en bienes raíces que mide el retorno anual de una propiedad basado en su ingreso neto operativo. Fórmula: Ingreso Neto Operativo / Precio de Compra. Un Cap Rate > 6% es generalmente atractivo.</p>
+                        <p>Indicador clave en bienes raíces que mide el retorno anual de una propiedad basado en su ingreso neto operativo.</p>
                     </div>
                 </div>
                 
                 <div class="glossary-term" onclick="toggleGlossary(this)">
                     <h3>Frontera Eficiente</h3>
                     <div class="glossary-definition">
-                        <p>Concepto de la Teoría Moderna de Carteras que representa el conjunto de carteras que ofrecen el máximo retorno esperado para un nivel dado de riesgo. Las carteras por debajo de esta frontera son subóptimas.</p>
-                    </div>
-                </div>
-                
-                <div class="glossary-term" onclick="toggleGlossary(this)">
-                    <h3>Free Cash Flow (FCF)</h3>
-                    <div class="glossary-definition">
-                        <p>Flujo de caja libre que una empresa genera después de cubrir sus gastos operativos y de capital. Es el dinero disponible para pagar dividendos, recomprar acciones, pagar deuda o reinvertir. Fórmula: Flujo de Caja Operativo - Gastos de Capital.</p>
-                    </div>
-                </div>
-                
-                <div class="glossary-term" onclick="toggleGlossary(this)">
-                    <h3>Regla del 4%</h3>
-                    <div class="glossary-definition">
-                        <p>Guía para la jubilación que sugiere que puedes retirar el 4% de tu portafolio anualmente sin agotarlo en 30 años. Basada en el Trinity Study de 1998, aunque en entornos de baja rentabilidad se recomienda usar el 3-3.5%.</p>
+                        <p>Concepto de la Teoría Moderna de Carteras que representa el conjunto de carteras que ofrecen el máximo retorno esperado para un nivel dado de riesgo.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="ad-banner">ANUNCIO ADSENSE - POSICIÓN INFERIOR</div>
-
-        <!-- TESTIMONIOS -->
         <section class="testimonials fade-in">
             <h2>Lo Que Dicen Nuestros Lectores</h2>
             <div class="testimonial-grid">
@@ -1358,7 +1170,6 @@
             </div>
         </section>
 
-        <!-- BOLETÍN -->
         <section class="newsletter fade-in">
             <h2>Únete a Nuestra Comunidad</h2>
             <p>Recibe análisis exclusivos, estrategias avanzadas y acceso prioritario a nuestras herramientas premium. ¡Gratis!</p>
@@ -1366,10 +1177,9 @@
                 <input type="email" placeholder="Tu correo electrónico" required>
                 <button type="submit">SUSCRIBIRME</button>
             </form>
-            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Al suscribirte, aceptas recibir emails semanales. Puedes darte de baja en cualquier momento.</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Al suscribirte, aceptas recibir emails semanales.</p>
         </section>
 
-        <!-- CONTACTO -->
         <section id="contacto" class="contact-section fade-in">
             <h2>¿Listo para Transformar tu Futuro Financiero?</h2>
             <p>Únete a nuestra comunidad de inversores inteligentes y recibe análisis exclusivos, estrategias avanzadas y acceso prioritario a nuestras herramientas premium.</p>
@@ -1378,21 +1188,17 @@
             </div>
         </section>
 
-        <!-- TÉRMINOS Y CONDICIONES -->
         <section class="terms-section fade-in">
             <h2>Términos y Condiciones</h2>
-            <p><strong>Información Educativa:</strong> Todo el contenido de este sitio web tiene fines exclusivamente educativos e informativos. No constituye asesoramiento financiero, legal o fiscal profesional.</p>
-            <p><strong>No Garantía de Resultados:</strong> Los resultados pasados no garantizan resultados futuros. Las inversiones conllevan riesgos, incluyendo la posible pérdida del capital invertido.</p>
-            <p><strong>Responsabilidad Limitada:</strong> Finanzas Élite no asume ninguna responsabilidad por decisiones financieras tomadas por los usuarios basadas en la información proporcionada en este sitio.</p>
-            <p><strong>Actualización de Contenido:</strong> Nos reservamos el derecho de modificar, actualizar o eliminar cualquier contenido sin previo aviso.</p>
-            <p><strong>Leyes Aplicables:</strong> Este sitio web se rige por las leyes del país donde opera Finanzas Élite. Cualquier disputa se resolverá conforme a dichas leyes.</p>
+            <p><strong>Información Educativa:</strong> Todo el contenido de este sitio web tiene fines exclusivamente educativos e informativos.</p>
+            <p><strong>No Garantía de Resultados:</strong> Los resultados pasados no garantizan resultados futuros. Las inversiones conllevan riesgos.</p>
+            <p><strong>Responsabilidad Limitada:</strong> Finanzas Élite no asume ninguna responsabilidad por decisiones financieras tomadas por los usuarios.</p>
         </section>
     </div>
 
-    <!-- Botones de utilidad -->
     <div class="utility-buttons">
-        <button class="utility-btn" onclick="exportToExcel()" title="Exportar datos a Excel">📊</button>
-        <button class="utility-btn" onclick="crearMetaFinanciera()" title="Crear nueva meta financiera">🎯</button>
+        <button class="utility-btn" onclick="exportToExcel()" title="Exportar datos">📊</button>
+        <button class="utility-btn" onclick="crearMetaFinanciera()" title="Crear meta">🎯</button>
     </div>
 
     <footer>
@@ -1404,17 +1210,17 @@
                 <a href="#" class="footer-link">Aviso Legal</a>
                 <a href="#" class="footer-link">Contacto</a>
             </div>
-            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Información técnica para fines educativos y de análisis de mercado.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Información técnica para fines educativos.</p>
         </div>
     </footer>
 
     <script>
         // ===== UTILIDADES FINANCIERAS =====
         const FinancialUtils = {
-            formatCurrency: (value, currency = 'USD') => {
+            formatCurrency: (value) => {
                 return new Intl.NumberFormat('es-ES', {
                     style: 'currency',
-                    currency,
+                    currency: 'USD',
                     minimumFractionDigits: 0,
                     maximumFractionDigits: 0
                 }).format(value);
@@ -1438,36 +1244,12 @@
                     totalDeposits: principal + (monthlyDeposit * months),
                     earnings: total - (principal + (monthlyDeposit * months))
                 };
-            },
-            
-            calculateLoan: (principal, annualRate, payment) => {
-                const monthlyRate = annualRate / 12 / 100;
-                let balance = principal;
-                let months = 0;
-                let totalInterest = 0;
-                
-                while (balance > 0 && months < 1200) {
-                    const interest = balance * monthlyRate;
-                    const principalPayment = Math.min(payment - interest, balance);
-                    
-                    if (principalPayment <= 0) return null;
-                    
-                    balance -= principalPayment;
-                    totalInterest += interest;
-                    months++;
-                }
-                
-                return {
-                    months,
-                    totalPaid: principal + totalInterest,
-                    totalInterest
-                };
             }
         };
 
         // ===== SISTEMA DE NOTIFICACIONES =====
         class NotificationSystem {
-            static show(type, message, duration = 5000) {
+            static show(type, message, duration = 3000) {
                 const container = document.getElementById('notifications') || this.createContainer();
                 const notification = document.createElement('div');
                 
@@ -1517,71 +1299,30 @@
         let simulacionChart = null;
         let portafolioChart = null;
         
-        // ===== FUNCIONES DE VALIDACIÓN =====
-        function validateInputs(inputs) {
-            const errors = [];
-            
-            inputs.forEach(input => {
-                const value = parseFloat(input.value);
-                const min = parseFloat(input.min) || 0;
-                const max = parseFloat(input.max) || Infinity;
-                
-                if (isNaN(value)) {
-                    errors.push(`"${input.previousElementSibling?.textContent || input.id}" no es un número válido`);
-                    input.style.borderColor = 'var(--rojo)';
-                } else if (value < min) {
-                    errors.push(`"${input.previousElementSibling?.textContent || input.id}" no puede ser menor a ${min}`);
-                    input.style.borderColor = 'var(--rojo)';
-                } else if (value > max) {
-                    errors.push(`"${input.previousElementSibling?.textContent || input.id}" no puede exceder ${max}`);
-                    input.style.borderColor = 'var(--rojo)';
-                } else {
-                    input.style.borderColor = '';
-                }
-            });
-            
-            if (errors.length > 0) {
-                errors.forEach(error => NotificationSystem.show('error', error));
-            }
-            
-            return errors.length === 0;
-        }
-
-        // ===== SIMULADOR PATRIMONIAL (CORREGIDO) =====
+        // ===== FUNCIONES PRINCIPALES =====
         function actualizarSimulacion() {
-            const inputs = [
-                document.getElementById('inicial'),
-                document.getElementById('mensual'),
-                document.getElementById('anios'),
-                document.getElementById('tasa'),
-                document.getElementById('inflacion')
-            ];
+            const capital = parseFloat(document.getElementById('inicial').value) || 0;
+            const aporte = parseFloat(document.getElementById('mensual').value) || 0;
+            const tiempo = parseFloat(document.getElementById('anios').value) || 1;
+            const tasaAnual = parseFloat(document.getElementById('tasa').value) / 100 || 0;
+            const inflacion = parseFloat(document.getElementById('inflacion').value) / 100 || 0;
             
-            if (!validateInputs(inputs)) return;
-            
-            const capital = parseFloat(document.getElementById('inicial').value);
-            const aporte = parseFloat(document.getElementById('mensual').value);
-            const tiempo = parseFloat(document.getElementById('anios').value);
-            const tasaAnual = parseFloat(document.getElementById('tasa').value) / 100;
-            const inflacion = parseFloat(document.getElementById('inflacion').value) / 100;
-            
-            const resultado = FinancialUtils.compoundInterest(capital, aporte, tiempo, tasaAnual * 100);
-            
+            let acumulado = capital;
             const puntosY = [];
             const puntosX = [];
-            let acumulado = capital;
-            
-            for (let year = 1; year <= tiempo; year++) {
-                for(let month = 0; month < 12; month++) {
+            let totalAportado = capital;
+
+            for (let i = 1; i <= tiempo; i++) {
+                for(let m = 0; m < 12; m++) {
                     acumulado += aporte;
+                    totalAportado += aporte;
                     acumulado *= (1 + tasaAnual / 12);
                 }
-                
-                const valorReal = acumulado / Math.pow(1 + inflacion, year);
+                const valorReal = acumulado / Math.pow(1 + inflacion, i);
                 puntosY.push(valorReal);
-                puntosX.push(`Año ${year}`);
+                puntosX.push("Año " + i);
             }
-            
+
             const ctx = document.getElementById('canvasGrafico').getContext('2d');
             if (simulacionChart) simulacionChart.destroy();
             
@@ -1645,33 +1386,21 @@
                 }
             });
             
-            document.getElementById('capitalFinal').textContent = FinancialUtils.formatCurrency(puntosY[puntosY.length - 1] || 0);
-            document.getElementById('totalAportado').textContent = FinancialUtils.formatCurrency(resultado.totalDeposits);
-            document.getElementById('gananciasNetas').textContent = FinancialUtils.formatCurrency(resultado.earnings);
+            const capitalFinal = puntosY[puntosY.length - 1] || 0;
+            const gananciasNetas = capitalFinal - totalAportado;
+            
+            document.getElementById('capitalFinal').textContent = FinancialUtils.formatCurrency(capitalFinal);
+            document.getElementById('totalAportado').textContent = FinancialUtils.formatCurrency(totalAportado);
+            document.getElementById('gananciasNetas').textContent = FinancialUtils.formatCurrency(gananciasNetas);
             
             NotificationSystem.show('success', `Proyección calculada para ${tiempo} años`);
         }
         
-        // ===== CALCULADORA DE JUBILACIÓN =====
         function calcularJubilacion() {
-            const inputs = [
-                document.getElementById('edadActual'),
-                document.getElementById('edadJubilacion'),
-                document.getElementById('gastosJubilacion'),
-                document.getElementById('rendimientoJubilacion')
-            ];
-            
-            if (!validateInputs(inputs)) return;
-            
             const edadActual = parseFloat(document.getElementById('edadActual').value) || 35;
             const edadJubilacion = parseFloat(document.getElementById('edadJubilacion').value) || 65;
             const gastosMensuales = parseFloat(document.getElementById('gastosJubilacion').value) || 3000;
             const rendimiento = parseFloat(document.getElementById('rendimientoJubilacion').value) / 100 || 0.06;
-            
-            if (edadActual >= edadJubilacion) {
-                NotificationSystem.show('error', 'La edad de jubilación debe ser mayor a la edad actual');
-                return;
-            }
             
             const anosJubilacion = 25;
             const gastosAnuales = gastosMensuales * 12;
@@ -1693,78 +1422,66 @@
                     <p>Objetivo: ${FinancialUtils.formatCurrency(patrimonioObjetivo)}</p>
                 </div>
             `;
-            
-            NotificationSystem.show('success', `Calculado: ${anosAhorro} años para jubilarte`);
         }
         
-        // ===== SIMULADOR DE DEUDA (MEJORADO) =====
         function simularDeuda() {
-            const inputs = [
-                document.getElementById('saldoDeuda'),
-                document.getElementById('tasaDeuda'),
-                document.getElementById('pagoActual'),
-                document.getElementById('pagoExtra')
-            ];
+            const saldo = parseFloat(document.getElementById('saldoDeuda').value) || 200000;
+            const tasa = parseFloat(document.getElementById('tasaDeuda').value) / 100 || 0.045;
+            const pagoActual = parseFloat(document.getElementById('pagoActual').value) || 1013;
+            const pagoExtra = parseFloat(document.getElementById('pagoExtra').value) || 200;
             
-            if (!validateInputs(inputs)) return;
+            const tasaMensual = tasa / 12;
             
-            const saldo = parseFloat(document.getElementById('saldoDeuda').value);
-            const tasa = parseFloat(document.getElementById('tasaDeuda').value) / 100;
-            const pagoActual = parseFloat(document.getElementById('pagoActual').value);
-            const pagoExtra = parseFloat(document.getElementById('pagoExtra').value);
+            let saldoNormal = saldo;
+            let mesesNormal = 0;
+            let totalPagadoNormal = 0;
             
-            const interesPrimerMes = saldo * (tasa / 12);
-            if (pagoActual <= interesPrimerMes) {
-                NotificationSystem.show('error', 'El pago mensual es insuficiente para cubrir los intereses');
-                return;
+            while (saldoNormal > 0) {
+                const interes = saldoNormal * tasaMensual;
+                const capital = pagoActual - interes;
+                if (capital <= 0) break;
+                saldoNormal -= capital;
+                totalPagadoNormal += pagoActual;
+                mesesNormal++;
+                if (mesesNormal > 1000) break;
             }
             
-            const plazoNormal = calcularPlazoHipoteca(saldo, tasa, pagoActual);
-            const plazoExtra = calcularPlazoHipoteca(saldo, tasa, pagoActual + pagoExtra);
+            let saldoExtra = saldo;
+            let mesesExtra = 0;
+            let totalPagadoExtra = 0;
+            const pagoTotal = pagoActual + pagoExtra;
             
-            const totalNormal = plazoNormal * pagoActual;
-            const totalExtra = plazoExtra * (pagoActual + pagoExtra);
-            const interesesNormales = totalNormal - saldo;
-            const interesesExtras = totalExtra - saldo;
+            while (saldoExtra > 0) {
+                const interes = saldoExtra * tasaMensual;
+                const capital = pagoTotal - interes;
+                if (capital <= 0) break;
+                saldoExtra -= capital;
+                totalPagadoExtra += pagoTotal;
+                mesesExtra++;
+                if (mesesExtra > 1000) break;
+            }
+            
+            const interesesNormales = totalPagadoNormal - saldo;
+            const interesesExtras = totalPagadoExtra - saldo;
             const ahorroIntereses = interesesNormales - interesesExtras;
-            const mesesAhorrados = plazoNormal - plazoExtra;
+            const mesesAhorrados = mesesNormal - mesesExtra;
             
             document.getElementById('ahorroIntereses').textContent = FinancialUtils.formatCurrency(ahorroIntereses);
             document.getElementById('mesesAhorrados').textContent = mesesAhorrados;
             
-            document.getElementById('pagoTotalNormal').textContent = FinancialUtils.formatCurrency(totalNormal);
+            document.getElementById('pagoTotalNormal').textContent = FinancialUtils.formatCurrency(totalPagadoNormal);
             document.getElementById('interesesNormales').textContent = FinancialUtils.formatCurrency(interesesNormales);
-            document.getElementById('plazoNormal').textContent = plazoNormal + ' meses';
+            document.getElementById('plazoNormal').textContent = mesesNormal + ' meses';
             
-            document.getElementById('pagoTotalExtra').textContent = FinancialUtils.formatCurrency(totalExtra);
+            document.getElementById('pagoTotalExtra').textContent = FinancialUtils.formatCurrency(totalPagadoExtra);
             document.getElementById('interesesExtras').textContent = FinancialUtils.formatCurrency(interesesExtras);
-            document.getElementById('plazoExtra').textContent = plazoExtra + ' meses';
-            
-            NotificationSystem.show('info', `Ahorras ${mesesAhorrados} meses y ${FinancialUtils.formatCurrency(ahorroIntereses)} en intereses`);
+            document.getElementById('plazoExtra').textContent = mesesExtra + ' meses';
         }
         
-        function calcularPlazoHipoteca(P, r, M) {
-            const monthlyRate = r / 12;
-            if (M <= P * monthlyRate) return Infinity;
-            
-            return Math.ceil(
-                Math.log(M / (M - P * monthlyRate)) / Math.log(1 + monthlyRate)
-            );
-        }
-        
-        // ===== CALCULADORA DE IMPUESTOS =====
         function calcularImpuestos() {
-            const inputs = [
-                document.getElementById('ingresosAnuales'),
-                document.getElementById('deducciones'),
-                document.getElementById('tasaMarginal')
-            ];
-            
-            if (!validateInputs(inputs)) return;
-            
-            const ingresos = parseFloat(document.getElementById('ingresosAnuales').value);
-            const deducciones = parseFloat(document.getElementById('deducciones').value);
-            const tasaMarginal = parseFloat(document.getElementById('tasaMarginal').value) / 100;
+            const ingresos = parseFloat(document.getElementById('ingresosAnuales').value) || 0;
+            const deducciones = parseFloat(document.getElementById('deducciones').value) || 0;
+            const tasaMarginal = parseFloat(document.getElementById('tasaMarginal').value) / 100 || 0;
             
             const ingresoImponible = Math.max(0, ingresos - deducciones);
             const impuestos = ingresoImponible * tasaMarginal;
@@ -1777,14 +1494,10 @@
                 <div style="text-align: center; color: #64748b;">
                     <p>Impuestos: <strong>${FinancialUtils.formatCurrency(impuestos)}</strong></p>
                     <p>Tasa efectiva: <strong>${FinancialUtils.formatPercent(retencionEfectiva)}</strong></p>
-                    <p>Ingreso después de impuestos: <strong>${FinancialUtils.formatCurrency(ingresos - impuestos)}</strong></p>
                 </div>
             `;
-            
-            NotificationSystem.show('info', `Retención efectiva: ${FinancialUtils.formatPercent(retencionEfectiva)}`);
         }
         
-        // ===== SIMULADOR DE PORTAFOLIO =====
         function simularPortafolio() {
             const acciones = parseFloat(document.getElementById('acciones').value) || 0;
             const bienesRaices = parseFloat(document.getElementById('bienesRaices').value) || 0;
@@ -1875,16 +1588,13 @@
                     }
                 }
             });
-            
-            NotificationSystem.show('success', `Portafolio creado: ${FinancialUtils.formatPercent(rendimiento)} rendimiento esperado`);
         }
         
-        // ===== GLOSARIO INTERACTIVO =====
+        // ===== FUNCIONES ADICIONALES =====
         function toggleGlossary(element) {
             element.classList.toggle('active');
         }
         
-        // ===== MODO OSCURO =====
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
@@ -1898,7 +1608,6 @@
             NotificationSystem.show('info', `Modo ${isDark ? 'oscuro' : 'claro'} activado`);
         }
         
-        // ===== EXPORTACIÓN DE DATOS =====
         function exportToExcel() {
             const data = [];
             
@@ -1939,7 +1648,6 @@
             NotificationSystem.show('success', 'Datos exportados a CSV');
         }
         
-        // ===== CREAR META FINANCIERA =====
         function crearMetaFinanciera() {
             const metaNombre = prompt('Nombre de tu meta financiera:', 'Comprar casa');
             if (!metaNombre) return;
@@ -1953,33 +1661,28 @@
             const metaActual = parseFloat(prompt('Monto actual ($):', '10000')) || 0;
             const fechaObjetivo = prompt('Fecha objetivo (YYYY-MM):', '2025-12');
             
-            const fechaRegex = /^\d{4}-\d{2}$/;
-            if (!fechaRegex.test(fechaObjetivo)) {
-                NotificationSystem.show('error', 'Formato de fecha inválido. Usa YYYY-MM');
-                return;
-            }
-            
             const porcentaje = Math.min(100, (metaActual / metaMonto) * 100);
-            const mesesRestantes = calcularMesesRestantes(fechaObjetivo);
+            const fecha = new Date(fechaObjetivo + '-01');
+            const hoy = new Date();
+            const mesesRestantes = Math.max(0, (fecha.getFullYear() - hoy.getFullYear()) * 12 + (fecha.getMonth() - hoy.getMonth()));
             const ahorroMensual = (metaMonto - metaActual) / Math.max(1, mesesRestantes);
             
             const metaHTML = `
             <div class="tool-box fade-in" id="meta-${Date.now()}">
                 <div>
                     <h2 style="color: var(--oro); margin-top:0;">${metaNombre}</h2>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 10px;">Creada el ${new Date().toLocaleDateString()}</p>
                     <div style="margin: 20px 0;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                             <span>${FinancialUtils.formatCurrency(metaActual)} de ${FinancialUtils.formatCurrency(metaMonto)}</span>
                             <span>${porcentaje.toFixed(1)}%</span>
                         </div>
                         <div style="background: var(--gris-medio); height: 20px; border-radius: 10px; overflow: hidden;">
-                            <div style="background: var(--verde); height: 100%; width: ${porcentaje}%; transition: width 0.5s ease;"></div>
+                            <div style="background: var(--verde); height: 100%; width: ${porcentaje}%;"></div>
                         </div>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
                         <div>
-                            <p style="font-size: 0.9rem; color: #94a3b8;">Ahorro mensual necesario:</p>
+                            <p style="font-size: 0.9rem; color: #94a3b8;">Ahorro mensual:</p>
                             <p style="font-size: 1.2rem; font-weight: bold; color: var(--oro);">${FinancialUtils.formatCurrency(ahorroMensual)}</p>
                         </div>
                         <div>
@@ -1987,13 +1690,9 @@
                             <p style="font-size: 1.2rem; font-weight: bold;">${fechaObjetivo}</p>
                         </div>
                     </div>
-                    <div style="display: flex; gap: 10px;">
-                        <button onclick="actualizarMeta('${Date.now()}', ${metaMonto})" style="background: var(--azul-claro); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; flex: 1;">Actualizar Progreso</button>
-                        <button onclick="eliminarMeta('${Date.now()}')" style="background: var(--rojo); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">Eliminar</button>
-                    </div>
+                    <button onclick="actualizarMeta('${Date.now()}', ${metaMonto})" style="background: var(--azul-claro); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; width: 100%;">Actualizar Progreso</button>
                 </div>
                 <div class="chart-box" style="display: flex; flex-direction: column; justify-content: center;">
-                    <p style="color: #64748b; text-align: center; margin-bottom: 10px;">Progreso de la meta</p>
                     <div style="font-size: 3rem; text-align: center; color: var(--oro); font-weight: bold;">${porcentaje.toFixed(1)}%</div>
                     <p style="color: #64748b; text-align: center; margin-top: 10px;">${mesesRestantes} meses restantes</p>
                 </div>
@@ -2004,23 +1703,12 @@
             const crearMetaBtn = toolsSection.querySelector('button[onclick="crearMetaFinanciera()"]');
             crearMetaBtn.closest('div').insertAdjacentHTML('beforebegin', metaHTML);
             
-            NotificationSystem.show('success', 'Meta financiera creada exitosamente');
-        }
-        
-        function calcularMesesRestantes(fechaObjetivo) {
-            const hoy = new Date();
-            const [year, month] = fechaObjetivo.split('-');
-            const objetivo = new Date(year, month - 1, 1);
-            const diferencia = objetivo.getTime() - hoy.getTime();
-            return Math.max(0, Math.ceil(diferencia / (1000 * 60 * 60 * 24 * 30)));
+            NotificationSystem.show('success', 'Meta financiera creada');
         }
         
         function actualizarMeta(id, metaMonto) {
             const metaActual = parseFloat(prompt('Nuevo monto actual ($):', '0'));
-            if (isNaN(metaActual) || metaActual < 0) {
-                NotificationSystem.show('error', 'Monto actual inválido');
-                return;
-            }
+            if (isNaN(metaActual) || metaActual < 0) return;
             
             const metaElement = document.getElementById(`meta-${id}`);
             if (!metaElement) return;
@@ -2041,37 +1729,22 @@
             if (porcentajeSpan) {
                 porcentajeSpan.textContent = `${porcentaje.toFixed(1)}%`;
             }
-            
-            NotificationSystem.show('success', 'Progreso actualizado');
-        }
-        
-        function eliminarMeta(id) {
-            if (confirm('¿Estás seguro de eliminar esta meta?')) {
-                const metaElement = document.getElementById(`meta-${id}`);
-                if (metaElement) {
-                    metaElement.remove();
-                    NotificationSystem.show('info', 'Meta eliminada');
-                }
-            }
         }
         
         // ===== INICIALIZACIÓN =====
         window.onload = function() {
-            // Configurar modo oscuro desde localStorage
             const darkMode = localStorage.getItem('darkMode') === 'true';
             if (darkMode) {
                 document.body.classList.add('dark-mode');
                 document.getElementById('darkModeToggle').innerHTML = '☀️';
             }
             
-            // Ejecutar cálculos iniciales
             actualizarSimulacion();
             calcularJubilacion();
             simularDeuda();
             calcularImpuestos();
             simularPortafolio();
             
-            // Event listeners para actualización en tiempo real
             const inputsSimulacion = ['inicial', 'mensual', 'anios', 'tasa', 'inflacion'];
             inputsSimulacion.forEach(id => {
                 document.getElementById(id).addEventListener('input', () => {
@@ -2107,25 +1780,23 @@
                 });
             });
             
-            // Botón modo oscuro
             document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
             
-            // Formulario de boletín
             const newsletterForm = document.querySelector('.newsletter-form');
             if (newsletterForm) {
                 newsletterForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    NotificationSystem.show('success', `¡Gracias por suscribirte ${email.split('@')[0]}! Pronto recibirás nuestro contenido exclusivo.`);
+                    NotificationSystem.show('success', '¡Gracias por suscribirte!');
                     this.reset();
                 });
             }
             
-            NotificationSystem.show('info', 'Finanzas Élite cargado correctamente. ¡Comienza a usar nuestras herramientas!');
+            NotificationSystem.show('info', 'Finanzas Élite cargado correctamente');
         };
     </script>
 </body>
 </html>
+
 
 
 
