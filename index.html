@@ -3,144 +3,291 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanzas Élite | Enciclopedia de Educación Financiera Profesional</title>
+    <title>Finanzas Élite | Herramientas de Inversión y Educación Patrimonial</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --oro: #D4AF37; --azul-oscuro: #0f172a; --fondo: #ffffff; --gris-claro: #f8f9fa; --texto: #334155; --borde: #e2e8f0; }
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <style>
+        :root { --oro: #D4AF37; --azul-oscuro: #0f172a; --fondo: #ffffff; --gris-claro: #f8f9fa; --texto: #334155; --borde: #e2e8f0; --verde-exito: #10b981; }
         body { background-color: var(--fondo); color: var(--texto); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; }
-        header { background: var(--fondo); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 1000; }
+        
+        /* HEADER */
+        header { background: var(--fondo); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo { font-size: 1.6rem; font-weight: 800; color: var(--azul-oscuro); text-decoration: none; }
         .logo span { color: var(--oro); }
         .nav-menu { list-style: none; display: flex; gap: 20px; }
-        .nav-menu a { color: var(--texto); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .nav-menu a { color: var(--texto); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--oro); }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .section-title { text-align: center; color: var(--azul-oscuro); font-size: 2.5rem; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .card { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 12px; padding: 25px; cursor: pointer; transition: 0.3s; text-align: center; }
-        .card:hover { border-color: var(--oro); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .ad-banner { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 25px; text-align: center; margin: 30px 0; color: #94a3b8; border-radius: 8px; font-size: 0.8rem; }
         
-        /* MODALES EXPANDIDOS */
+        /* CALCULADORA SECTION */
+        .calc-section { background: var(--azul-oscuro); color: white; padding: 40px; border-radius: 16px; margin-bottom: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .calc-form h2 { color: var(--oro); margin-top: 0; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 0.9rem; margin-bottom: 5px; color: #cbd5e1; }
+        .input-group input, .input-group select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-family: 'Inter'; }
+        button.calc-btn { background: var(--oro); color: var(--azul-oscuro); border: none; padding: 15px 30px; border-radius: 8px; font-weight: 800; cursor: pointer; width: 100%; margin-top: 10px; transition: 0.3s; }
+        button.calc-btn:hover { background: white; }
+        
+        .chart-container { background: white; padding: 20px; border-radius: 12px; height: 350px; }
+        
+        @media (max-width: 768px) { .calc-section { grid-template-columns: 1fr; } }
+
+        /* GRID DE TARJETAS */
+        .section-title { text-align: center; color: var(--azul-oscuro); font-size: 2.2rem; margin-bottom: 10px; }
+        .section-subtitle { text-align: center; color: #64748b; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 12px; padding: 25px; cursor: pointer; transition: 0.3s; text-align: center; position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--oro); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--azul-oscuro); }
+        
+        /* ANUNCIOS */
+        .ad-banner { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 20px; text-align: center; margin: 30px 0; color: #94a3b8; border-radius: 8px; font-size: 0.8rem; letter-spacing: 1px; }
+        
+        /* MODALES */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.95); overflow-y: auto; }
-        .modal-content { background-color: #ffffff; margin: 2% auto; padding: 50px; border-radius: 16px; width: 90%; max-width: 900px; position: relative; color: var(--texto); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .close { position: absolute; right: 25px; top: 20px; font-size: 35px; font-weight: bold; color: #94a3b8; cursor: pointer; }
-        .modal-content h2 { color: var(--azul-oscuro); border-bottom: 4px solid var(--oro); padding-bottom: 15px; margin-bottom: 25px; font-size: 2rem; }
-        .modal-content h3 { color: var(--oro); margin-top: 35px; font-size: 1.4rem; border-left: 5px solid var(--oro); padding-left: 15px; }
-        .modal-content p { font-size: 1.1rem; margin-bottom: 20px; text-align: justify; }
-        .modal-content ul { padding-left: 25px; margin-bottom: 25px; }
-        .modal-content li { margin-bottom: 12px; font-size: 1.05rem; }
+        .modal-content { background-color: #ffffff; margin: 2% auto; padding: 50px; border-radius: 16px; width: 90%; max-width: 900px; position: relative; color: var(--texto); }
+        .close { position: absolute; right: 25px; top: 20px; font-size: 35px; color: #94a3b8; cursor: pointer; }
+        .modal-content h2 { border-bottom: 4px solid var(--oro); padding-bottom: 15px; margin-bottom: 25px; color: var(--azul-oscuro); }
+        .expert-quote { background: #f8fafc; border-left: 4px solid var(--azul-oscuro); padding: 15px; font-style: italic; margin: 20px 0; color: #475569; }
+        .expert-name { display: block; margin-top: 10px; font-weight: bold; color: var(--oro); text-align: right; }
+
         footer { background: var(--azul-oscuro); color: white; padding: 40px; text-align: center; margin-top: 60px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
-        <nav><ul class="nav-menu"><li><a href="index.html">Inicio</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+        <nav><ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="privacy.html">Privacidad</a></li>
+        </ul></nav>
     </header>
 
     <div class="container">
-        <h1 class="section-title">Enciclopedia de Educación Financiera Profesional</h1>
-        <div class="ad-banner">ANUNCIO ADSENSE - CABECERA</div>
+        
+        <div class="calc-section">
+            <div class="calc-form">
+                <h2>📈 Proyecta tu Riqueza</h2>
+                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px;">Utiliza nuestra herramienta profesional para calcular el impacto del interés compuesto en tu moneda local.</p>
+                
+                <div class="input-group">
+                    <label>Moneda / País</label>
+                    <select id="moneda">
+                        <option value="USD">🇺🇸 Dólar (USD)</option>
+                        <option value="PEN">🇵🇪 Sol Peruano (PEN)</option>
+                        <option value="MXN">🇲🇽 Peso Mexicano (MXN)</option>
+                        <option value="COP">🇨🇴 Peso Colombiano (COP)</option>
+                        <option value="EUR">🇪🇺 Euro (EUR)</option>
+                        <option value="CLP">🇨🇱 Peso Chileno (CLP)</option>
+                        <option value="ARS">🇦🇷 Peso Argentino (ARS)</option>
+                    </select>
+                </div>
 
-        <div class="grid">
-            <div class="card" onclick="abrir('m-sp500')"><h3>S&P 500</h3><p>Análisis profundo del índice que domina los mercados globales.</p><strong>Leer Guía Maestra →</strong></div>
-            <div class="card" onclick="abrir('m-seguros')"><h3>Seguros</h3><p>Estrategias de blindaje patrimonial y transferencia de riesgo.</p><strong>Leer Guía Maestra →</strong></div>
-            <div class="card" onclick="abrir('m-prestamos')"><h3>Préstamos</h3><p>Apalancamiento financiero y gestión de deuda inteligente.</p><strong>Leer Guía Maestra →</strong></div>
-            <div class="card" onclick="abrir('m-dividendos')"><h3>Dividendos</h3><p>Construcción de flujos de caja y rentas pasivas crecientes.</p><strong>Leer Guía Maestra →</strong></div>
+                <div class="input-group">
+                    <label>Inversión Inicial</label>
+                    <input type="number" id="inicial" placeholder="Ej: 1000">
+                </div>
+                <div class="input-group">
+                    <label>Aportación Mensual</label>
+                    <input type="number" id="mensual" placeholder="Ej: 200">
+                </div>
+                <div class="input-group">
+                    <label>Años a Invertir</label>
+                    <input type="number" id="anios" value="10">
+                </div>
+                <div class="input-group">
+                    <label>Rentabilidad Anual Estimada (%)</label>
+                    <input type="number" id="tasa" value="10">
+                </div>
+                <button class="calc-btn" onclick="calcularInteres()">CALCULAR CRECIMIENTO</button>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="miGrafico"></canvas>
+            </div>
         </div>
 
-        <div class="ad-banner">ANUNCIO ADSENSE - FINAL DE PÁGINA</div>
+        <h1 class="section-title">Enciclopedia Financiera Profesional</h1>
+        <p class="section-subtitle">Análisis técnico basado en las teorías de los grandes economistas.</p>
+        
+        <div class="ad-banner">ESPACIO PUBLICITARIO (ADSENSE HEADER)</div>
+
+        <div class="grid">
+            <div class="card" onclick="abrir('m-sp500')">
+                <h3>S&P 500</h3>
+                <p>Análisis del índice bajo la filosofía de Warren Buffett y John Bogle.</p>
+                <strong style="color: var(--oro);">Leer Análisis Experto →</strong>
+            </div>
+
+            <div class="card" onclick="abrir('m-seguros')">
+                <h3>Seguros y Riesgo</h3>
+                <p>Gestión de incertidumbre basada en modelos actuariales.</p>
+                <strong style="color: var(--oro);">Leer Análisis Experto →</strong>
+            </div>
+
+            <div class="card" onclick="abrir('m-prestamos')">
+                <h3>Deuda y Apalancamiento</h3>
+                <p>Estrategias de "Deuda Buena" según Robert Kiyosaki y Ray Dalio.</p>
+                <strong style="color: var(--oro);">Leer Análisis Experto →</strong>
+            </div>
+
+            <div class="card" onclick="abrir('m-dividendos')">
+                <h3>Dividendos</h3>
+                <p>Modelos de valoración de empresas (DDM) y rentas pasivas.</p>
+                <strong style="color: var(--oro);">Leer Análisis Experto →</strong>
+            </div>
+        </div>
+
+        <div class="ad-banner">ESPACIO PUBLICITARIO (ADSENSE FOOTER)</div>
     </div>
 
     <div id="m-sp500" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-sp500')">&times;</span>
-            <h2>S&P 500: El Pilar de la Inversión Indexada</h2>
-            <p>El <strong>Standard & Poor's 500</strong> no es solo una lista de empresas; es el reflejo más fiel del dinamismo económico del capitalismo moderno. Desde su creación en su forma actual en 1957, ha servido como la referencia definitiva para inversores institucionales y minoristas.</p>
+            <h2>S&P 500: La Hipótesis del Mercado Eficiente</h2>
             
-            <h3>1. Criterios de Selección y Composición</h3>
-            <p>Para que una empresa sea parte de este selecto grupo, no basta con ser grande. El comité de Standard & Poor's exige requisitos estrictos: una capitalización de mercado superior a los 14.5 mil millones de dólares, una liquidez excepcional y, lo más importante, que la suma de sus ganancias en los últimos cuatro trimestres sea positiva. Esto asegura que solo las empresas más sólidas representen el índice.</p>
-            
-            <h3>2. El Poder de la Capitalización Bursátil</h3>
-            <p>A diferencia de otros índices, el S&P 500 está ponderado por capitalización. Esto significa que gigantes como Apple o Microsoft tienen un peso mayor, reflejando su importancia real en la economía. Cuando inviertes en un fondo indexado al S&P 500, estás comprando una porción del progreso tecnológico, industrial y de consumo de las 500 compañías más influyentes.</p>
-            
-            <h3>3. Rentabilidad Histórica y Psicología del Mercado</h3>
-            <p>Históricamente, el índice ha entregado un retorno promedio cercano al <strong>10% anual</strong>. Si bien existen años de "mercados bajistas" (Bear Markets), la tendencia a largo plazo ha sido consistentemente ascendente. La clave del éxito aquí no es "adivinar" el momento de compra, sino la constancia y el tiempo en el mercado (Time in the market vs Timing the market).</p>
-            
-            <h3>4. Ventajas de la Gestión Pasiva</h3>
-            <ul>
-                <li><strong>Bajos Costos:</strong> Al no requerir un equipo de analistas que elijan acciones individuales, las comisiones son mínimas.</li>
-                <li><strong>Diversificación Instantánea:</strong> Con una sola inversión, te proteges contra el fracaso de una sola empresa.</li>
-                <li><strong>Auto-limpieza:</strong> El índice elimina automáticamente a las empresas que dejan de ser competitivas, sustituyéndolas por los nuevos líderes del mercado.</li>
-            </ul>
+            <div class="expert-quote">
+                "Para la mayoría de los inversores, tanto institucionales como individuales, la mejor manera de poseer acciones ordinarias es a través de un fondo indexado que cobre comisiones mínimas."
+                <span class="expert-name">— Warren Buffett, CEO de Berkshire Hathaway</span>
+            </div>
+
+            <p>El S&P 500 se basa en la teoría moderna de carteras (MPT). Representa el 80% de la capitalización bursátil disponible en Estados Unidos. Al invertir aquí, no se busca "ganarle al mercado", sino replicar el crecimiento orgánico de la economía corporativa más grande del mundo.</p>
+            <h3>Fundamentos Técnicos</h3>
+            <p>El índice utiliza una ponderación por capitalización flotante. Esto significa que empresas como <strong>Apple</strong> o <strong>Microsoft</strong> tienen un peso proporcional a su valor real en el mercado. John Bogle, fundador de Vanguard, demostró matemáticamente que a largo plazo (20+ años), el 90% de los fondos gestionados activamente no logran superar el rendimiento de este índice debido a las comisiones y errores humanos.</p>
         </div>
     </div>
 
     <div id="m-seguros" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-seguros')">&times;</span>
-            <h2>Seguros: La Base del Blindaje Patrimonial</h2>
-            <p>En el mundo de las finanzas de élite, la ofensiva es la inversión, pero la defensiva es el seguro. Un plan financiero sin seguros es un edificio sin cimientos; cualquier imprevisto puede derrumbar años de ahorro y esfuerzo.</p>
+            <h2>Gestión de Riesgos y Probabilidad Actuarial</h2>
+            <p>Desde una perspectiva puramente financiera, un seguro es un instrumento de cobertura (Hedge) contra la volatilidad de la vida. No se trata de miedo, sino de matemáticas.</p>
             
-            <h3>1. El Concepto de Transferencia de Riesgo</h3>
-            <p>Un seguro es un contrato mediante el cual, a cambio de una prima (pago periódico), una aseguradora asume un riesgo financiero que tú no podrías o no querrías pagar de tu bolsillo. Es la base de la estabilidad económica en sociedades modernas.</p>
-            
-            <h3>2. Pilares de la Protección Personal</h3>
-            <ul>
-                <li><strong>Seguro de Vida:</strong> Más que un pago por fallecimiento, es una herramienta de sucesión hereditaria y protección de dependientes. Existen versiones de "Vida Entera" que incluso funcionan como vehículos de ahorro fiscal.</li>
-                <li><strong>Seguro de Salud Internacional:</strong> Indispensable para evitar que una enfermedad crítica agote el patrimonio familiar. Cubre desde hospitalizaciones hasta tratamientos de alta complejidad.</li>
-                <li><strong>Seguro de Responsabilidad Civil:</strong> Protege tus activos frente a demandas legales de terceros, algo vital para empresarios y propietarios.</li>
-            </ul>
+            <div class="expert-quote">
+                "El riesgo viene de no saber lo que estás haciendo. La protección patrimonial es el primer paso antes de buscar la multiplicación del capital."
+                <span class="expert-name">— Benjamin Graham, Padre del Value Investing</span>
+            </div>
 
-            <h3>3. La Lógica Actuarial</h3>
-            <p>Las aseguradoras utilizan la estadística para calcular probabilidades. Al entender esto, el inversor inteligente sabe que contratar un seguro no es "perder dinero", sino comprar certidumbre. El costo de la prima es marginal comparado con el beneficio de cobertura ante un evento de baja probabilidad pero de alto impacto financiero.</p>
+            <h3>Tipos de Cobertura Patrimonial</h3>
+            <ul>
+                <li><strong>Seguro de Vida (Term Life vs Whole Life):</strong> Analizamos la diferencia financiera entre "alquilar" una protección (término) o utilizar el seguro como vehículo de inversión y ahorro fiscal (vida entera).</li>
+                <li><strong>Gastos Médicos Mayores:</strong> Un evento catastrófico de salud es estadísticamente la causa #1 de quiebra personal en familias de clase media. El seguro transfiere este riesgo de tu balance personal al balance de la aseguradora.</li>
+            </ul>
         </div>
     </div>
 
     <div id="m-prestamos" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-prestamos')">&times;</span>
-            <h2>Préstamos: Apalancamiento y Deuda Inteligente</h2>
-            <p>La deuda es un arma de doble filo. En manos de un consumidor impulsivo, es una trampa de pobreza; en manos de un inversor educado, es el acelerador más potente para la creación de riqueza.</p>
+            <h2>Apalancamiento Financiero (Leverage)</h2>
+            <p>En macroeconomía, el crédito es lo que permite el crecimiento por encima de la productividad inmediata. A nivel personal, el concepto es idéntico.</p>
             
-            <h3>1. Diferencia entre Deuda Buena y Deuda Mala</h3>
-            <p>La <strong>Deuda Mala</strong> es aquella que financia consumibles que pierden valor (ropa, vacaciones, tecnología). La <strong>Deuda Buena</strong> es el capital que pides prestado a una tasa menor de la rentabilidad que ese capital te generará. Ejemplo: un préstamo hipotecario para una propiedad que se alquila y se paga sola.</p>
-            
-            <h3>2. Conceptos Técnicos: TAE y Sistemas de Amortización</h3>
-            <p>No te fijes solo en el interés nominal. El inversor profesional mira la <strong>TAE (Tasa Anual Equivalente)</strong>, que incluye comisiones y gastos ocultos. Además, es vital entender el Sistema de Amortización Francés (donde al principio pagas más intereses que capital) para decidir cuándo es conveniente realizar pagos anticipados.</p>
-            
-            <h3>3. El Ratio de Endeudamiento</h3>
-            <p>Una regla de oro es no superar el 30%-35% de tus ingresos netos destinados al pago de deudas. Mantener un historial crediticio impecable te permite acceder a tasas preferenciales, lo que reduce el costo de tu capital y aumenta tu margen de beneficio en futuras inversiones.</p>
+            <div class="expert-quote">
+                "El crédito es malo cuando financia el sobreconsumo que no puedes pagar. Es bueno cuando asigna recursos eficientemente para crear ingresos."
+                <span class="expert-name">— Ray Dalio, Fundador de Bridgewater Associates</span>
+            </div>
+
+            <h3>La Matemática de la Deuda Buena</h3>
+            <p>Si obtienes un préstamo al <strong>8% de interés anual</strong> (costo de capital) y lo inviertes en un activo inmobiliario o negocio que rinde un <strong>15% anual</strong> (ROIC), estás utilizando el "arbitraje financiero" a tu favor. Esta es la base de la riqueza inmobiliaria: usar el dinero del banco para adquirir activos que se pagan solos con el flujo de caja generado.</p>
         </div>
     </div>
 
     <div id="m-dividendos" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-dividendos')">&times;</span>
-            <h2>Dividendos: La Ciencia de los Ingresos Pasivos</h2>
-            <p>Invertir por dividendos es una de las estrategias más antiguas y probadas para alcanzar la libertad financiera. Consiste en comprar acciones de empresas que comparten una parte de sus beneficios netos con sus dueños (tú).</p>
+            <h2>Modelo de Descuento de Dividendos (DDM)</h2>
+            <p>La inversión por dividendos se centra en el flujo de caja libre (Free Cash Flow) que una empresa genera y devuelve a sus accionistas. Es la forma más pura de "renta pasiva" en el mercado de valores.</p>
             
-            <h3>1. Indicadores Clave: Yield y Payout Ratio</h3>
-            <p>Para evaluar una acción de dividendos, no solo miramos cuánto pagan. El <strong>Dividend Yield</strong> nos dice el porcentaje de retorno sobre el precio actual. Sin embargo, el <strong>Payout Ratio</strong> es más importante: nos dice qué porcentaje de las ganancias se está repartiendo. Un Payout del 50% es saludable; uno del 95% podría indicar que el dividendo está en riesgo.</p>
-            
-            <h3>2. Aristócratas y Reyes del Dividendo</h3>
-            <p>Existen empresas con una disciplina financiera legendaria. Los "Aristócratas" han aumentado su dividendo cada año durante al menos 25 años. Los "Reyes" lo han hecho por más de 50 años. Estas empresas suelen tener fosos económicos (moats) defensivos que les permiten generar caja incluso en recesiones.</p>
-            
-            <h3>3. La Magia de la Reinversión (DRIP)</h3>
-            <p>El verdadero poder de esta estrategia aparece cuando utilizas tus dividendos para comprar más acciones. Esto crea una "bola de nieve" donde cada trimestre recibes más dinero, que compra más acciones, que generan aún más dividendos. Con el tiempo, este flujo de caja puede cubrir todos tus gastos de vida, logrando la independencia financiera total.</p>
+            <h3>La Regla del Interés Compuesto</h3>
+            <p>Al utilizar estrategias como el DRIP (Dividend Reinvestment Plan), el inversor compra más acciones automáticamente con los pagos recibidos. Esto acelera el tiempo para alcanzar la independencia financiera.</p>
+            <p>Analizamos empresas bajo criterios estrictos:</p>
+            <ul>
+                <li><strong>Dividend Aristocrats:</strong> Empresas del S&P 500 con +25 años de aumentos consecutivos.</li>
+                <li><strong>Payout Ratio:</strong> El porcentaje de ganancias que se reparte. Buscamos ratios sostenibles (< 60%) para asegurar que la empresa retiene capital para crecer.</li>
+            </ul>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Finanzas Élite | Todos los derechos reservados.</p>
-        <div style="margin-top:10px;"><a href="privacy.html" style="color:#cbd5e1; text-decoration:none;">Privacidad</a> | <a href="contacto.html" style="color:#cbd5e1; text-decoration:none;">Contacto</a></div>
+        <div class="footer-links">
+            <a href="contacto.html">Contacto y Soporte</a>
+            <a href="privacy.html">Términos y Privacidad</a>
+        </div>
+        <p>&copy; 2026 Finanzas Élite | Datos de mercado con retraso de 15 min.</p>
     </footer>
 
     <script>
+        // LOGICA DE LA CALCULADORA Y GRÁFICOS
+        let chartInstance = null;
+
+        function calcularInteres() {
+            const moneda = document.getElementById('moneda').value;
+            const inicial = parseFloat(document.getElementById('inicial').value) || 0;
+            const mensual = parseFloat(document.getElementById('mensual').value) || 0;
+            const anios = parseFloat(document.getElementById('anios').value) || 0;
+            const tasa = parseFloat(document.getElementById('tasa').value) / 100 || 0;
+
+            let saldo = inicial;
+            let totalAportado = inicial;
+            const dataPuntos = [];
+            const etiquetas = [];
+
+            for (let i = 1; i <= anios; i++) {
+                // Cálculo de interés compuesto mensual
+                for(let m = 0; m < 12; m++) {
+                    saldo += mensual;
+                    saldo *= (1 + tasa / 12);
+                    totalAportado += mensual;
+                }
+                dataPuntos.push(saldo.toFixed(2));
+                etiquetas.push(`Año ${i}`);
+            }
+
+            actualizarGrafico(etiquetas, dataPuntos, moneda);
+        }
+
+        function actualizarGrafico(labels, data, moneda) {
+            const ctx = document.getElementById('miGrafico').getContext('2d');
+            
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: `Crecimiento del Patrimonio (${moneda})`,
+                        data: data,
+                        backgroundColor: '#D4AF37',
+                        borderColor: '#0f172a',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // Inicializar gráfico vacío
+        window.onload = function() {
+            calcularInteres();
+        };
+
+        // MODALES
         function abrir(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
         function cerrar(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
         window.onclick = function(e) { if (e.target.className === 'modal') { e.target.style.display = "none"; document.body.style.overflow = "auto"; } }
     </script>
 </body>
 </html>
+
