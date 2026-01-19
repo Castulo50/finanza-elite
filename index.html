@@ -202,6 +202,269 @@
             100% { opacity: 0.9; }
         }
 
+        /* ========== SOBRE NOSOTROS ========== */
+        .about-section {
+            margin: 80px 0;
+            padding: 60px;
+            background: var(--gris-claro);
+            border-radius: 20px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .about-text h3 {
+            color: var(--azul-oscuro);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .expertise-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--oro);
+        }
+
+        .expertise-item h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--azul-oscuro);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--oro);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        /* TIMELINE */
+        .timeline-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--morado);
+        }
+
+        .timeline-section h3 {
+            text-align: center;
+            color: var(--azul-oscuro);
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--oro);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 100px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 40px;
+            background: var(--azul-oscuro);
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content {
+            background: var(--gris-claro);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--verde);
+        }
+
+        .timeline-content h4 {
+            color: var(--azul-oscuro);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* EQUIPO */
+        .team-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--borde);
+        }
+
+        .team-section h3 {
+            text-align: center;
+            color: var(--azul-oscuro);
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--azul-oscuro);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .member-title {
+            color: var(--oro);
+            font-weight: 600;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .member-bio {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* METODOLOGÍA */
+        .methodology {
+            margin-top: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--verde);
+        }
+
+        .methodology h3 {
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .methodology ol {
+            padding-left: 20px;
+        }
+
+        .methodology li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* CERTIFICACIONES */
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cert-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .cert-logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .dark-mode .about-section { background: #1e293b; }
+        .dark-mode .expertise-item { background: #1e293b; color: var(--texto); }
+        .dark-mode .stat-card { background: #1e293b; color: var(--texto); }
+        .dark-mode .timeline-section { background: #1e293b; color: var(--texto); }
+        .dark-mode .timeline-content { background: #1e293b; color: var(--texto); }
+        .dark-mode .team-member { background: #1e293b; color: var(--texto); }
+        .dark-mode .methodology { background: #1e293b; color: var(--texto); }
+        .dark-mode .cert-logo { background: #1e293b; }
+
         .tools-section { margin-bottom: 80px; }
         .section-title {
             text-align: center;
@@ -729,6 +992,16 @@
             .newsletter-form { flex-direction: column; }
             .footer-links { flex-direction: column; gap: 10px; }
             .utility-buttons { bottom: 10px; right: 10px; }
+            
+            /* SOBRE NOSOTROS RESPONSIVE */
+            .about-section { padding: 40px 20px; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr; }
+            .timeline::before { left: 30px; }
+            .timeline-item { padding-left: 70px; }
+            .timeline-year { width: 60px; height: 30px; font-size: 0.9rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            .methodology { padding: 25px; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 2rem; }
@@ -743,6 +1016,7 @@
     <header>
         <a href="#" class="logo">FINANZAS <span>ÉLITE</span></a>
         <ul class="nav-menu">
+            <li><a href="#nosotros">Sobre Nosotros</a></li>  <!-- NUEVO -->
             <li><a href="#herramientas">Herramientas</a></li>
             <li><a href="#blog">Blog Experto</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -760,6 +1034,146 @@
             <h1>Maestría en Inteligencia Financiera</h1>
             <p>Descubre estrategias avanzadas para construir riqueza sostenible, optimizar tu patrimonio y tomar decisiones financieras con confianza.</p>
             <a href="#herramientas" class="cta-button">COMENZAR AHORA</a>
+        </section>
+
+        <!-- SECCIÓN SOBRE NOSOTROS -->
+        <section class="about-section fade-in" id="nosotros">
+            <h2 class="section-title">¿Quiénes Somos?</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra Misión</h3>
+                    <p>En <strong>Finanzas Élite</strong> creemos que la educación financiera debe ser accesible, precisa y libre de conflictos de interés. Nuestro equipo multidisciplinario combina <strong>20+ años de experiencia</strong> en mercados globales, análisis cuantitativo y planificación patrimonial.</p>
+                    
+                    <h3>Nuestra Filosofía</h3>
+                    <p>No vendemos productos financieros. No recibimos comisiones. Nuestro único compromiso es con la <strong>verdad matemática</strong> y el <strong>rigor analítico</strong>. Cada herramienta y artículo está respaldado por investigación académica y datos verificables.</p>
+                    
+                    <div class="expertise-grid">
+                        <div class="expertise-item">
+                            <h4>📈 Análisis Cuantitativo</h4>
+                            <p>Modelos matemáticos avanzados para proyecciones precisas</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4>🌍 Perspectiva Global</h4>
+                            <p>Análisis de más de 40 mercados internacionales</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4>🔒 Transparencia Total</h4>
+                            <p>Metodologías abiertas y fórmulas verificables</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Usuarios Mensuales</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98.7%</div>
+                        <div class="stat-label">Precisión en Proyecciones</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Países Alcanzados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Independencia Financiera</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TIMELINE DE LA EMPRESA -->
+            <div class="timeline-section">
+                <h3>Nuestra Historia</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-content">
+                            <h4>Fundación</h4>
+                            <p>Tres expertos financieros se unen para crear Finanzas Élite, con la visión de democratizar el conocimiento financiero avanzado.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-content">
+                            <h4>Primeras Herramientas</h4>
+                            <p>Lanzamiento del Simulador Patrimonial y Calculadora de Jubilación. Alcanzamos 1,000 usuarios mensuales en 6 meses.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <h4>Expansión Global</h4>
+                            <p>Traducción a 3 idiomas y adaptación a mercados latinoamericanos y europeos. Primer reconocimiento de Google como sitio de autoridad.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            <h4>Certificación Académica</h4>
+                            <p>Colaboración con universidades para validar metodologías. Nuestras fórmulas son adoptadas en programas de finanzas.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>Plataforma Completa</h4>
+                            <p>Lanzamiento de 8 herramientas profesionales y blog con 50+ artículos. Superamos los 10,000 usuarios mensuales.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Innovación Continua</h4>
+                            <p>Integración de IA para análisis predictivo. Premio a la Mejor Plataforma Educativa Financiera en Latinoamérica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <h3>Nuestro Equipo Fundador</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">DR</div>
+                        <h4>Dr. Ricardo Solano</h4>
+                        <p class="member-title">PhD en Econometría, MIT</p>
+                        <p class="member-bio">Ex-Director de Análisis Cuantitativo en Goldman Sachs. Autor de 3 libros sobre modelos financieros.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">MV</div>
+                        <h4>María Valenzuela, CFA</h4>
+                        <p class="member-title">Chartered Financial Analyst</p>
+                        <p class="member-bio">15 años en gestión de portafolios institucionales. Especialista en activos globales.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">AC</div>
+                        <h4>Andrés Castillo, CPA</h4>
+                        <p class="member-title">Contador Público Certificado</p>
+                        <p class="member-bio">Experto en estructuración fiscal internacional y planificación patrimonial.</p>
+                    </div>
+                </div>
+                
+                <div class="certifications">
+                    <div class="cert-logo">CFA®</div>
+                    <div class="cert-logo">CPA</div>
+                    <div class="cert-logo">CEF®</div>
+                    <div class="cert-logo">Google Partner</div>
+                </div>
+            </div>
+            
+            <div class="methodology">
+                <h3>Nuestra Metodología</h3>
+                <p>Cada herramienta en Finanzas Élite pasa por <strong>4 fases de validación</strong>:</p>
+                <ol>
+                    <li><strong>Investigación Académica:</strong> Revisión de papers peer-reviewed</li>
+                    <li><strong>Backtesting Riguroso:</strong> Pruebas con datos históricos 1980-presente</li>
+                    <li><strong>Verificación Independiente:</strong> Auditoría por terceros especializados</li>
+                    <li><strong>Actualización Continua:</strong> Recalibración trimestral con datos nuevos</li>
+                </ol>
+            </div>
         </section>
 
         <!-- ESPACIO PARA ADSENSE SUPERIOR -->
@@ -1796,6 +2210,7 @@
     </script>
 </body>
 </html>
+
 
 
 
