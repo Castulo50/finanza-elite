@@ -3,256 +3,144 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanzas Élite | Estrategias de Patrimonio y Libertad Financiera</title>
+    <title>Finanzas Élite | Enciclopedia de Educación Financiera Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --oro: #D4AF37;
-            --azul-oscuro: #0f172a;
-            --fondo: #ffffff;
-            --gris-claro: #f8f9fa;
-            --texto: #334155;
-            --borde: #e2e8f0;
-        }
-
-        body {
-            background-color: var(--fondo);
-            color: var(--texto);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* --- NAVEGACIÓN --- */
-        header {
-            background: var(--fondo);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--borde);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        :root { --oro: #D4AF37; --azul-oscuro: #0f172a; --fondo: #ffffff; --gris-claro: #f8f9fa; --texto: #334155; --borde: #e2e8f0; }
+        body { background-color: var(--fondo); color: var(--texto); font-family: 'Inter', sans-serif; margin: 0; line-height: 1.7; }
+        header { background: var(--fondo); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.6rem; font-weight: 800; color: var(--azul-oscuro); text-decoration: none; }
         .logo span { color: var(--oro); }
-        
-        .nav-menu { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
-        .nav-menu a { color: var(--texto); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-menu a:hover { color: var(--oro); }
-
-        /* --- CONTENIDO PRINCIPAL --- */
+        .nav-menu { list-style: none; display: flex; gap: 20px; }
+        .nav-menu a { color: var(--texto); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .section-title { text-align: center; color: var(--azul-oscuro); font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
-        .section-subtitle { text-align: center; color: #64748b; margin-bottom: 40px; font-size: 1.1rem; }
-
-        /* --- GRID DE TARJETAS --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card {
-            background: var(--gris-claro);
-            border: 1px solid var(--borde);
-            border-radius: 12px;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .card:hover {
-            border-color: var(--oro);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        .card h3 { color: var(--azul-oscuro); margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { font-size: 0.95rem; color: #64748b; }
-
-        /* --- ESPACIOS DE ANUNCIOS (ADSENSE) --- */
-        .ad-banner {
-            background: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            padding: 30px;
-            text-align: center;
-            margin: 40px 0;
-            color: #94a3b8;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        /* --- MODALES (VENTANAS EMERGENTES) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.9);
-            overflow-y: auto;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 5% auto;
-            padding: 40px;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 800px;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            color: var(--texto);
-        }
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 15px;
-            font-size: 35px;
-            font-weight: bold;
-            color: #94a3b8;
-            cursor: pointer;
-        }
-        .close:hover { color: var(--oro); }
-
-        /* Estilos de texto dentro del modal */
-        .modal-content h2 { color: var(--azul-oscuro); border-bottom: 3px solid var(--oro); padding-bottom: 15px; margin-bottom: 25px; }
-        .modal-content h3 { color: var(--oro); margin-top: 30px; border-left: 4px solid var(--oro); padding-left: 15px; }
-        .modal-content p { font-size: 1.05rem; margin-bottom: 15px; text-align: justify; }
-        .modal-content ul { padding-left: 20px; margin-bottom: 20px; }
-        .modal-content li { margin-bottom: 10px; }
-        .highlight { color: var(--oro); font-weight: bold; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--azul-oscuro); color: white; padding: 50px 5%; text-align: center; margin-top: 60px; }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .footer-links a { color: #cbd5e1; text-decoration: none; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--oro); }
+        .section-title { text-align: center; color: var(--azul-oscuro); font-size: 2.5rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 12px; padding: 25px; cursor: pointer; transition: 0.3s; text-align: center; }
+        .card:hover { border-color: var(--oro); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .ad-banner { background: #f1f5f9; border: 2px dashed #cbd5e1; padding: 25px; text-align: center; margin: 30px 0; color: #94a3b8; border-radius: 8px; font-size: 0.8rem; }
+        
+        /* MODALES EXPANDIDOS */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.95); overflow-y: auto; }
+        .modal-content { background-color: #ffffff; margin: 2% auto; padding: 50px; border-radius: 16px; width: 90%; max-width: 900px; position: relative; color: var(--texto); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .close { position: absolute; right: 25px; top: 20px; font-size: 35px; font-weight: bold; color: #94a3b8; cursor: pointer; }
+        .modal-content h2 { color: var(--azul-oscuro); border-bottom: 4px solid var(--oro); padding-bottom: 15px; margin-bottom: 25px; font-size: 2rem; }
+        .modal-content h3 { color: var(--oro); margin-top: 35px; font-size: 1.4rem; border-left: 5px solid var(--oro); padding-left: 15px; }
+        .modal-content p { font-size: 1.1rem; margin-bottom: 20px; text-align: justify; }
+        .modal-content ul { padding-left: 25px; margin-bottom: 25px; }
+        .modal-content li { margin-bottom: 12px; font-size: 1.05rem; }
+        footer { background: var(--azul-oscuro); color: white; padding: 40px; text-align: center; margin-top: 60px; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">FINANZAS <span>ÉLITE</span></a>
-        <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="privacy.html">Privacidad</a></li>
-        </ul>
+        <nav><ul class="nav-menu"><li><a href="index.html">Inicio</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
     </header>
 
     <div class="container">
-        <h1 class="section-title">Enciclopedia Financiera Profesional</h1>
-        <p class="section-subtitle">Aprende a gestionar tu patrimonio con información de alto valor.</p>
-        
-        <div class="ad-banner">BLOQUE DE ANUNCIO SUPERIOR (ADSENSE READY)</div>
+        <h1 class="section-title">Enciclopedia de Educación Financiera Profesional</h1>
+        <div class="ad-banner">ANUNCIO ADSENSE - CABECERA</div>
 
         <div class="grid">
-            <div class="card" onclick="abrir('m-sp500')">
-                <h3>S&P 500</h3>
-                <p>El barómetro del capitalismo global y el crecimiento a largo plazo.</p>
-                <strong style="color: var(--oro);">Leer guía completa →</strong>
-            </div>
-
-            <div class="card" onclick="abrir('m-seguros')">
-                <h3>Seguros</h3>
-                <p>Protección inteligente y blindaje de tu patrimonio familiar.</p>
-                <strong style="color: var(--oro);">Leer guía completa →</strong>
-            </div>
-
-            <div class="card" onclick="abrir('m-prestamos')">
-                <h3>Préstamos</h3>
-                <p>Uso estratégico del apalancamiento y deuda inteligente.</p>
-                <strong style="color: var(--oro);">Leer guía completa →</strong>
-            </div>
-
-            <div class="card" onclick="abrir('m-dividendos')">
-                <h3>Dividendos</h3>
-                <p>Construcción de flujos de caja e ingresos pasivos reales.</p>
-                <strong style="color: var(--oro);">Leer guía completa →</strong>
-            </div>
+            <div class="card" onclick="abrir('m-sp500')"><h3>S&P 500</h3><p>Análisis profundo del índice que domina los mercados globales.</p><strong>Leer Guía Maestra →</strong></div>
+            <div class="card" onclick="abrir('m-seguros')"><h3>Seguros</h3><p>Estrategias de blindaje patrimonial y transferencia de riesgo.</p><strong>Leer Guía Maestra →</strong></div>
+            <div class="card" onclick="abrir('m-prestamos')"><h3>Préstamos</h3><p>Apalancamiento financiero y gestión de deuda inteligente.</p><strong>Leer Guía Maestra →</strong></div>
+            <div class="card" onclick="abrir('m-dividendos')"><h3>Dividendos</h3><p>Construcción de flujos de caja y rentas pasivas crecientes.</p><strong>Leer Guía Maestra →</strong></div>
         </div>
 
-        <div class="ad-banner">BLOQUE DE ANUNCIO INFERIOR (ADSENSE READY)</div>
+        <div class="ad-banner">ANUNCIO ADSENSE - FINAL DE PÁGINA</div>
     </div>
 
     <div id="m-sp500" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-sp500')">&times;</span>
-            <h2>S&P 500: El Barómetro del Capitalismo Global</h2>
-            <p>El <strong>S&P 500 (Standard & Poor’s 500)</strong> es el índice bursátil más influyente del mundo. Agrupa a las 500 corporaciones líderes de EE.UU., representando el motor real de la economía global.</p>
-            <h3>📌 ¿Cómo funciona el índice?</h3>
-            <p>No es una lista estática. Las empresas deben cumplir filtros de <span class="highlight">capitalización bursátil</span> y rentabilidad. Esto crea un sistema de auto-renovación: las empresas débiles salen y los nuevos líderes entran automáticamente.</p>
-            <h3>💰 Rentabilidad e Interés Compuesto</h3>
-            <p>Con un retorno histórico promedio del <strong>10% anual</strong>, es la herramienta preferida para crear riqueza. Un inversor que reinvierte sus ganancias puede duplicar su capital cada década gracias al poder del interés compuesto.</p>
+            <h2>S&P 500: El Pilar de la Inversión Indexada</h2>
+            <p>El <strong>Standard & Poor's 500</strong> no es solo una lista de empresas; es el reflejo más fiel del dinamismo económico del capitalismo moderno. Desde su creación en su forma actual en 1957, ha servido como la referencia definitiva para inversores institucionales y minoristas.</p>
+            
+            <h3>1. Criterios de Selección y Composición</h3>
+            <p>Para que una empresa sea parte de este selecto grupo, no basta con ser grande. El comité de Standard & Poor's exige requisitos estrictos: una capitalización de mercado superior a los 14.5 mil millones de dólares, una liquidez excepcional y, lo más importante, que la suma de sus ganancias en los últimos cuatro trimestres sea positiva. Esto asegura que solo las empresas más sólidas representen el índice.</p>
+            
+            <h3>2. El Poder de la Capitalización Bursátil</h3>
+            <p>A diferencia de otros índices, el S&P 500 está ponderado por capitalización. Esto significa que gigantes como Apple o Microsoft tienen un peso mayor, reflejando su importancia real en la economía. Cuando inviertes en un fondo indexado al S&P 500, estás comprando una porción del progreso tecnológico, industrial y de consumo de las 500 compañías más influyentes.</p>
+            
+            <h3>3. Rentabilidad Histórica y Psicología del Mercado</h3>
+            <p>Históricamente, el índice ha entregado un retorno promedio cercano al <strong>10% anual</strong>. Si bien existen años de "mercados bajistas" (Bear Markets), la tendencia a largo plazo ha sido consistentemente ascendente. La clave del éxito aquí no es "adivinar" el momento de compra, sino la constancia y el tiempo en el mercado (Time in the market vs Timing the market).</p>
+            
+            <h3>4. Ventajas de la Gestión Pasiva</h3>
+            <ul>
+                <li><strong>Bajos Costos:</strong> Al no requerir un equipo de analistas que elijan acciones individuales, las comisiones son mínimas.</li>
+                <li><strong>Diversificación Instantánea:</strong> Con una sola inversión, te proteges contra el fracaso de una sola empresa.</li>
+                <li><strong>Auto-limpieza:</strong> El índice elimina automáticamente a las empresas que dejan de ser competitivas, sustituyéndolas por los nuevos líderes del mercado.</li>
+            </ul>
         </div>
     </div>
 
     <div id="m-seguros" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-seguros')">&times;</span>
-            <h2>Seguros: Protección y Blindaje Financiero</h2>
-            <p>Un seguro no es un costo, es una <strong>herramienta de transferencia de riesgo</strong>. Su objetivo es proteger tu patrimonio y tu salud ante imprevistos que podrían causar una quiebra personal.</p>
-            <h3>🛡️ Tipos de Protección Crítica</h3>
+            <h2>Seguros: La Base del Blindaje Patrimonial</h2>
+            <p>En el mundo de las finanzas de élite, la ofensiva es la inversión, pero la defensiva es el seguro. Un plan financiero sin seguros es un edificio sin cimientos; cualquier imprevisto puede derrumbar años de ahorro y esfuerzo.</p>
+            
+            <h3>1. El Concepto de Transferencia de Riesgo</h3>
+            <p>Un seguro es un contrato mediante el cual, a cambio de una prima (pago periódico), una aseguradora asume un riesgo financiero que tú no podrías o no querrías pagar de tu bolsillo. Es la base de la estabilidad económica en sociedades modernas.</p>
+            
+            <h3>2. Pilares de la Protección Personal</h3>
             <ul>
-                <li><strong>Vida:</strong> Garantiza que tu familia mantenga su nivel de vida ante tu ausencia.</li>
-                <li><strong>Salud:</strong> Evita que gastos médicos catastróficos destruyan tus ahorros.</li>
-                <li><strong>Hogar e Inversión:</strong> Protege tus activos físicos contra desastres naturales.</li>
+                <li><strong>Seguro de Vida:</strong> Más que un pago por fallecimiento, es una herramienta de sucesión hereditaria y protección de dependientes. Existen versiones de "Vida Entera" que incluso funcionan como vehículos de ahorro fiscal.</li>
+                <li><strong>Seguro de Salud Internacional:</strong> Indispensable para evitar que una enfermedad crítica agote el patrimonio familiar. Cubre desde hospitalizaciones hasta tratamientos de alta complejidad.</li>
+                <li><strong>Seguro de Responsabilidad Civil:</strong> Protege tus activos frente a demandas legales de terceros, algo vital para empresarios y propietarios.</li>
             </ul>
+
+            <h3>3. La Lógica Actuarial</h3>
+            <p>Las aseguradoras utilizan la estadística para calcular probabilidades. Al entender esto, el inversor inteligente sabe que contratar un seguro no es "perder dinero", sino comprar certidumbre. El costo de la prima es marginal comparado con el beneficio de cobertura ante un evento de baja probabilidad pero de alto impacto financiero.</p>
         </div>
     </div>
 
     <div id="m-prestamos" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-prestamos')">&times;</span>
-            <h2>Préstamos: Apalancamiento Financiero Inteligente</h2>
-            <p>Un préstamo es el uso del <strong>dinero del futuro en el presente</strong>. Si se usa para adquirir activos que generen ingresos, se convierte en <span class="highlight">apalancamiento positivo</span>.</p>
-            <h3>🏠 Tipos de Deuda</h3>
-            <p><strong>Hipoteca:</strong> Financiación de bajo costo para construir patrimonio inmobiliario.</p>
-            <p><strong>Préstamo Personal:</strong> Útil para consolidar deudas o emergencias, pero requiere control por sus tasas más elevadas.</p>
-            <p><strong>Educación:</strong> Una de las mejores inversiones por su retorno en capital humano.</p>
+            <h2>Préstamos: Apalancamiento y Deuda Inteligente</h2>
+            <p>La deuda es un arma de doble filo. En manos de un consumidor impulsivo, es una trampa de pobreza; en manos de un inversor educado, es el acelerador más potente para la creación de riqueza.</p>
+            
+            <h3>1. Diferencia entre Deuda Buena y Deuda Mala</h3>
+            <p>La <strong>Deuda Mala</strong> es aquella que financia consumibles que pierden valor (ropa, vacaciones, tecnología). La <strong>Deuda Buena</strong> es el capital que pides prestado a una tasa menor de la rentabilidad que ese capital te generará. Ejemplo: un préstamo hipotecario para una propiedad que se alquila y se paga sola.</p>
+            
+            <h3>2. Conceptos Técnicos: TAE y Sistemas de Amortización</h3>
+            <p>No te fijes solo en el interés nominal. El inversor profesional mira la <strong>TAE (Tasa Anual Equivalente)</strong>, que incluye comisiones y gastos ocultos. Además, es vital entender el Sistema de Amortización Francés (donde al principio pagas más intereses que capital) para decidir cuándo es conveniente realizar pagos anticipados.</p>
+            
+            <h3>3. El Ratio de Endeudamiento</h3>
+            <p>Una regla de oro es no superar el 30%-35% de tus ingresos netos destinados al pago de deudas. Mantener un historial crediticio impecable te permite acceder a tasas preferenciales, lo que reduce el costo de tu capital y aumenta tu margen de beneficio en futuras inversiones.</p>
         </div>
     </div>
 
     <div id="m-dividendos" class="modal">
         <div class="modal-content">
             <span class="close" onclick="cerrar('m-dividendos')">&times;</span>
-            <h2>Dividendos: Tu Sueldo Pasivo Constante</h2>
-            <p>Los dividendos son la distribución de beneficios de una empresa a sus accionistas. Son la clave para la <strong>libertad financiera</strong> real.</p>
-            <h3>👑 Aristócratas del Dividendo</h3>
-            <p>Son empresas que han aumentado su dividendo por más de 25 años. Invertir en ellas ofrece estabilidad y un flujo de caja que crece por encima de la inflación.</p>
-            <h3>📈 La Estrategia del Re-Inversor</h3>
-            <p>Al reinvertir los dividendos, activas la "bola de nieve" financiera. Cada año posees más acciones que a su vez generan más dinero, sin que tengas que trabajar más por ello.</p>
+            <h2>Dividendos: La Ciencia de los Ingresos Pasivos</h2>
+            <p>Invertir por dividendos es una de las estrategias más antiguas y probadas para alcanzar la libertad financiera. Consiste en comprar acciones de empresas que comparten una parte de sus beneficios netos con sus dueños (tú).</p>
+            
+            <h3>1. Indicadores Clave: Yield y Payout Ratio</h3>
+            <p>Para evaluar una acción de dividendos, no solo miramos cuánto pagan. El <strong>Dividend Yield</strong> nos dice el porcentaje de retorno sobre el precio actual. Sin embargo, el <strong>Payout Ratio</strong> es más importante: nos dice qué porcentaje de las ganancias se está repartiendo. Un Payout del 50% es saludable; uno del 95% podría indicar que el dividendo está en riesgo.</p>
+            
+            <h3>2. Aristócratas y Reyes del Dividendo</h3>
+            <p>Existen empresas con una disciplina financiera legendaria. Los "Aristócratas" han aumentado su dividendo cada año durante al menos 25 años. Los "Reyes" lo han hecho por más de 50 años. Estas empresas suelen tener fosos económicos (moats) defensivos que les permiten generar caja incluso en recesiones.</p>
+            
+            <h3>3. La Magia de la Reinversión (DRIP)</h3>
+            <p>El verdadero poder de esta estrategia aparece cuando utilizas tus dividendos para comprar más acciones. Esto crea una "bola de nieve" donde cada trimestre recibes más dinero, que compra más acciones, que generan aún más dividendos. Con el tiempo, este flujo de caja puede cubrir todos tus gastos de vida, logrando la independencia financiera total.</p>
         </div>
     </div>
 
     <footer>
-        <div class="footer-links">
-            <a href="contacto.html">Contacto</a>
-            <a href="privacy.html">Política de Privacidad</a>
-        </div>
-        <p>&copy; 2026 Finanzas Élite | Gestión de Patrimonio y Educación Financiera.</p>
+        <p>&copy; 2026 Finanzas Élite | Todos los derechos reservados.</p>
+        <div style="margin-top:10px;"><a href="privacy.html" style="color:#cbd5e1; text-decoration:none;">Privacidad</a> | <a href="contacto.html" style="color:#cbd5e1; text-decoration:none;">Contacto</a></div>
     </footer>
 
     <script>
-        // Funciones para abrir y cerrar ventanas
-        function abrir(id) { 
-            document.getElementById(id).style.display = "block"; 
-            document.body.style.overflow = "hidden"; // Evita que se mueva el fondo
-        }
-        function cerrar(id) { 
-            document.getElementById(id).style.display = "none"; 
-            document.body.style.overflow = "auto"; 
-        }
-        // Cerrar si se hace clic fuera del contenido
-        window.onclick = function(e) { 
-            if (e.target.className === 'modal') { 
-                e.target.style.display = "none"; 
-                document.body.style.overflow = "auto"; 
-            } 
-        }
+        function abrir(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
+        function cerrar(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
+        window.onclick = function(e) { if (e.target.className === 'modal') { e.target.style.display = "none"; document.body.style.overflow = "auto"; } }
     </script>
 </body>
 </html>
-
-
-
