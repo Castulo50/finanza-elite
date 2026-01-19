@@ -166,4 +166,731 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas Élite | Centro de Inteligencia Financiera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <style>
+        :root { 
+            --oro: #D4AF37; 
+            --azul-oscuro: #0f172a; 
+            --fondo: #ffffff; 
+            --texto: #334155; 
+            --borde: #e2e8f0; 
+            --verde: #10b981;
+            --rojo: #ef4444;
+            --gris-claro: #f8fafc;
+            --gris-medio: #e2e8f0;
+        }
+        body { 
+            background-color: var(--fondo); 
+            color: var(--texto); 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            line-height: 1.8; 
+            scroll-behavior: smooth;
+        }
+        
+        header { 
+            background: var(--fondo); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--borde); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+            color: var(--azul-oscuro); 
+            text-decoration: none; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span { color: var(--oro); }
+        .nav-menu { 
+            list-style: none; 
+            display: flex; 
+            gap: 25px; 
+        }
+        .nav-menu a { 
+            color: var(--texto); 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-menu a:hover {
+            color: var(--oro);
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--oro);
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+        
+        /* SECCIÓN HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e293b 100%);
+            color: white;
+            margin-bottom: 60px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .cta-button {
+            background: var(--oro);
+            color: var(--azul-oscuro);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.6);
+            background: white;
+        }
+
+        /* SECCIÓN 1: HERRAMIENTA CALCULADORA */
+        .tool-box { 
+            background: var(--azul-oscuro); 
+            color: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            margin-bottom: 60px; 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 30px; 
+            box-shadow: 0 10px 30px rgba(15,23,42,0.3);
+        }
+        .input-group { 
+            margin-bottom: 20px; 
+        }
+        .input-group label { 
+            display: block; 
+            font-size: 0.85rem; 
+            color: #94a3b8; 
+            margin-bottom: 8px; 
+            font-weight: 600;
+        }
+        .input-group input { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: 1px solid #334155; 
+            background: #1e293b; 
+            color: white; 
+            box-sizing: border-box; 
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--oro);
+            box-shadow: 0 0 0 2px rgba(212,175,55,0.3);
+        }
+        .calc-btn { 
+            background: var(--oro); 
+            color: var(--azul-oscuro); 
+            border: none; 
+            padding: 18px; 
+            border-radius: 10px; 
+            font-weight: 800; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 1rem; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+        .calc-btn:hover { 
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.6);
+        }
+        .chart-box { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 15px; 
+            min-height: 350px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .results-summary {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .results-summary h3 {
+            color: var(--oro);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-value {
+            font-weight: 800;
+            color: var(--oro);
+        }
+
+        /* SECCIÓN 2: BLOG/ENCICLOPEDIA */
+        .blog-section { 
+            margin-top: 80px; 
+            border-top: 2px solid var(--borde); 
+            padding-top: 60px; 
+        }
+        .blog-section h1 { 
+            font-size: 2.8rem; 
+            color: var(--azul-oscuro); 
+            text-align: center; 
+            margin-bottom: 50px; 
+            position: relative;
+        }
+        .blog-section h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--oro);
+            border-radius: 2px;
+        }
+        .article { 
+            margin-bottom: 100px; 
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--oro);
+        }
+        .article h2 { 
+            font-size: 2.2rem; 
+            color: var(--azul-oscuro); 
+            margin-bottom: 30px; 
+            padding-left: 0;
+            border-left: none;
+        }
+        .article h3 { 
+            font-size: 1.5rem; 
+            color: var(--oro); 
+            margin-top: 40px; 
+            margin-bottom: 20px;
+        }
+        .article p { 
+            margin-bottom: 25px; 
+            text-align: justify; 
+            font-size: 1.15rem; 
+            color: #475569; 
+            line-height: 1.9;
+        }
+        .article ul, .article ol {
+            margin-bottom: 25px;
+            padding-left: 30px;
+            line-height: 1.9;
+        }
+        .article li {
+            margin-bottom: 10px;
+        }
+        
+        .expert-note { 
+            background: var(--gris-claro); 
+            border-radius: 12px; 
+            padding: 30px; 
+            margin: 40px 0; 
+            border: 1px solid var(--borde); 
+            border-left: 4px solid var(--verde);
+        }
+        .expert-note h4 {
+            color: var(--verde);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .ad-banner { 
+            background: var(--gris-claro); 
+            border: 1px dashed var(--gris-medio); 
+            height: 90px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #94a3b8; 
+            margin: 40px 0; 
+            border-radius: 8px; 
+            font-weight: 600;
+        }
+
+        /* SECCIÓN DE CONTACTO */
+        .contact-section {
+            background: var(--gris-claro);
+            padding: 60px;
+            border-radius: 20px;
+            margin: 80px 0;
+            text-align: center;
+        }
+        .contact-section h2 {
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .contact-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-btn {
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .contact-btn:hover {
+            background: var(--oro);
+            color: var(--azul-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* TÉRMINOS Y CONDICIONES */
+        .terms-section {
+            background: var(--gris-claro);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            border-left: 4px solid var(--rojo);
+        }
+        .terms-section h2 {
+            color: var(--rojo);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .terms-section p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        footer { 
+            background: var(--azul-oscuro); 
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center; 
+            margin-top: 100px; 
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--oro);
+        }
+
+        /* ANIMACIONES Y MEJORAS */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) { 
+            .tool-box { 
+                grid-template-columns: 1fr; 
+                padding: 25px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .article {
+                padding: 25px;
+            }
+            .blog-section h1 {
+                font-size: 2.2rem;
+            }
+            .article h2 {
+                font-size: 1.8rem;
+            }
+            .contact-section {
+                padding: 40px 20px;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">FINANZAS <span>ÉLITE</span></a>
+        <ul class="nav-menu">
+            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#blog">Blog Experto</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN HERO -->
+        <section class="hero fade-in">
+            <h1>Maestría en Inteligencia Financiera</h1>
+            <p>Descubre estrategias avanzadas para construir riqueza sostenible, optimizar tu patrimonio y tomar decisiones financieras con confianza.</p>
+            <a href="#herramientas" class="cta-button">COMENZAR AHORA</a>
+        </section>
+
+        <section id="herramientas">
+            <div class="tool-box fade-in">
+                <div>
+                    <h2 style="color: var(--oro); margin-top:0;">Simulador Patrimonial Avanzado</h2>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 25px;">Calcula el rendimiento de tus activos con nuestra herramienta de precisión matemática. Incluye inflación, impuestos y escenarios de riesgo.</p>
+                    <div class="input-group">
+                        <label>Capital Inicial ($)</label>
+                        <input type="number" id="inicial" value="5000" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label>Aportación Mensual ($)</label>
+                        <input type="number" id="mensual" value="300" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label>Plazo (Años)</label>
+                        <input type="number" id="anios" value="15" min="1" max="50">
+                    </div>
+                    <div class="input-group">
+                        <label>Tasa Estimada (%)</label>
+                        <input type="number" id="tasa" value="9" min="0" max="30" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Inflación Anual (%)</label>
+                        <input type="number" id="inflacion" value="2.5" min="0" max="20" step="0.1">
+                    </div>
+                    <button class="calc-btn" onclick="actualizarSimulacion()">CALCULAR PROYECCIÓN</button>
+                    
+                    <div class="results-summary" id="resultsSummary">
+                        <h3>Resumen de Proyección</h3>
+                        <div class="result-item">
+                            <span>Capital Final:</span>
+                            <span class="result-value" id="capitalFinal">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Aportado:</span>
+                            <span class="result-value" id="totalAportado">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Ganancias Netas:</span>
+                            <span class="result-value" id="gananciasNetas">$0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <canvas id="canvasGrafico"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <div class="ad-banner">ANUNCIO ADSENSE - POSICIÓN SUPERIOR</div>
+
+        <main class="blog-section" id="blog">
+            <h1>Enciclopedia de Mercados y Estrategia</h1>
+
+            <article class="article fade-in">
+                <h2>I. El Mercado de Valores: Análisis de Ciclos y Valoración</h2>
+                <p>La inversión en bolsa de valores representa la adquisición de propiedad parcial en entidades productivas. Para que Google AdSense reconozca este sitio como una fuente de autoridad (E-E-A-T), debemos profundizar en la <strong>Teoría Moderna de Carteras (MPT)</strong> de Harry Markowitz. No se trata simplemente de comprar acciones, sino de entender la correlación entre activos. Un inversor inteligente busca la "Frontera Eficiente", donde se maximiza el retorno para un nivel de riesgo determinado.</p>
+                
+                <p>El análisis fundamental nos obliga a observar el <i>Free Cash Flow</i> (Flujo de Caja Libre). A diferencia del beneficio contable, el flujo de caja muestra la liquidez real que la empresa puede reinvertir o devolver al accionista. Empresas con fosos económicos profundos, como ventajas de red o patentes tecnológicas, son capaces de mantener márgenes de beneficio superiores al promedio durante décadas. Analizamos por qué el índice S&P 500 es el referente global y cómo la reinversión de dividendos acelera el interés compuesto de forma exponencial.</p>
+
+                <h3>Factores Clave para la Valoración</h3>
+                <ul>
+                    <li><strong>ROIC (Return on Invested Capital):</strong> Mide la eficiencia en la generación de retornos sobre el capital invertido</li>
+                    <li><strong>Deuda Neta / EBITDA:</strong> Indicador de salud financiera y capacidad de apalancamiento</li>
+                    <li><strong>Crecimiento Orgánico:</strong> Sostenibilidad del crecimiento sin adquisiciones externas</li>
+                    <li><strong>Calidad del Management:</strong> Transparencia, alineación con accionistas y visión estratégica</li>
+                </ul>
+
+                <div class="expert-note">
+                    <h4>Nota Técnica:</h4>
+                    <p>El ratio Precio-Beneficio (P/E Ratio) debe ser analizado en el contexto de las tasas de interés de los bonos del tesoro. Cuando las tasas suben, las valoraciones de las acciones tienden a comprimirse. Además, el P/E cíclico ajustado (CAPE) de Robert Shiller proporciona una visión más precisa del valor relativo del mercado.</p>
+                </div>
+            </article>
+
+            <div class="ad-banner">ANUNCIO ADSENSE - INTERMEDIO</div>
+
+            <article class="article fade-in">
+                <h2>II. Bienes Raíces e Ingeniería Financiera</h2>
+                <p>La inversión inmobiliaria es, históricamente, el mayor creador de millonarios debido al apalancamiento. En este apartado exploramos cómo utilizar el capital del banco para multiplicar el retorno sobre el patrimonio (ROE). Si una propiedad se aprecia un 5% anual, pero tú solo has puesto el 20% del capital inicial, tu retorno real sobre el dinero invertido es del 25%. Esta es la magia del apalancamiento que discutimos extensamente en nuestros módulos de formación profesional.</p>
+                
+                <p>Además de la plusvalía, el inversor debe enfocarse en la <strong>Tasa de Capitalización (Cap Rate)</strong>. Analizamos los mercados de alquiler residencial versus comercial y el impacto de los REITs (Real Estate Investment Trusts) en la liquidez del inversor minorista. El sector logístico e industrial, impulsado por el e-commerce, presenta actualmente las mejores proyecciones de crecimiento de rentas para la próxima década.</p>
+
+                <h3>Estrategias Avanzadas de Inversión Inmobiliaria</h3>
+                <ol>
+                    <li><strong>BRRRR Method:</strong> Buy, Rehab, Rent, Refinance, Repeat - Maximiza el uso del capital bancario</li>
+                    <li><strong>1031 Exchange:</strong> Diferimiento fiscal en Estados Unidos mediante reinversión en propiedades calificadas</li>
+                    <li><strong>House Hacking:</strong> Vivir en una unidad mientras alquilas las demás para cubrir gastos</li>
+                    <li><strong>Syndications:</strong> Inversión colectiva en propiedades comerciales de alto valor</li>
+                </ol>
+            </article>
+
+            <article class="article fade-in">
+                <h2>III. Criptoactivos y la Soberanía Digital</h2>
+                <p>Bitcoin ha emergido como el primer activo digital con escasez absoluta programada. En un entorno de políticas monetarias expansivas por parte de la FED y el BCE, el oro digital actúa como un seguro contra la inflación. Desglosamos la importancia del <i>Hash Rate</i> en la seguridad de la red y cómo los contratos inteligentes de Ethereum están transformando los servicios financieros tradicionales en protocolos de código abierto. La tokenización de activos reales (RWA) es la próxima gran ola que traerá trillones de dólares al blockchain.</p>
+                
+                <p>La evolución hacia Web3 representa un cambio paradigmático en la propiedad de datos y activos digitales. Los tokens no fungibles (NFTs) han demostrado ser más que simples imágenes, sirviendo como certificados de autenticidad, membresías exclusivas y derechos de propiedad intelectual. Las finanzas descentralizadas (DeFi) eliminan intermediarios tradicionales, permitiendo préstamos, intercambios y derivados sin custodio centralizado.</p>
+
+                <h3>Riesgos y Consideraciones Regulatorias</h3>
+                <p>Mientras la adopción institucional crece, los marcos regulatorios evolucionan rápidamente. La SEC en Estados Unidos, ESMA en Europa y otras autoridades globales están desarrollando directrices específicas para criptoactivos. La clave está en la diversificación dentro del ecosistema crypto: Bitcoin como reserva de valor, Ethereum como plataforma de innovación, y tokens especializados para casos de uso específicos.</p>
+            </article>
+
+        </main>
+
+        <div class="ad-banner">ANUNCIO ADSENSE - POSICIÓN INFERIOR</div>
+
+        <!-- SECCIÓN DE CONTACTO -->
+        <section id="contacto" class="contact-section fade-in">
+            <h2>¿Listo para Transformar tu Futuro Financiero?</h2>
+            <p>Únete a nuestra comunidad de inversores inteligentes y recibe análisis exclusivos, estrategias avanzadas y acceso prioritario a nuestras herramientas premium.</p>
+            <div class="contact-buttons">
+                <a href="mailto:info@finanzaselite.com" class="contact-btn">CONTACTO POR EMAIL</a>
+            </div>
+        </section>
+
+        <!-- TÉRMINOS Y CONDICIONES -->
+        <section class="terms-section fade-in">
+            <h2>Términos y Condiciones</h2>
+            <p><strong>Información Educativa:</strong> Todo el contenido de este sitio web tiene fines exclusivamente educativos e informativos. No constituye asesoramiento financiero, legal o fiscal profesional.</p>
+            <p><strong>No Garantía de Resultados:</strong> Los resultados pasados no garantizan resultados futuros. Las inversiones conllevan riesgos, incluyendo la posible pérdida del capital invertido.</p>
+            <p><strong>Responsabilidad Limitada:</strong> Finanzas Élite no asume ninguna responsabilidad por decisiones financieras tomadas por los usuarios basadas en la información proporcionada en este sitio.</p>
+            <p><strong>Actualización de Contenido:</strong> Nos reservamos el derecho de modificar, actualizar o eliminar cualquier contenido sin previo aviso.</p>
+            <p><strong>Leyes Aplicables:</strong> Este sitio web se rige por las leyes del país donde opera Finanzas Élite. Cualquier disputa se resolverá conforme a dichas leyes.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Finanzas Élite | Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="#" class="footer-link">Términos y Condiciones</a>
+                <a href="#" class="footer-link">Aviso Legal</a>
+                <a href="#" class="footer-link">Contacto</a>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">Información técnica para fines educativos y de análisis de mercado.</p>
+        </div>
+    </footer>
+
+    <script>
+        let simulacionChart = null;
+        
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('es-ES', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+        
+        function actualizarSimulacion() {
+            const capital = parseFloat(document.getElementById('inicial').value) || 0;
+            const aporte = parseFloat(document.getElementById('mensual').value) || 0;
+            const tiempo = parseFloat(document.getElementById('anios').value) || 1;
+            const tasaAnual = parseFloat(document.getElementById('tasa').value) / 100 || 0;
+            const inflacion = parseFloat(document.getElementById('inflacion').value) / 100 || 0;
+            
+            let acumulado = capital;
+            const puntosY = [];
+            const puntosX = [];
+            let totalAportado = capital;
+
+            for (let i = 1; i <= tiempo; i++) {
+                for(let m = 0; m < 12; m++) {
+                    acumulado += aporte;
+                    totalAportado += aporte;
+                    acumulado *= (1 + tasaAnual / 12);
+                }
+                // Ajustar por inflación
+                const valorReal = acumulado / Math.pow(1 + inflacion, i);
+                puntosY.push(valorReal);
+                puntosX.push("Año " + i);
+            }
+
+            const ctx = document.getElementById('canvasGrafico').getContext('2d');
+            if (simulacionChart) simulacionChart.destroy();
+            
+            simulacionChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: puntosX,
+                    datasets: [{
+                        label: 'Capital Acumulado (ajustado por inflación)',
+                        data: puntosY,
+                        borderColor: '#D4AF37',
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#334155',
+                                font: {
+                                    size: 12,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Capital: ' + formatCurrency(context.parsed.y);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#64748b'
+                            },
+                            grid: {
+                                color: 'rgba(148, 163, 184, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Actualizar resumen
+            const capitalFinal = puntosY[puntosY.length - 1] || 0;
+            const gananciasNetas = capitalFinal - totalAportado;
+            
+            document.getElementById('capitalFinal').textContent = formatCurrency(capitalFinal);
+            document.getElementById('totalAportado').textContent = formatCurrency(totalAportado);
+            document.getElementById('gananciasNetas').textContent = formatCurrency(gananciasNetas);
+        }
+        
+        window.onload = function() {
+            actualizarSimulacion();
+            
+            // Agregar eventos de input para actualización en tiempo real
+            const inputs = ['inicial', 'mensual', 'anios', 'tasa', 'inflacion'];
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', actualizarSimulacion);
+            });
+        };
+    </script>
+</body>
+</html>
+
+
+
 
