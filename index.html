@@ -894,7 +894,136 @@ header {
 }
 
 /* ============================================
-   FOOTER MODIFICADO (Solo derechos reservados y términos)
+   MODAL TÉRMINOS Y CONDICIONES
+   ============================================ */
+.terms-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.terms-content {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    background: var(--fondo);
+    border-radius: var(--radio-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.terms-header {
+    background: var(--gradiente-azul);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.terms-header h2 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.terms-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.terms-body h3 {
+    color: var(--azul-oscuro);
+    margin: 2rem 0 1rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--borde);
+    padding-bottom: 0.5rem;
+}
+
+.terms-body h3:first-child {
+    margin-top: 0;
+}
+
+.terms-body p, .terms-body li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--texto);
+}
+
+.terms-body ul, .terms-body ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.terms-body strong {
+    color: var(--azul-oscuro);
+    font-weight: 700;
+}
+
+.terms-footer {
+    background: var(--gris-claro);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--borde);
+}
+
+.terms-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 11;
+    transition: var(--transicion);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms-close:hover {
+    background: rgba(0,0,0,0.6);
+    transform: rotate(90deg);
+}
+
+.btn-accept-terms {
+    background: var(--gradiente-oro);
+    color: var(--azul-oscuro);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: var(--radio-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-accept-terms:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   FOOTER MODIFICADO
    ============================================ */
 .main-footer {
     background: var(--azul-oscuro);
@@ -1343,6 +1472,10 @@ tr:hover td {
         left: 25px;
         top: 50px;
     }
+    
+    .terms-body {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1376,6 +1509,14 @@ tr:hover td {
     
     .story-section {
         padding: 1.5rem;
+    }
+    
+    .terms-header {
+        padding: 1.5rem;
+    }
+    
+    .terms-body {
+        padding: 1rem;
     }
 }
 
@@ -2158,7 +2299,7 @@ tr:hover td {
     </div>
 </section>
 
-<!-- Footer Modificado (Solo derechos reservados y términos) -->
+<!-- Footer Modificado -->
 <footer class="main-footer">
     <div class="footer-container">
         <div class="footer-brand">
@@ -2171,7 +2312,7 @@ tr:hover td {
         <div class="footer-links">
             <div class="link-column">
                 <h4>Legal</h4>
-                <a href="#">Términos y Condiciones</a>
+                <a href="#" onclick="abrirTerminos()">Términos y Condiciones</a>
             </div>
         </div>
     </div>
@@ -2196,6 +2337,74 @@ tr:hover td {
     <div class="modal-content">
         <button class="modal-close" onclick="cerrarVideo()" aria-label="Cerrar video">×</button>
         <div class="modal-video" id="modalVideoContainer"></div>
+    </div>
+</div>
+
+<!-- Modal Términos y Condiciones -->
+<div class="terms-modal" id="termsModal">
+    <div class="terms-content">
+        <button class="terms-close" onclick="cerrarTerminos()" aria-label="Cerrar términos">×</button>
+        <div class="terms-header">
+            <h2>Términos y Condiciones de Uso</h2>
+            <p>Última actualización: Enero 2024</p>
+        </div>
+        <div class="terms-body">
+            <h3>1. Aceptación de los Términos</h3>
+            <p>Al acceder y utilizar Finanzas Élite ("el Sitio"), usted acepta estar sujeto a estos Términos y Condiciones de Uso, todas las leyes y regulaciones aplicables, y acepta que es responsable del cumplimiento de las leyes locales aplicables. Si no está de acuerdo con alguno de estos términos, tiene prohibido usar o acceder a este sitio.</p>
+            
+            <h3>2. Propósito Educativo</h3>
+            <p>Finanzas Élite es un sitio web educativo que proporciona herramientas, calculadoras y contenido informativo sobre temas financieros. <strong>No proporcionamos asesoramiento financiero personalizado, recomendaciones de inversión específicas ni servicios de planificación financiera.</strong> Toda la información proporcionada es con fines educativos generales únicamente.</p>
+            
+            <h3>3. No es Asesoramiento Financiero</h3>
+            <p>La información contenida en este sitio no constituye asesoramiento financiero, legal, fiscal o de inversión. Los resultados de las calculadoras y simuladores son estimaciones basadas en los datos proporcionados y no garantizan resultados futuros. Las decisiones de inversión deben tomarse después de consultar con un asesor financiero profesional calificado.</p>
+            
+            <h3>4. Limitación de Responsabilidad</h3>
+            <p>Finanzas Élite no será responsable de ningún daño directo, indirecto, incidental, consecuente o especial que surja del uso o la imposibilidad de usar nuestro sitio o servicios, incluyendo pero no limitado a:</p>
+            <ul>
+                <li>Pérdidas financieras derivadas de decisiones de inversión basadas en nuestro contenido</li>
+                <li>Errores u omisiones en los cálculos o información presentada</li>
+                <li>Interrupciones del servicio o disponibilidad del sitio</li>
+                <li>Datos proporcionados por terceros o enlaces externos</li>
+            </ul>
+            
+            <h3>5. Propiedad Intelectual</h3>
+            <p>Todo el contenido de Finanzas Élite, incluyendo pero no limitado a texto, gráficos, logotipos, iconos, imágenes, clips de audio, descargas digitales, compilaciones de datos y software, es propiedad de Finanzas Élite o de sus proveedores de contenido y está protegido por las leyes de derechos de autor internacionales.</p>
+            
+            <h3>6. Uso Aceptable</h3>
+            <p>Usted se compromete a usar el Sitio solo para fines legales y de manera que no infrinja los derechos de, restrinja o inhiba el uso y disfrute del Sitio por parte de cualquier tercero. Prohibido específicamente:</p>
+            <ul>
+                <li>Usar el Sitio de manera fraudulenta o para fines ilegales</li>
+                <li>Hackear, alterar o interferir con el funcionamiento del Sitio</li>
+                <li>Recopilar datos de usuarios de manera automática</li>
+                <li>Distribuir virus o malware a través del Sitio</li>
+            </ul>
+            
+            <h3>7. Cookies y Privacidad</h3>
+            <p>Utilizamos cookies para mejorar su experiencia en nuestro sitio. Al usar Finanzas Élite, usted acepta nuestro uso de cookies de acuerdo con nuestra Política de Privacidad. Recopilamos cierta información personal como se describe en dicha política, pero nunca vendemos sus datos a terceros.</p>
+            
+            <h3>8. Contenido de Terceros y Enlaces</h3>
+            <p>Nuestro sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan para su conveniencia únicamente. No tenemos control sobre el contenido de esos sitios y no asumimos responsabilidad por ellos ni por cualquier pérdida o daño que pueda surgir de su uso.</p>
+            
+            <h3>9. Anuncios y Patrocinios</h3>
+            <p>Finanzas Élite muestra anuncios a través de Google AdSense para financiar el mantenimiento del sitio. Los anuncios se seleccionan automáticamente por Google y no representan un endoso de productos o servicios por parte de Finanzas Élite. No recibimos comisiones por recomendaciones de inversión específicas.</p>
+            
+            <h3>10. Modificaciones a los Términos</h3>
+            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el Sitio. Su uso continuado del Sitio después de dichas modificaciones constituirá su aceptación de los términos modificados.</p>
+            
+            <h3>11. Ley Aplicable</h3>
+            <p>Estos términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes. Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Madrid, España.</p>
+            
+            <h3>12. Contacto</h3>
+            <p>Para preguntas sobre estos Términos y Condiciones, puede contactarnos a través de los canales proporcionados en nuestro sitio.</p>
+            
+            <p><strong>Advertencia Final:</strong> Las inversiones implican riesgos. El rendimiento pasado no garantiza resultados futuros. Diversifique siempre sus inversiones y nunca invierta dinero que no pueda permitirse perder.</p>
+        </div>
+        <div class="terms-footer">
+            <button class="btn-accept-terms" onclick="cerrarTerminos()">
+                <span>✅</span>
+                He leído y acepto los términos
+            </button>
+        </div>
     </div>
 </div>
 
@@ -2237,6 +2446,13 @@ tr:hover td {
         
         // Inicializar menú móvil
         initMobileMenu();
+        
+        // Mostrar términos al primer acceso (opcional)
+        if (!localStorage.getItem('termsAccepted')) {
+            setTimeout(() => {
+                abrirTerminos();
+            }, 3000);
+        }
     });
     
     // ========== FUNCIONES DE HERRAMIENTAS ==========
@@ -2359,6 +2575,21 @@ tr:hover td {
         document.body.style.overflow = 'auto';
     }
     
+    // ========== FUNCIONES DE TÉRMINOS Y CONDICIONES ==========
+    function abrirTerminos() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function cerrarTerminos() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('termsAccepted', 'true');
+        showNotification('Términos aceptados correctamente', 'success');
+    }
+    
     // ========== FUNCIONES DE UI ==========
     function toggleDarkMode() {
         const isDark = document.body.classList.toggle('dark-mode');
@@ -2424,6 +2655,7 @@ tr:hover td {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 cerrarVideo();
+                cerrarTerminos();
             }
         });
         
@@ -2431,6 +2663,12 @@ tr:hover td {
         document.getElementById('videoModal').addEventListener('click', (e) => {
             if (e.target === document.getElementById('videoModal')) {
                 cerrarVideo();
+            }
+        });
+        
+        document.getElementById('termsModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('termsModal')) {
+                cerrarTerminos();
             }
         });
     }
@@ -2585,16 +2823,7 @@ tr:hover td {
 </script>
 </body>
 </html>
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    }
-</script>
-</body>
-</html>
+
 
 
 
