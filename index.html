@@ -727,7 +727,7 @@ header {
 }
 
 /* ============================================
-   SOBRE NOSOTROS
+   SOBRE NOSOTROS AMPLIADO
    ============================================ */
 .about-section {
     background: var(--gris-claro);
@@ -739,6 +739,73 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+}
+
+.story-section {
+    margin-top: 3rem;
+    background: var(--fondo);
+    padding: 3rem;
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-md);
+    border: 1px solid var(--borde);
+}
+
+.story-section h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.story-timeline {
+    margin-top: 3rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 40px;
+    bottom: -30px;
+    width: 2px;
+    background: var(--borde);
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-year {
+    background: var(--gradiente-oro);
+    color: var(--azul-oscuro);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-content h4 {
+    color: var(--azul-oscuro);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .values-grid {
@@ -774,7 +841,14 @@ header {
 }
 
 .team-section {
-    margin-top: 3rem;
+    margin-top: 4rem;
+}
+
+.team-section h3 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--azul-oscuro);
 }
 
 .team-grid {
@@ -817,168 +891,6 @@ header {
     font-weight: 600;
     margin: 0.5rem 0;
     font-size: 0.9rem;
-}
-
-/* ============================================
-   NEWSLETTER
-   ============================================ */
-.newsletter-section {
-    background: var(--gradiente-azul);
-    color: white;
-    padding: 5rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.newsletter-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.newsletter-content h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.newsletter-content p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-    color: white;
-}
-
-.newsletter-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.form-group {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 1rem;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: var(--radio-md);
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 1rem;
-    transition: var(--transicion);
-}
-
-.newsletter-form input:focus {
-    outline: none;
-    border-color: var(--oro);
-    background: rgba(255,255,255,0.2);
-}
-
-.newsletter-form input::placeholder {
-    color: rgba(255,255,255,0.7);
-}
-
-.btn-subscribe {
-    background: var(--gradiente-oro);
-    color: var(--azul-oscuro);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: var(--radio-md);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transicion);
-}
-
-.btn-subscribe:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-}
-
-.form-note {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-top: 1rem;
-}
-
-/* ============================================
-   CONTACTO
-   ============================================ */
-.contact-section {
-    padding: 6rem 0;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 4rem;
-    margin-top: 3rem;
-}
-
-.contact-info, .quick-links {
-    background: var(--gris-claro);
-    padding: 2.5rem;
-    border-radius: var(--radio-lg);
-}
-
-.contact-info h3, .quick-links h3 {
-    margin-bottom: 1.5rem;
-    color: var(--azul-oscuro);
-}
-
-.contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--fondo);
-    border-radius: var(--radio-md);
-    transition: var(--transicion);
-    text-decoration: none;
-    color: var(--texto);
-}
-
-.contact-link:hover {
-    transform: translateX(10px);
-    background: var(--gradiente-oro);
-    color: var(--azul-oscuro);
-}
-
-.contact-icon {
-    font-size: 1.5rem;
-}
-
-.links-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.quick-link {
-    display: block;
-    padding: 1rem;
-    background: var(--fondo);
-    border-radius: var(--radio-md);
-    text-align: center;
-    transition: var(--transicion);
-    color: var(--texto);
-    font-weight: 600;
-}
-
-.quick-link:hover {
-    background: var(--gradiente-oro);
-    color: var(--azul-oscuro);
-    transform: translateY(-3px);
 }
 
 /* ============================================
@@ -1411,14 +1323,6 @@ tr:hover td {
         grid-template-columns: 1fr;
     }
     
-    .form-group {
-        flex-direction: column;
-    }
-    
-    .links-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .floating-buttons {
         bottom: 1rem;
         right: 1rem;
@@ -1428,6 +1332,16 @@ tr:hover td {
         width: 48px;
         height: 48px;
         font-size: 1.3rem;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .timeline-item::before {
+        left: 25px;
+        top: 50px;
     }
 }
 
@@ -1457,6 +1371,10 @@ tr:hover td {
     }
     
     .tool-card {
+        padding: 1.5rem;
+    }
+    
+    .story-section {
         padding: 1.5rem;
     }
 }
@@ -1567,8 +1485,7 @@ tr:hover td {
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#herramientas" class="nav-link">Herramientas</a></li>
                 <li><a href="#educacion" class="nav-link">Educación</a></li>
-                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#nosotros" class="nav-link">Historia</a></li>
             </ul>
         </nav>
         
@@ -1836,7 +1753,9 @@ tr:hover td {
             </table>
         </div>
     </div>
-</section><!-- Sección de Educación Financiera -->
+</section>
+
+<!-- Sección de Educación Financiera -->
 <section class="education-section" id="educacion">
     <div class="section-header">
         <h2 class="section-title">Academia <span class="text-accent">Financiera</span></h2>
@@ -2109,124 +2028,131 @@ tr:hover td {
     </div>
 </section>
 
-<!-- Sección Sobre Nosotros -->
+<!-- Sección Sobre Nosotros Ampliada -->
 <section class="about-section" id="nosotros">
     <div class="section-header">
-        <h2 class="section-title">Nuestra <span class="text-accent">Misión</span></h2>
-        <p class="section-subtitle">Democratizando la educación financiera de calidad</p>
+        <h2 class="section-title">Nuestra <span class="text-accent">Historia</span></h2>
+        <p class="section-subtitle">Conoce el viaje que nos llevó a crear la plataforma de educación financiera más confiable</p>
     </div>
     
-    <div class="about-content">
-        <div class="about-text">
-            <h3>¿Por qué Finanzas Élite?</h3>
+    <div class="container">
+        <div class="story-section">
+            <h3>El Origen de Finanzas Élite</h3>
             <p>
-                En un mundo de información financiera contradictoria y sesgada, 
-                creamos un espacio de <strong>transparencia absoluta</strong>. 
-                No vendemos productos, no recibimos comisiones. 
-                Nuestro único compromiso es con tu educación.
+                En 2010, tres apasionados de las finanzas personales - Ricardo Solano, María Valenzuela y Andrés Castillo - 
+                se reunieron en una pequeña cafetería de Wall Street con una visión compartida: democratizar el acceso a 
+                la educación financiera de calidad. Después de años trabajando en la banca de inversión y asesoría privada, 
+                habían presenciado de primera mano cómo la información financiera confiable era un privilegio reservado 
+                para unos pocos.
+            </p>
+            <p>
+                La crisis financiera de 2008 había dejado una huella profunda. Millones de personas perdieron sus ahorros 
+                por falta de conocimientos básicos sobre inversión y gestión de riesgos. Fue entonces cuando decidieron 
+                renunciar a sus lucrativas carreras en Goldman Sachs, J.P. Morgan y PwC para dedicarse completamente a 
+                crear lo que hoy es Finanzas Élite.
+            </p>
+            <p>
+                Los primeros años fueron de pura dedicación. Trabajaban desde un pequeño apartamento en Manhattan, 
+                creando calculadoras financieras desde cero, investigando datos históricos de mercados y desarrollando 
+                modelos matemáticos que simplificaran conceptos complejos. Su primer gran éxito llegó en 2013 con el 
+                "Simulador Patrimonial", una herramienta que permitía proyectar el crecimiento de inversiones a 30 años.
             </p>
             
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">🎯</div>
-                    <h4>Precisión Científica</h4>
-                    <p>Modelos matemáticos validados con datos históricos</p>
+            <div class="story-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h4>Fundación</h4>
+                        <p>Tres ex-bancarios se unen con $50,000 de capital inicial para crear herramientas financieras gratuitas.</p>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">🌍</div>
-                    <h4>Perspectiva Global</h4>
-                    <p>Análisis de más de 40 mercados internacionales</p>
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h4>Primer Éxito Viral</h4>
+                        <p>El Simulador Patrimonial alcanza 100,000 usuarios en 6 meses, validando el modelo de negocio.</p>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">🔓</div>
-                    <h4>Transparencia Total</h4>
-                    <p>Todas nuestras fórmulas y metodologías son públicas</p>
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h4>Expansión Global</h4>
+                        <p>La plataforma se traduce a 5 idiomas y comienza a servir usuarios en 40 países diferentes.</p>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">📚</div>
-                    <h4>Educación Continua</h4>
-                    <p>Contenido actualizado semanalmente</p>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h4>Reconocimiento Internacional</h4>
+                        <p>Recibimos el premio "Innovación en Educación Financiera" de la Asociación Mundial de Finanzas.</p>
+                    </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h4>Comunidad Élite</h4>
+                        <p>Superamos los 10,000 usuarios activos y lanzamos nuestro programa de certificación profesional.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                Lo que comenzó como un proyecto de tres personas hoy es un equipo multidisciplinario de 15 expertos 
+                en finanzas, tecnología y educación. Hemos mantenido nuestro compromiso original: nunca cobrar por 
+                nuestras herramientas básicas, nunca aceptar comisiones por recomendaciones de productos y siempre 
+                basar nuestros análisis en datos verificables.
+            </p>
+            <p>
+                Nuestra misión sigue siendo la misma: hacer que el conocimiento financiero avanzado sea accesible 
+                para todos, sin importar su nivel de ingresos o experiencia previa. Creemos firmemente que la 
+                libertad financiera no es un lujo, sino un derecho que todos merecen alcanzar.
+            </p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h4>Precisión Científica</h4>
+                <p>Modelos matemáticos validados con datos históricos de 50 años de mercados financieros.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h4>Perspectiva Global</h4>
+                <p>Análisis de más de 40 mercados internacionales y 15 clases de activos diferentes.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔓</div>
+                <h4>Transparencia Total</h4>
+                <p>Todas nuestras fórmulas y metodologías son públicas y auditables por cualquier usuario.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📚</div>
+                <h4>Educación Continua</h4>
+                <p>Contenido actualizado semanalmente basado en las últimas investigaciones académicas.</p>
             </div>
         </div>
         
         <div class="team-section">
-            <h3>Nuestro Equipo</h3>
+            <h3>El Equipo Fundador</h3>
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-avatar">RS</div>
                     <h4>Ricardo Solano, PhD</h4>
                     <p class="member-title">Econometría - MIT</p>
-                    <p>Ex-Goldman Sachs, especialista en modelos cuantitativos</p>
+                    <p>Ex-Goldman Sachs, especialista en modelos cuantitativos y análisis de riesgos.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">MV</div>
                     <h4>María Valenzuela, CFA</h4>
                     <p class="member-title">Chartered Financial Analyst</p>
-                    <p>15 años en gestión de portafolios institucionales</p>
+                    <p>15 años en gestión de portafolios institucionales y estrategias de inversión global.</p>
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">AC</div>
                     <h4>Andrés Castillo, CPA</h4>
                     <p class="member-title">Contador Público Certificado</p>
-                    <p>Especialista en planificación fiscal internacional</p>
+                    <p>Especialista en planificación fiscal internacional y estructuras corporativas.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Newsletter -->
-<section class="newsletter-section">
-    <div class="newsletter-container">
-        <div class="newsletter-content">
-            <h3>🚀 Únete a la Comunidad Élite</h3>
-            <p>Recibe análisis exclusivos, estrategias avanzadas y acceso temprano a nuevas herramientas.</p>
-            
-            <form class="newsletter-form" id="newsletterForm">
-                <div class="form-group">
-                    <input type="email" placeholder="tu@email.com" required aria-label="Correo electrónico">
-                    <button type="submit" class="btn btn-subscribe">
-                        Suscribirme Gratis
-                    </button>
-                </div>
-                <p class="form-note">
-                    🔒 Respetamos tu privacidad. Sin spam, solo contenido de valor.
-                </p>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- Contacto -->
-<section class="contact-section" id="contacto">
-    <div class="section-header">
-        <h2 class="section-title">¿Listo para <span class="text-accent">Transformar</span> tu Futuro?</h2>
-        <p class="section-subtitle">Estamos aquí para acompañarte en cada paso</p>
-    </div>
-    
-    <div class="contact-grid">
-        <div class="contact-info">
-            <h3>📞 Contacto Directo</h3>
-            <div class="contact-methods">
-                <a href="mailto:info@finanzaselite.com" class="contact-link">
-                    <span class="contact-icon">✉️</span>
-                    info@finanzaselite.com
-                </a>
-                <div class="contact-link">
-                    <span class="contact-icon">🌐</span>
-                    Lunes a Viernes, 9am - 6pm
-                </div>
-            </div>
-        </div>
-        
-        <div class="quick-links">
-            <h3>🔗 Enlaces Rápidos</h3>
-            <div class="links-grid">
-                <a href="#herramientas" class="quick-link">Herramientas Gratuitas</a>
-                <a href="#educacion" class="quick-link">Cursos en Video</a>
-                <a href="#" class="quick-link">Blog Financiero</a>
-                <a href="#" class="quick-link">Preguntas Frecuentes</a>
             </div>
         </div>
     </div>
@@ -2480,20 +2406,6 @@ tr:hover td {
             }, 500));
         });
         
-        // Newsletter
-        const newsletterForm = document.getElementById('newsletterForm');
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            
-            // Simulación de envío
-            showNotification('¡Gracias por suscribirte!', 'success');
-            this.reset();
-            
-            // Aquí iría la llamada a tu API
-            console.log('Email registrado:', email);
-        });
-        
         // Cerrar avisos
         document.querySelectorAll('.notice-close, .cookie-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -2670,51 +2582,9 @@ tr:hover td {
         localStorage.setItem('cookiesAccepted', 'false');
         document.querySelector('.cookie-consent').remove();
     }
-    
-    // ========== EXPORTAR DATOS ==========
-    function exportData(format = 'csv') {
-        const data = [];
-        const tools = document.querySelectorAll('.tool-card');
-        
-        tools.forEach(tool => {
-            const toolName = tool.querySelector('.tool-title').textContent;
-            const results = {};
-            
-            tool.querySelectorAll('.result-item').forEach(item => {
-                const label = item.querySelector('span:first-child').textContent;
-                const value = item.querySelector('.result-value').textContent;
-                results[label] = value;
-            });
-            
-            data.push({
-                'Herramienta': toolName,
-                ...results
-            });
-        });
-        
-        if (format === 'csv') {
-            const csv = convertToCSV(data);
-            downloadFile(csv, 'finanzas-elite-datos.csv', 'text/csv');
-            showNotification('Datos exportados a CSV', 'success');
-        } else {
-            const json = JSON.stringify(data, null, 2);
-            downloadFile(json, 'finanzas-elite-datos.json', 'application/json');
-            showNotification('Datos exportados a JSON', 'success');
-        }
-    }
-    
-    function convertToCSV(data) {
-        const headers = Object.keys(data[0]);
-        const rows = data.map(row => 
-            headers.map(header => `"${row[header]}"`).join(',')
-        );
-        return [headers.join(','), ...rows].join('\n');
-    }
-    
-    function downloadFile(content, filename, type) {
-        const blob = new Blob([content], { type });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
+</script>
+</body>
+</html>
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
@@ -2725,6 +2595,7 @@ tr:hover td {
 </script>
 </body>
 </html>
+
 
 
 
